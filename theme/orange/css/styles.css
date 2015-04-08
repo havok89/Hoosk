@@ -1,0 +1,35 @@
+.jumbotron.errorpadding {padding-top:125px;padding-bottom:60px;background:#eee;}
+.jumbotron.jumbo-padding {padding-top:125px;padding-bottom:60px;background:#eee;}
+.jumbotron.slider-padding {padding:0;margin-top:60px;}
+.jumbotron.errorpadding img {margin-bottom:15px;}
+.jumbotron.text-center img {display:block;margin:0 auto;}
+.carouselpadding {margin-top:45px;}
+.carouselpadding .carousel  {margin-bottom:20px;}
+
+.carousel-inner > .item > a > img  {margin:0 auto!important;width:100%;}
+.navbar-brand img {
+    height: 36px!important;
+}
+
+.navbar-brand {
+    float: left!important;
+    font-size: 18px!important;
+    line-height: 20px!important;
+    padding: 12px 15px;
+	height: 60px!important;
+}
+
+.navbar-nav > li > a {
+    padding-bottom: 20px!important;
+    padding-top: 20px!important;
+}
+
+h2, p {color:#252525}
+.btn-lg, .btn-sm, .btn-xs {margin:5px 0;display:inline-block;}
+.row h1,.row .h1,.row h2,.row .h2,.row h3,.row .h3 {margin-bottom: 15px;}
+.list-group-item > a > .badge {float: right;}
+.meta {font-size:0.8em;}
+.text-right {text-align:right;}
+.text-left {text-align:left;}
+.float-right {float:right;}
+.float-left {float:left;}

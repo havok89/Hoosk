@@ -1,0 +1,48 @@
+.jumbotron.errorpadding {padding-bottom: 35px;padding-top: 35px;background:#eee;}
+.jumbotron.errorpadding img {margin-bottom:15px;width: 150px;}
+input, textarea {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+input, textarea, select, .uneditable-input {
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    color: #555555;
+    display: inline-block;
+    font-size: 13px;
+    height: 24px;
+    line-height: 18px;
+    margin-bottom: 9px;
+    padding: 4px;
+    width: 210px;
+}
+
+label {
+    color: #333333;
+    display: block;
+    margin-bottom: 5px;
+}
+label, input, button, select, textarea {
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 18px;
+}
+
+.control-group {
+    margin-bottom: 9px;
+}
+
+.alert-info {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #3a87ad;
+}
+.alert {
+    background-color: #e7cfcd;
+    border: 1px solid #edaba5;
+    border-radius: 4px;
+    color: #e74c3c;
+    margin-bottom: 18px;
+    padding: 8px 35px 8px 14px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
