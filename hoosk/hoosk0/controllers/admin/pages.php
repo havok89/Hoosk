@@ -22,7 +22,7 @@ class Pages extends CI_Controller {
 	
 	public function index()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		
  		$this->load->library('pagination');
 
@@ -45,7 +45,7 @@ class Pages extends CI_Controller {
 	
 	public function addPage()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form helper
 		$this->load->helper('form');
 		//Load the view
@@ -57,7 +57,7 @@ class Pages extends CI_Controller {
 	
 	public function confirm()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 		//Set validation rules
@@ -80,7 +80,7 @@ class Pages extends CI_Controller {
 	
 	public function editPage()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form helper
 		$this->load->helper('form');
 		//Get page details from database
@@ -94,7 +94,7 @@ class Pages extends CI_Controller {
 	
 	public function edited()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 		//Set validation rules
@@ -119,7 +119,7 @@ class Pages extends CI_Controller {
 	
 	public function jumbo()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form helper
 		$this->load->helper('form');
 		//Get page details from database
@@ -134,7 +134,7 @@ class Pages extends CI_Controller {
 	
 	public function jumboAdd()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$this->load->library('Sioen');
 		$this->Hoosk_model->updateJumbotron($this->uri->segment(4));
 		redirect('/admin/pages', 'refresh');
@@ -142,7 +142,7 @@ class Pages extends CI_Controller {
 	
 	public function delete()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Delete the page account
 		$this->Hoosk_model->removePage($this->uri->segment(4));
 		//Return to page list

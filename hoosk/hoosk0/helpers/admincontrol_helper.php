@@ -3,9 +3,9 @@
  class Admincontrol_helper{
 	 
 	 
-	 function is_logged_in()
+	 static function is_logged_in($userName)
 	 {
-		if(($this->session->userdata('userName')=="")):
+		if(($userName=="")):
 		$redirect= BASE_URL.'/admin/login';
 		header("Location: $redirect");	
 		exit;	

@@ -43,7 +43,7 @@
 						  'class'       => 'js-st-instance',
 						);
 			
-						echo form_textarea($data, set_value('jumbotron', $p['jumbotron'])); ?>
+						echo form_textarea($data, set_value('jumbotron', $p['jumbotron'], FALSE)); ?>
 					
                     
                     

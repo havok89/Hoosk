@@ -64,6 +64,7 @@ class Hoosk_default extends CI_Controller {
 		$this->data['page']['pageTitle']="Oops, Error";
 		$this->data['page']['pageDescription']="Oops, Error";
 		$this->data['page']['pageKeywords']="Oops, Error";
+		$this->data['page']['pageID']="0";
 		$this->data['header'] = $this->load->view('templates/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('templates/footer', '', true);
 		$this->load->view('templates/error', $this->data);

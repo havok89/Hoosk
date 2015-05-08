@@ -22,7 +22,7 @@ class Categories extends CI_Controller {
 	
 	public function index()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$this->load->library('pagination');
 
         $result_per_page =15;  // the number of result per page
@@ -45,7 +45,7 @@ class Categories extends CI_Controller {
 	
 	public function addCategory()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form helper
 		$this->load->helper('form');
 		//Load the view
@@ -56,7 +56,7 @@ class Categories extends CI_Controller {
 	
 	public function confirm()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 		//Set validation rules
@@ -77,7 +77,7 @@ class Categories extends CI_Controller {
 	
 	public function editCategory()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form helper
 		$this->load->helper('form');
 		//Get category details from database
@@ -90,7 +90,7 @@ class Categories extends CI_Controller {
 	
 	public function edited()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 		//Set validation rules
@@ -113,7 +113,7 @@ class Categories extends CI_Controller {
 	
 	public function delete()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Delete the category account
 		$this->Hoosk_model->removeCategory($this->uri->segment(5));
 		//Return to category list

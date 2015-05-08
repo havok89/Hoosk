@@ -32,7 +32,7 @@
 						} else {
 							$set = $p['postContent'];
 						}
-						echo form_textarea($data, set_value('content',$set)); ?>
+						echo form_textarea($data, set_value('content',$set, FALSE)); ?>
 					
                     <div class="form-actions">
                     <a class="btn btn-primary" data-toggle="modal" href="#attributes"><?php echo $this->lang->line('btn_next'); ?></a>
@@ -57,7 +57,7 @@
 						  'name'        => 'postTitle',
 						  'id'          => 'postTitle',
 						  'class'       => 'span5',
-						  'value'		=> set_value('postTitle', $p['postTitle'])
+						  'value'		=> set_value('postTitle', $p['postTitle'], FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -91,7 +91,7 @@
 						  'rows'		=>	'4',
 						);
 			
-						echo form_textarea($data, set_value('postExcerpt', $p['postExcerpt'])); ?>
+						echo form_textarea($data, set_value('postExcerpt', $p['postExcerpt'], FALSE)); ?>
 
 					</div> <!-- /controls -->				
 				</div> <!-- /control-group -->
@@ -103,7 +103,7 @@
 						 <?php 	$data = array(
 						  'name'        => 'postURL',
 						  'id'          => 'postURL',
-						  'value'		=> set_value('postURL', $p['postURL'])
+						  'value'		=> set_value('postURL', $p['postURL'], FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -133,7 +133,7 @@
 						  'name'        => 'datePosted',
 						  'id'          => 'datetimepicker',
 						  'class'       => 'span5',
-						  'value'		=> set_value('datePosted', $p['datePosted'])
+						  'value'		=> set_value('datePosted', $p['datePosted'], FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -143,7 +143,7 @@
 						  'name'        => 'unixStamp',
 						  'id'          => 'unixStamp',
 						  'style'		=> 'display:none;',
-						  'value'		=> set_value('unixStamp', $p['unixStamp'])
+						  'value'		=> set_value('unixStamp', $p['unixStamp'], FALSE)
 						);
 			
 						echo form_input($data); ?>

@@ -21,7 +21,7 @@ class Navigation extends CI_Controller {
 	
 	public function index()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$this->load->library('pagination');
 
         $result_per_page =15;  // the number of result per page
@@ -44,7 +44,7 @@ class Navigation extends CI_Controller {
 	
 	public function newNav()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Get pages from database
 		$this->data['pages'] = $this->Hoosk_model->getPagesAll(); 
 		$this->load->helper('form');
@@ -56,7 +56,7 @@ class Navigation extends CI_Controller {
 	
 	public function editNav()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Get pages from database
 		$this->data['pages'] = $this->Hoosk_model->getPagesAll();
 		//Get navigation from database
@@ -70,7 +70,7 @@ class Navigation extends CI_Controller {
 	
 	public function navAdd()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Get navigation from database
 		$this->data['page'] = $this->Hoosk_model->getPageNav($this->uri->segment(3)); 
 		//Load the view
@@ -79,7 +79,7 @@ class Navigation extends CI_Controller {
 
 	public function insert()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 		
@@ -101,7 +101,7 @@ class Navigation extends CI_Controller {
 	
 	public function update()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 		
@@ -120,7 +120,7 @@ class Navigation extends CI_Controller {
 	
 	public function deleteNav()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Delete the nav
 		$this->Hoosk_model->removeNav($this->uri->segment(4));
 		//Return to user list

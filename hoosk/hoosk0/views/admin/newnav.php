@@ -23,7 +23,7 @@
 						  'id'          => 'navSlug',
 						  'class'       => 'span3',
 						  'maxlength'		=> '10',
-						  'value'		=> set_value('navSlug')
+						  'value'		=> set_value('navSlug', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -38,7 +38,7 @@
 						  'name'        => 'navTitle',
 						  'id'          => 'navTitle',
 						  'class'       => 'span3',
-						  'value'		=> set_value('navTitle')
+						  'value'		=> set_value('navTitle', '', FALSE)
 						);
 			
 						echo form_input($data); ?>

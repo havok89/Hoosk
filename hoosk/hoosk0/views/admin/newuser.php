@@ -22,7 +22,7 @@
 						  'name'        => 'username',
 						  'id'          => 'username',
 						  'class'       => 'span4',
-						  'value'		=> set_value('username')
+						  'value'		=> set_value('username', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -39,7 +39,7 @@
 						  'name'        => 'email',
 						  'id'          => 'email',
 						  'class'       => 'span4',
-						  'value'		=> set_value('email')
+						  'value'		=> set_value('email', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -55,7 +55,7 @@
 						  'name'        => 'password',
 						  'id'          => 'password',
 						  'class'       => 'span4',
-						  'value'		=> set_value('password')
+						  'value'		=> set_value('password', '', FALSE)
 						);
 			
 						echo form_password($data); ?>
@@ -70,7 +70,7 @@
 						  'name'        => 'con_password',
 						  'id'          => 'con_password',
 						  'class'       => 'span4',
-						  'value'		=> set_value('con_password')
+						  'value'		=> set_value('con_password', '', FALSE)
 						);
 			
 						echo form_password($data); ?>

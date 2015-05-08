@@ -22,7 +22,7 @@
 						  'name'        => 'categoryTitle',
 						  'id'          => 'categoryTitle',
 						  'class'       => 'span4',
-						  'value'		=> set_value('categoryTitle')
+						  'value'		=> set_value('categoryTitle', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -37,7 +37,7 @@
 						  'name'        => 'categorySlug',
 						  'id'          => 'categorySlug',
 						  'class'       => 'span4',
-						  'value'		=> set_value('categorySlug')
+						  'value'		=> set_value('categorySlug', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -56,7 +56,7 @@
 						  'rows'		=>	'4',
 						);
 			
-						echo form_textarea($data, set_value('categoryDescription')); ?>
+						echo form_textarea($data, set_value('categoryDescription', '', FALSE)); ?>
 
 					</div> <!-- /controls -->				
 				</div> <!-- /control-group -->

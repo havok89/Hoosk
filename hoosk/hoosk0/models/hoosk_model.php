@@ -115,7 +115,7 @@ class Hoosk_model extends CI_Model {
             'email' => $this->input->post('email'),
             'password' => md5($this->input->post('password').SALT),
         );
-        $this->db->insert('hoosk_user', $this->db->escape($data));
+        $this->db->insert('hoosk_user', $data);
     }
 
     function updateUser($id) {
@@ -125,7 +125,7 @@ class Hoosk_model extends CI_Model {
             'password' => md5($this->input->post('password').SALT),
         );
         $this->db->where('userID', $id);
-        $this->db->update('hoosk_user', $this->db->escape($data));
+        $this->db->update('hoosk_user', $data);
     }
 
     function removeUser($id) {
@@ -191,7 +191,7 @@ class Hoosk_model extends CI_Model {
 			'pageTemplate' => $this->input->post('pageTemplate'),
             'pageURL' => $this->input->post('pageURL'),
         );
-        $this->db->insert('hoosk_page_attributes', $this->db->escape($data));
+        $this->db->insert('hoosk_page_attributes', $data);
 		if ($this->input->post('content') != ""){
         $sirTrevorInput = $this->input->post('content');
         $converter = new Converter();
@@ -211,13 +211,13 @@ class Hoosk_model extends CI_Model {
                     'pageContent' => $this->input->post('content'),
                     'pageContentHTML' => $HTMLContent,
                 );
-                $this->db->insert('hoosk_page_content', $this->db->escape($contentdata));
+                $this->db->insert('hoosk_page_content', $contentdata);
                 $metadata = array(
                     'pageID' => $rows->pageID,
                     'pageKeywords' => $this->input->post('pageKeywords'),
                     'pageDescription' => $this->input->post('pageDescription'),
                 );
-                $this->db->insert('hoosk_page_meta', $this->db->escape($metadata));
+                $this->db->insert('hoosk_page_meta', $metadata);
             }
         }
     }
@@ -290,7 +290,7 @@ class Hoosk_model extends CI_Model {
        		);			
 		}
         $this->db->where("pageID", $id);
-        $this->db->update('hoosk_page_attributes', $this->db->escape($data));
+        $this->db->update('hoosk_page_attributes', $data);
         $contentdata = array(
             'pageTitle' => $this->input->post('pageTitle'),
             'navTitle' => $this->input->post('navTitle'),
@@ -298,13 +298,13 @@ class Hoosk_model extends CI_Model {
             'pageContentHTML' => $HTMLContent,
         );
         $this->db->where("pageID", $id);
-        $this->db->update('hoosk_page_content', $this->db->escape($contentdata));
+        $this->db->update('hoosk_page_content', $contentdata);
         $metadata = array(
             'pageKeywords' => $this->input->post('pageKeywords'),
             'pageDescription' => $this->input->post('pageDescription'),
         );
         $this->db->where("pageID", $id);
-        $this->db->update('hoosk_page_meta', $this->db->escape($metadata));
+        $this->db->update('hoosk_page_meta', $metadata);
     }
 
 	 function updateJumbotron($id) {
@@ -321,13 +321,13 @@ class Hoosk_model extends CI_Model {
        	);			
 		
         $this->db->where("pageID", $id);
-        $this->db->update('hoosk_page_attributes', $this->db->escape($data));
+        $this->db->update('hoosk_page_attributes', $data);
         $contentdata = array(
 			'jumbotron' => $this->input->post('jumbotron'),
 			'jumbotronHTML' => $HTMLContent,
         );
         $this->db->where("pageID", $id);
-        $this->db->update('hoosk_page_content', $this->db->escape($contentdata));
+        $this->db->update('hoosk_page_content', $contentdata);
        
 	  	// Clear the sliders
 		$this->db->delete('hoosk_banner', array('pageID' => $id));
@@ -342,7 +342,7 @@ class Hoosk_model extends CI_Model {
 				'slideLink' => $this->input->post('link'.$i),
 				'slideOrder' => $i,
 				);
-                $this->db->insert('hoosk_banner', $this->db->escape($slidedata));
+                $this->db->insert('hoosk_banner', $slidedata));
 			}
 		}*/
 		
@@ -360,7 +360,7 @@ class Hoosk_model extends CI_Model {
 				'slideOrder' => $i-1,
 			);
 			
-			$this->db->insert('hoosk_banner', $this->db->escape($slidedata));
+			$this->db->insert('hoosk_banner', $slidedata);
 		}
     }
 	
@@ -418,7 +418,7 @@ class Hoosk_model extends CI_Model {
             'navEdit' => $navigationEdit,
             'navHTML' => $navigationHTML,
         );
-        $this->db->insert('hoosk_navigation', $this->db->escape($data));
+        $this->db->insert('hoosk_navigation', $data);
 	}
 	
 	function updateNav($id) {
@@ -433,7 +433,7 @@ class Hoosk_model extends CI_Model {
             'navHTML' => $navigationHTML,
         );
 		$this->db->where("navSlug", $id);
-        $this->db->update('hoosk_navigation', $this->db->escape($data));
+        $this->db->update('hoosk_navigation', $data);
 	}
 	
 	function removeNav($id) {
@@ -469,7 +469,7 @@ class Hoosk_model extends CI_Model {
 				$data['siteLogo'] = $this->input->post('siteLogo');
 			}	
 			$this->db->where("siteID", 0);
-			$this->db->update('hoosk_settings', $this->db->escape($data));
+			$this->db->update('hoosk_settings', $data);
 	}
 	
 	
@@ -514,7 +514,7 @@ class Hoosk_model extends CI_Model {
 		if ($this->input->post('postImage') != ""){
 				$data['postImage'] = $this->input->post('postImage');
 		}	
-        $this->db->insert('hoosk_post', $this->db->escape($data));
+        $this->db->insert('hoosk_post', $data);
     }
 
     function getPost($id) {
@@ -557,7 +557,7 @@ class Hoosk_model extends CI_Model {
 				$data['postImage'] = $this->input->post('postImage');
 		}	
 		$this->db->where("postID", $id);
-        $this->db->update('hoosk_post', $this->db->escape($data));
+        $this->db->update('hoosk_post', $data);
     }
 	
 	
@@ -597,7 +597,7 @@ class Hoosk_model extends CI_Model {
             'categoryDescription' => $this->input->post('categoryDescription')
         );
 
-        $this->db->insert('hoosk_post_category', $this->db->escape($data));
+        $this->db->insert('hoosk_post_category', $data);
     }
 
     function getCategory($id) {
@@ -625,7 +625,7 @@ class Hoosk_model extends CI_Model {
         );
 
 		$this->db->where("categoryID", $id);
-        $this->db->update('hoosk_post_category', $this->db->escape($data));
+        $this->db->update('hoosk_post_category', $data);
     }
 
 }

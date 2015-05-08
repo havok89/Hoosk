@@ -24,7 +24,7 @@
 						  'class'       => 'js-st-instance'
 						);
 			
-						echo form_textarea($data, set_value('content', $this->input->post('content'))); ?>
+						echo form_textarea($data, set_value('content', $this->input->post('content'), FALSE)); ?>
 					
                     
                     
@@ -55,7 +55,7 @@
 						  'name'        => 'pageTitle',
 						  'id'          => 'pageTitle',
 						  'class'       => 'span5',
-						  'value'		=> set_value('pageTitle')
+						  'value'		=> set_value('pageTitle', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -70,7 +70,7 @@
 						  'name'        => 'navTitle',
 						  'id'          => 'navTitle',
 						  'class'       => 'span5',
-						  'value'		=> set_value('navTitle')
+						  'value'		=> set_value('navTitle', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -84,7 +84,7 @@
 						  'name'        => 'pageKeywords',
 						  'id'          => 'pageKeywords',
 						  'class'       => 'span5',
-						  'value'		=> set_value('pageKeywords')
+						  'value'		=> set_value('pageKeywords', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -99,7 +99,7 @@
 						  'name'        => 'pageDescription',
 						  'id'          => 'pageDescription',
 						  'class'       => 'span5',
-						  'value'		=> set_value('pageDescription')
+						  'value'		=> set_value('pageDescription', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -115,7 +115,7 @@
 						  'name'        => 'pageURL',
 						  'id'          => 'pageURL',
 						  'class'       => 'span5',
-						  'value'		=> set_value('pageURL')
+						  'value'		=> set_value('pageURL', '', FALSE)
 						);
 			
 						echo form_input($data); ?>

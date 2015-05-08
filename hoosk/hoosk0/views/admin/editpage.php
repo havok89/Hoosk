@@ -31,7 +31,7 @@
 						} else {
 							$set = $p['pageContent'];
 						}
-						echo form_textarea($data, set_value('content',$set)); ?> 
+						echo form_textarea($data, set_value('content',$set, FALSE)); ?> 
 					
                     
                     <div class="form-actions">
@@ -57,7 +57,7 @@
 						  'name'        => 'pageTitle',
 						  'id'          => 'pageTitle',
 						  'class'       => 'span5',
-						  'value'		=> set_value('pageTitle', $p['pageTitle'])
+						  'value'		=> set_value('pageTitle', $p['pageTitle'], FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -72,7 +72,7 @@
 						  'name'        => 'navTitle',
 						  'id'          => 'navTitle',
 						  'class'       => 'span5',
-						  'value'		=> set_value('navTitle', $p['navTitle'])
+						  'value'		=> set_value('navTitle', $p['navTitle'], FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -86,7 +86,7 @@
 						  'name'        => 'pageKeywords',
 						  'id'          => 'pageKeywords',
 						  'class'       => 'span5',
-						  'value'		=> set_value('pageKeywords', $p['pageKeywords'])
+						  'value'		=> set_value('pageKeywords', $p['pageKeywords'], FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -101,7 +101,7 @@
 						  'name'        => 'pageDescription',
 						  'id'          => 'pageDescription',
 						  'class'       => 'span5',
-						  'value'		=> set_value('pageDescription', $p['pageDescription'])
+						  'value'		=> set_value('pageDescription', $p['pageDescription'], FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -116,7 +116,7 @@
 						 <?php 	$data = array(
 						  'name'        => 'pageURL',
 						  'id'          => 'pageURL',
-						  'value'		=> set_value('pageURL', $p['pageURL'])
+						  'value'		=> set_value('pageURL', $p['pageURL'], FALSE)
 						);
 						if ($p['pageURL'] == "home") { $data['disabled'] = ""; $data['class'] = "span5 disabled";  } else {  $data['class'] = "span5"; }
 			

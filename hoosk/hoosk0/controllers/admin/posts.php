@@ -22,7 +22,7 @@ class Posts extends CI_Controller {
 	
 	public function index()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$this->load->library('pagination');
 
         $result_per_page =15;  // the number of result per page
@@ -44,7 +44,7 @@ class Posts extends CI_Controller {
 	
 	public function addPost()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form helper
 		$this->load->helper('form');
 		$this->data['categories'] = $this->Hoosk_model->getCategories(); 
@@ -56,7 +56,7 @@ class Posts extends CI_Controller {
 	
 	public function confirm()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 		//Set validation rules
@@ -87,7 +87,7 @@ class Posts extends CI_Controller {
 	
 	public function editPost()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form helper
 		$this->load->helper('form');
 		$this->data['categories'] = $this->Hoosk_model->getCategories(); 
@@ -101,7 +101,7 @@ class Posts extends CI_Controller {
 	
 	public function edited()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 		//Set validation rules
@@ -132,7 +132,7 @@ class Posts extends CI_Controller {
 	
 	public function delete()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Delete the post account
 		$this->Hoosk_model->removePost($this->uri->segment(4));
 		//Return to post list

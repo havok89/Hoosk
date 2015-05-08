@@ -20,7 +20,7 @@ class Admin extends CI_Controller {
 	
 	public function index()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$this->data['current'] = $this->uri->segment(2);
 		$this->data['recenltyUpdated'] = $this->Hoosk_model->getUpdatedPages(); 
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
@@ -29,7 +29,7 @@ class Admin extends CI_Controller {
 	}
 	public function upload()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$attachment = $this->input->post('attachment');
 		$uploadedFile = $_FILES['attachment']['tmp_name']['file'];
 		
@@ -91,7 +91,7 @@ class Admin extends CI_Controller {
 	
 	public function settings()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form helper
 		$this->load->helper('form');
 		$this->load->helper('directory');
@@ -107,7 +107,7 @@ class Admin extends CI_Controller {
 	
 	public function updateSettings()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		
 		if ($this->input->post('siteLogo') != ""){
 		//path to save the image
@@ -137,7 +137,7 @@ class Admin extends CI_Controller {
 	
 	public function uploadLogo()
 	{
-		Admincontrol_helper::is_logged_in();
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		if($_FILES[0]['type']=='image/png' || $_FILES[0]['type']=='image/jpg' || $_FILES[0]['type']=='image/jpeg')
 		{
 			move_uploaded_file($_FILES[0]['tmp_name'], 'uploads/' .basename($_FILES[0]['name']));

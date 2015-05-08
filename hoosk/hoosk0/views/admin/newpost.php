@@ -27,7 +27,7 @@
 						  'class'       => 'js-st-instance',
 						);
 			
-						echo form_textarea($data, set_value('content', $this->input->post('content'))); ?>
+						echo form_textarea($data, set_value('content', $this->input->post('content'), FALSE)); ?>
 					
                     
                     
@@ -58,7 +58,7 @@
 						  'name'        => 'postTitle',
 						  'id'          => 'postTitle',
 						  'class'       => 'span5',
-						  'value'		=> set_value('postTitle')
+						  'value'		=> set_value('postTitle', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -92,7 +92,7 @@
 						  'rows'		=>	'4',
 						);
 			
-						echo form_textarea($data, set_value('postExcerpt')); ?>
+						echo form_textarea($data, set_value('postExcerpt', '', FALSE)); ?>
 
 					</div> <!-- /controls -->				
 				</div> <!-- /control-group -->
@@ -105,7 +105,7 @@
 						  'name'        => 'postURL',
 						  'id'          => 'postURL',
 						  'class'       => 'span5',
-						  'value'		=> set_value('postURL')
+						  'value'		=> set_value('postURL', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -133,7 +133,7 @@
 						  'name'        => 'datePosted',
 						  'id'          => 'datetimepicker',
 						  'class'       => 'span5',
-						  'value'		=> set_value('datePosted')
+						  'value'		=> set_value('datePosted', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -141,7 +141,7 @@
 						  'name'        => 'unixStamp',
 						  'id'          => 'unixStamp',
 						  'style'		=> 'display:none;',
-						  'value'		=> set_value('unixStamp', $p['unixStamp'])
+						  'value'		=> set_value('unixStamp', '', FALSE)
 						);
 			
 						echo form_input($data); ?>

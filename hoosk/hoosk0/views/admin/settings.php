@@ -37,7 +37,7 @@
 						  'name'        => 'siteTitle',
 						  'id'          => 'siteTitle',
 						  'class'       => 'span5',
-						  'value'		=> set_value('siteTitle', $s['siteTitle'])
+						  'value'		=> set_value('siteTitle', $s['siteTitle'], FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -51,7 +51,7 @@
 						  'name'        => 'siteFooter',
 						  'id'          => 'siteFooter',
 						  'class'       => 'span5',
-						  'value'		=> set_value('siteFooter', $s['siteFooter'])
+						  'value'		=> set_value('siteFooter', $s['siteFooter'], FALSE)
 						);
 			
 						echo form_input($data); ?>
@@ -67,7 +67,7 @@
 						foreach ($themesdir as $t){
 							if (!is_dir($t)){
 								if (($t != "index.html") && ($t != "admin")){
-									$data[$t] = $t;	
+									$data[$t] = str_replace("/", "", $t);	
 								}
 							}
 						}
@@ -84,11 +84,11 @@
 						foreach ($langdir as $l){
 							if (!is_dir($l)){
 								if ($l != "index.html"){
-									$data[$l] = $l;	
+									$data[$l] = str_replace("/", "", $l);	
 								}
 							}
 						}
-	
+						
 						echo form_dropdown('siteLang', $data, $s['siteLang'], $att); ?>
 					</div> <!-- /controls -->				
 				</div> <!-- /control-group -->

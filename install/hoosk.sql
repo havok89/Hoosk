@@ -16,7 +16,9 @@ CREATE TABLE IF NOT EXISTS `hoosk_page_meta` (`pageID` int(11) NOT NULL,`pageKey
 
 INSERT INTO `hoosk_page_meta` (`pageID`, `pageKeywords`, `pageDescription`) VALUES(1, 'Hoosk Keywords', 'Hoosk Description'),(9, 'Contact', 'Contact'),(10, 'test', 'test');~
 
-CREATE TABLE IF NOT EXISTS `hoosk_sessions` (`session_id` varchar(40) NOT NULL DEFAULT '0',`ip_address` varchar(45) NOT NULL DEFAULT '0',`user_agent` varchar(120) NOT NULL,`last_activity` int(10) unsigned NOT NULL DEFAULT '0',`user_data` text NOT NULL,PRIMARY KEY (`session_id`),KEY `last_activity_idx` (`last_activity`)) ENGINE=MyISAM  DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_general_ci;~
+
+CREATE TABLE IF NOT EXISTS `hoosk_sessions` (`id` varchar(40) NOT NULL,`ip_address` varchar(45) NOT NULL,`timestamp` int(10) unsigned DEFAULT 0 NOT NULL,`data` blob NOT NULL,PRIMARY KEY (id),KEY `ci_sessions_timestamp` (`timestamp`));~
+
 
 CREATE TABLE IF NOT EXISTS `hoosk_post` (`postID` int(11) NOT NULL AUTO_INCREMENT,`postURL` text NOT NULL,`postTitle` text NOT NULL,`postExcerpt` text NOT NULL,`postContentHTML` text NOT NULL,`postContent` text NOT NULL,`postImage` text NOT NULL,`categoryID` int(11) NOT NULL,`datePosted` varchar(100) NOT NULL,`unixStamp` INT(25) NOT NULL,PRIMARY KEY (`postID`)) ENGINE=MyISAM  DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_general_ci AUTO_INCREMENT=13 ;~
 
