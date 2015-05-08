@@ -1,4 +1,8 @@
 <?php
+if (!file_exists('config.php')) {
+	header("Location: ".str_replace("/index.php", "", htmlspecialchars($_SERVER["PHP_SELF"]))."/install");
+	die();
+}
 /**
  * CodeIgniter
  *
