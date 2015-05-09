@@ -140,4 +140,4 @@ class Hoosk_page_model extends CI_Model {
 
 }
 
-?>>
+?>
