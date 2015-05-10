@@ -147,5 +147,25 @@ class Admin extends CI_Controller {
 		echo 0;
 		}
 	}
+	
+		public function social()
+	{
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
+		//Load the form helper
+		$this->load->helper('form');
+
+		$this->data['social'] = $this->Hoosk_model->getSocial(); 
+		$this->data['current'] = $this->uri->segment(2);
+		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
+		$this->data['footer'] = $this->load->view('admin/footer', '', true);
+		$this->load->view('admin/social', $this->data);
+	}
+	
+	public function updateSocial()
+	{
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
+		$this->Hoosk_model->updateSocial();
+		redirect('/admin', 'refresh');
+	}
 }
 

@@ -35,3 +35,10 @@ INSERT INTO `hoosk_user` (`userID`, `userName`, `email`, `password`, `RS`) VALUE
 CREATE TABLE IF NOT EXISTS `hoosk_settings` (`siteID` int(11) NOT NULL,`siteTitle` text NOT NULL,`siteDescription` text NOT NULL,`siteLogo` text NOT NULL,`siteTheme` varchar(250) NOT NULL,`siteFooter` text NOT NULL, `siteLang` text NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_general_ci;~
 
 INSERT INTO `hoosk_settings` (`siteID`, `siteTitle`, `siteDescription`, `siteLogo`, `siteTheme`, `siteFooter`, `siteLang`) VALUES(0, 'Hoosk', 'Hoosk', 'logo.png', 'dark', '&copy; Hoosk CMS 2015', 'english');~
+
+
+
+CREATE TABLE IF NOT EXISTS `hoosk_social` ( `socialName` varchar(250) NOT NULL, `socialLink` varchar(250) NOT NULL,  `socialEnabled` int(11) NOT NULL DEFAULT '0',  UNIQUE KEY `socialName` (`socialName`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;~
+
+
+INSERT INTO `hoosk_social` (`socialName`, `socialLink`, `socialEnabled`) VALUES ('twitter', 'http://twitter.com/hooskcms', 1),('facebook', '', 0),('google', '', 0),('pinterest', '', 0),('foursquare', '', 0),('linkedin', '', 0),('myspace', '', 0),('soundcloud', '', 0),('spotify', '', 0),('lastfm', '', 0),('youtube', '', 0),('vimeo', '', 0),('dailymotion', '', 0),('vine', '', 0),('flickr', '', 0),('instagram', '', 0),('tumblr', '', 0),('reddit', '', 0),('envato', '', 0),('github', '', 0),('tripadvisor', '', 0),('stackoverflow', '', 0),('persona', '', 0);~

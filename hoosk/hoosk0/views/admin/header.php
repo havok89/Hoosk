@@ -84,7 +84,8 @@
             <li><a href="/admin/navigation/new"><?php echo $this->lang->line('nav_navigation_new'); ?></a></li>
           </ul>
         </li>
-        <li class="<?php if ($current == "settings") { echo "active"; } ?>"><a href="/admin/settings"><i class="icon-cog"></i><span><?php echo $this->lang->line('nav_settings'); ?></span> </a> </li>
+         <li class="<?php if ($current == "social") { echo "active"; } ?>"><a href="/admin/social"><i class="icon-share"></i><span><?php echo $this->lang->line('nav_social'); ?></span> </a> </li>
+         <li class="<?php if ($current == "settings") { echo "active"; } ?>"><a href="/admin/settings"><i class="icon-cog"></i><span><?php echo $this->lang->line('nav_settings'); ?></span> </a> </li>
        </ul>
     </div>
     <!-- /container --> 

@@ -16,6 +16,7 @@ $lang['nav_navigation']		= "Navigation";
 $lang['nav_navigation_new']	= "New Navigation Menu";
 $lang['nav_navigation_all']	= "All Menus";
 $lang['nav_settings']		= "Settings";
+$lang['nav_social']			= "Social";
 $lang['nav_view_site']		= "View Site";
 $lang['nav_logout']			= "Logout";
 $lang['nav_profile']		= "Profile";
@@ -182,7 +183,36 @@ $lang['menu_new_drop_link']			= "URL Slug (this is added in to the URL, no space
 $lang['menu_new_drop_error']		= "Your drop down slug contains spaces or special characters";
 
 
-
+//Social Page
+$lang['social_header']			= "Social Settings";
+$lang['social_message']			= "Here you can set up the links for your various social accounts.<br/>These links will appear in the specified area of your theme.";
+$lang['social_enable']			= "To enable an icon tick the box beside it.";
+$lang['social_twitter']			= "Twitter";
+$lang['social_facebook']		= "Facebook";
+$lang['social_google']			= "Google+";
+$lang['social_pinterest']		= "Pinterest";
+$lang['social_foursquare']		= "Foursquare";
+$lang['social_linkedin']		= "LinkedIn";
+$lang['social_myspace']			= "Myspace";
+$lang['social_soundcloud']		= "Soundcloud";
+$lang['social_spotify']			= "Spotify";
+$lang['social_lastfm']			= "LastFM";
+$lang['social_youtube']			= "YouTube";
+$lang['social_vimeo']			= "Vimeo";
+$lang['social_dailymotion']		= "DailyMotion";
+$lang['social_vine']			= "Vine";
+$lang['social_flickr']			= "Flickr";
+$lang['social_instagram']		= "Instagram";
+$lang['social_tumblr']			= "Tumblr";
+$lang['social_reddit']			= "Reddit";
+$lang['social_envato']			= "Envato";
+$lang['social_github']			= "Github";
+$lang['social_tripadvisor']		= "TripAdvisor";
+$lang['social_stackoverflow']	= "Stack Overflow";
+$lang['social_persona']			= "Mozilla Persona";
+$lang['social_table_title']		= "Social Site";
+$lang['social_table_link']		= "Profile Link";
+$lang['social_table_enabled']	= "Enabled?";
 
 
 // COMMON BUTTONS

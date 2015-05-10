@@ -627,6 +627,37 @@ class Hoosk_model extends CI_Model {
 		$this->db->where("categoryID", $id);
         $this->db->update('hoosk_post_category', $data);
     }
-
+	
+	/*     * *************************** */
+    /*     * ** Social Querys ********** */
+    /*     * *************************** */
+	
+	function getSocial(){
+		$this->db->select("*");
+        $query = $this->db->get('hoosk_social');
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+        return array();
+	}
+	
+	
+	function updateSocial() {
+		$this->db->select("*");
+        $query = $this->db->get("hoosk_social");
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $rows) {
+				$data = array();
+				$data['socialLink'] = $this->input->post($rows->socialName);
+				if (isset($_POST['checkbox'.$rows->socialName])){
+					$data['socialEnabled'] = $this->input->post('checkbox'.$rows->socialName);
+				} else {
+					$data['socialEnabled'] = 0;
+				}
+				$this->db->where("socialName", $rows->socialName);
+        		$this->db->update('hoosk_social', $data);
+			}
+		}
+	}
 }
 ?>

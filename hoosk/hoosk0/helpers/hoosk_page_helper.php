@@ -301,4 +301,18 @@
 		$carousel .= "</div>"."\r\n";
 		echo $carousel;
 	}
+
+	//Get social
+	function getSocial()
+	{
+		$CI =& get_instance();
+		$CI->db->where("socialEnabled", 1);
+		$query=$CI->db->get('hoosk_social');
+		$social = '';
+		foreach($query->result_array() as $c):
+			$social .= '<a href="'.$c['socialLink'].'" target="_blank"><span class="socicon socicon-'.$c['socialName'].'"></span></a>';
+		endforeach;
+		echo $social;
+	}
+
 ?>
