@@ -11,8 +11,8 @@
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
-                   
-<table class="table table-striped table-bordered">
+                 
+            <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
                     <th> <?php echo $this->lang->line('menu_table_title'); ?> </th>
@@ -20,13 +20,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <?
-					foreach ($nav as $n) {
-						echo '<tr>';
-						echo '<td>'.$n['navTitle'].'</td>';
-						echo '<td class="td-actions"><a href="/admin/navigation/edit/'.$n['navSlug'].'" class="btn btn-small btn-success"><i class="btn-icon-only icon-pencil"> </i></a><a data-toggle="modal" role="button" class="btn btn-danger btn-small" href="#dlt'.$n['navSlug'].'"><i class="btn-icon-only icon-remove"> </i></a></td>';
-						echo '</tr>';
-					} ?>
+                <?php foreach ($nav as $n):?>
+						    <tr>
+						      <td><?php echo $n['navTitle']?></td>
+						      <td class="td-actions">
+                    <a href="/admin/navigation/edit/<?php echo $n['navSlug']?>" class="btn btn-small btn-success"><i class="btn-icon-only icon-pencil"> </i></a>
+                    <a data-toggle="modal" role="button" class="btn btn-danger btn-small" href="#dlt<?php echo $n['navSlug']?>"><i class="btn-icon-only icon-remove"> </i></a>
+                  </td>
+						    </tr>
+					     <?php endforeach; ?>
                 </tbody>
               </table>
               <?php echo $this->pagination->create_links(); ?>
