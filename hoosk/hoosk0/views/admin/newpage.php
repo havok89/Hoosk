@@ -2,19 +2,44 @@
 <link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor.css" rel="stylesheet">
 <link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor-bootstrap.css" rel="stylesheet">
 <link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor-icons.css" rel="stylesheet">
-<div class="main">
-  <div class="main-inner">
-    <div class="container">
-      <div class="row">
-      <div class="span12">
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-user"></i>
-              <h3><?php echo $this->lang->line('pages_new_header'); ?></h3>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                <?php echo $this->lang->line('pages_new_header'); ?>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                <i class="fa fa-dashboard"></i>
+                	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
+                </li>
+                <li>
+                <i class="fa fa-fw fa-file"></i>
+                	<a href="/admin/pages"><?php echo $this->lang->line('nav_pages_all'); ?></a>
+                </li>
+                <li class="active">
+                <i class="fa fa-fw fa-pencil"></i>
+                	<?php echo $this->lang->line('pages_new_header'); ?>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+       	 	<?php echo form_error('pageTitle', '<div class="alert alert-danger">', '</div>'); ?>									
+            <?php echo form_error('pageURL', '<div class="alert alert-danger">', '</div>'); ?>	
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-pencil fa-fw"></i>
+                    <?php echo $this->lang->line('pages_new_header'); ?>
+                </h3>
             </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-            <?php echo form_error('pageTitle', '<div class="alert">', '</div>'); ?>									
-            <?php echo form_error('pageURL', '<div class="alert">', '</div>'); ?>									
+            
+         <div class="panel-body">
+            								
 			<?php 
 			$attr = array('id' => 'contentForm');
 			echo form_open(BASE_URL.'/admin/pages/new/add', $attr); ?>
@@ -29,107 +54,107 @@
                     
                     
                     
-                    
-                    <div class="form-actions">
-             
-                    <a class="btn btn-primary" data-toggle="modal" href="#attributes"><?php echo $this->lang->line('btn_next'); ?></a>
-					<a class="btn" href="<?php echo BASE_URL; ?>/admin/pages"><?php echo $this->lang->line('btn_cancel'); ?></a>
-				</div> <!-- /form-actions -->
-             
-                
-                <!-- /widget-content --> 
-            </div>
+             </div>       
+            <div class="panel-footer">
+                <a class="btn btn-primary" data-toggle="modal" href="#attributes"><?php echo $this->lang->line('btn_next'); ?></a>
+                <a class="btn" href="<?php echo BASE_URL; ?>/admin/pages"><?php echo $this->lang->line('btn_cancel'); ?></a>
+            </div> <!-- /form-actions -->
           </div>
-          <!-- /widget -->
-          
      
-		<div id="attributes" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel"><?php echo $this->lang->line('pages_new_attributes'); ?></h3>
-            </div><div class="modal-body">
+		<div id="attributes" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><?php echo $this->lang->line('pages_new_attributes'); ?></h4>
+              </div>
+              <div class="modal-body">
             <div class="alert alert-info"><?php echo $this->lang->line('pages_new_required'); ?></div>	
-            <div class="control-group">		
-            		<?php echo form_error('pageTitle', '<div class="alert">', '</div>'); ?>									
+            <div class="form-group">		
+            		<?php echo form_error('pageTitle', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="pageTitle"><?php echo $this->lang->line('pages_new_title'); ?></label>
 					<div class="controls">
                     <?php 	$data = array(
 						  'name'        => 'pageTitle',
 						  'id'          => 'pageTitle',
-						  'class'       => 'span5',
+						  'class'       => 'form-control',
 						  'value'		=> set_value('pageTitle', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->
+				</div> <!-- /form-group -->
                 
-                <div class="control-group">		
-            		<?php echo form_error('navTitle', '<div class="alert">', '</div>'); ?>									
+                <div class="form-group">		
+            		<?php echo form_error('navTitle', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="navTitle"><?php echo $this->lang->line('pages_new_nav'); ?></label>
 					<div class="controls">
                     <?php 	$data = array(
 						  'name'        => 'navTitle',
 						  'id'          => 'navTitle',
-						  'class'       => 'span5',
+						  'class'       => 'form-control',
 						  'value'		=> set_value('navTitle', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->
+				</div> <!-- /form-group -->
                 
-                <div class="control-group">		
+                <div class="form-group">		
 					<label class="control-label" for="pageKeywords"><?php echo $this->lang->line('pages_new_keywords'); ?></label>
 					<div class="controls">
 						 <?php 	$data = array(
 						  'name'        => 'pageKeywords',
 						  'id'          => 'pageKeywords',
-						  'class'       => 'span5',
+						  'class'       => 'form-control',
 						  'value'		=> set_value('pageKeywords', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
 
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->
+				</div> <!-- /form-group -->
 
-				<div class="control-group">		
+				<div class="form-group">		
 					<label class="control-label" for="pageDescription"><?php echo $this->lang->line('pages_new_description'); ?></label>
 					<div class="controls">
 						 <?php 	$data = array(
 						  'name'        => 'pageDescription',
 						  'id'          => 'pageDescription',
-						  'class'       => 'span5',
+						  'class'       => 'form-control',
 						  'value'		=> set_value('pageDescription', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
 
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->
+				</div> <!-- /form-group -->
                
-				<div class="control-group">		
-            		<?php echo form_error('pageURL', '<div class="alert">', '</div>'); ?>									
+				<div class="form-group">		
+            		<?php echo form_error('pageURL', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="pageURL"><?php echo $this->lang->line('pages_new_url'); ?></label>
 					<div class="controls">
 						 <?php 	$data = array(
 						  'name'        => 'pageURL',
 						  'id'          => 'pageURL',
-						  'class'       => 'span5',
+						  'class'       => 'form-control URLField',
 						  'value'		=> set_value('pageURL', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
 
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->
+				</div> <!-- /form-group -->
                 
-               <div class="control-group">		
+               <div class="form-group">		
                 <?php echo form_error('pagePublished', '<div class="alert">', '</div>'); ?>									
 					<label class="control-label" for="pagePublished"><?php echo $this->lang->line('pages_new_publish'); ?></label>
 					<div class="controls">
 						
                         <?php 	
-						$att = 'id="pagePublished" class="span5"';
+						$att = 'id="pagePublished" class="form-control"';
 						$data = array(
 						  '1'        => $this->lang->line('option_yes'),
 						  '0'         => $this->lang->line('option_no'),
@@ -138,15 +163,15 @@
 						echo form_dropdown('pagePublished', $data, '1', $att); ?>
 
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->              
-                 <div class="control-group">		
+				</div> <!-- /form-group -->              
+                 <div class="form-group">		
                 <?php echo form_error('pageTemplate', '<div class="alert">', '</div>'); ?>									
 					<label class="control-label" for="pageTemplate"><?php echo $this->lang->line('pages_new_template'); ?></label>
 					<div class="controls">
 						
                         <?php
 
-						$att = 'id="pageTemplate" class="span5"';
+						$att = 'id="pageTemplate" class="form-control"';
 						$data = array();
 						foreach ($templates as $t){
 						$t = str_replace(".php", "", $t);
@@ -158,7 +183,7 @@
 						echo form_dropdown('pageTemplate', $data, 'home', $att); ?>
 
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->  
+				</div> <!-- /form-group -->  
             </div>
             <div class="modal-footer">
             <button class="btn" data-dismiss="modal" aria-hidden="true"><?php echo $this->lang->line('btn_back'); ?></button>
@@ -166,15 +191,12 @@
             </div></div>
            <?php  echo form_close(); ?>
      </div>
-      <!-- /span12 -->
+      <!-- /colmd12 -->
 
       </div>
       <!-- /row --> 
     </div>
     <!-- /container --> 
-  </div>
-  <!-- /main-inner --> 
-</div>
 
 <script src="<?php echo ADMIN_THEME; ?>/js/trevor/underscore.js"></script>
 <script src="<?php echo ADMIN_THEME; ?>/js/trevor/eventable.js"></script>

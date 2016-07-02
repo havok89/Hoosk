@@ -153,7 +153,7 @@
 
 .st-block__inner {
   padding: 1.875em 1.875em 2.8em;
-  border: 2px solid #fff;
+  border: 2px solid #efefef;
   position: relative; }
 
 .st-block__inner:hover {
@@ -286,8 +286,10 @@ ul.st-text-block {
   position: absolute; }
 
 .st-block__editor img {
-  max-width: 100%;
-  height: auto; }
+  display: block;
+    height: auto;
+    margin: 0 auto 15px; max-width: 100%;
+	 }
 
 .st-block__upload-container {
   margin: 0.4em 0 0 0;

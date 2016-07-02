@@ -1,18 +1,28 @@
 <?php echo $header; ?>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                <?php echo $this->lang->line('posts_header'); ?>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                <i class="fa fa-dashboard"></i>
+                	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
+                </li>
+                <li class="active">
+                <i class="fa fa-fw fa-newspaper-o"></i>
+                	<a href="/admin/posts"><?php echo $this->lang->line('nav_posts_all'); ?></a>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
 
-<div class="main">
-  <div class="main-inner">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-      <div class="span12">
-          <div class="widget widget-table action-table">
-            <div class="widget-header"> <i class="icon-edit"></i>
-              <h3><?php echo $this->lang->line('posts_header'); ?></h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-                   
-<table class="table table-striped table-bordered">
+      <div class="col-md-12">
+			<table class="table table-striped table-bordered">
                 <thead>
                   <tr>
                     <th> <?php echo $this->lang->line('posts_table_post'); ?> </th>
@@ -25,40 +35,19 @@
                     <?php 
 					foreach ($posts as $p) {
 						echo '<tr>';
-						echo '<td>'.$p['postTitle'].'</td>';
-						echo '<td>'.$p['categoryTitle'].'</td>';
-						echo '<td>'.$p['datePosted'].'</td>';
-						echo '<td class="td-actions"><a href="/admin/posts/edit/'.$p['postID'].'" class="btn btn-small btn-success"><i class="btn-icon-only icon-pencil"> </i></a><a data-toggle="modal" role="button" class="btn btn-danger btn-small" href="#dlt'.$p['postID'].'"><i class="btn-icon-only icon-remove"> </i></a></td>';
+							echo '<td>'.$p['postTitle'].'</td>';
+							echo '<td>'.$p['categoryTitle'].'</td>';
+							echo '<td>'.$p['datePosted'].'</td>';
+							echo '<td class="td-actions"><a href="/admin/posts/edit/'.$p['postID'].'" class="btn btn-small btn-success"><i class="fa fa-pencil"> </i></a> <a data-toggle="modal" data-target="#ajaxModal" class="btn btn-danger btn-small" href="'.BASE_URL.'/admin/posts/delete/'.$p['postID'].'"><i class="fa fa-remove"> </i></a></td>';
 						echo '</tr>';
 					} ?>
                 </tbody>
               </table>
               <?php echo $this->pagination->create_links(); ?>
-                <!-- /widget-content --> 
-            <?php foreach ($posts as $p) {
-			echo '<div id="dlt'.$p['postID'].'" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>';
-            echo '<h3 id="myModalLabel">'.$this->lang->line('posts_delete').'"'.$p['postTitle'].'"?</h3>';
-            echo '</div><div class="modal-body">';
-            echo '<p>'.$this->lang->line('posts_delete_message').'</p>';
-            echo '</div>';
-            echo '<div class="modal-footer">';
-            echo '<button class="btn" data-dismiss="modal" aria-hidden="true">'.$this->lang->line('btn_cancel').'</button>';
-            echo '<a class="btn btn-danger" href="'.BASE_URL.'/admin/posts/delete/'.$p['postID'].'">'.$this->lang->line('btn_delete').'</a>';
-            echo '</div></div>';
-			} ?>
+
             </div>
           </div>
-          <!-- /widget -->
- 
          
      </div>
-      <!-- /span12 -->
 
-      </div>
-      <!-- /row --> 
-    </div>
-    <!-- /container --> 
-  </div>
-  <!-- /main-inner --> 
-</div>
 <?php echo $footer; ?>

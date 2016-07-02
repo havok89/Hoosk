@@ -3,21 +3,44 @@
 <link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor-bootstrap.css" rel="stylesheet">
 <link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor-icons.css" rel="stylesheet">
 <link href="<?php echo ADMIN_THEME; ?>/js/datepicker/jquery.datetimepicker.css" rel="stylesheet">
-
-<div class="main">
-  <div class="main-inner">
-    <div class="container">
-      <div class="row">
-      <div class="span12">
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-user"></i>
-              <h3><?php echo $this->lang->line('posts_new_header'); ?></h3>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                <?php echo $this->lang->line('posts_new_header'); ?>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                <i class="fa fa-dashboard"></i>
+                	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
+                </li>
+                <li>
+                <i class="fa fa-fw fa-newspaper-o"></i>
+                	<a href="/admin/posts"><?php echo $this->lang->line('nav_posts_all'); ?></a>
+                </li>
+                <li class="active">
+                <i class="fa fa-fw fa-pencil"></i>
+                	<?php echo $this->lang->line('posts_new_header'); ?>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+       	 	<?php echo form_error('postTitle', '<div class="alert alert-danger">', '</div>'); ?>									
+            <?php echo form_error('postURL', '<div class="alert alert-danger">', '</div>'); ?>	
+            <?php echo form_error('postExcerpt', '<div class="alert alert-danger">', '</div>'); ?>									
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-pencil fa-fw"></i>
+                    <?php echo $this->lang->line('posts_new_header'); ?>
+                </h3>
             </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-            <?php echo form_error('postTitle', '<div class="alert">', '</div>'); ?>									
-            <?php echo form_error('postURL', '<div class="alert">', '</div>'); ?>		
-            <?php echo form_error('postExcerpt', '<div class="alert">', '</div>'); ?>									
+            
+         <div class="panel-body">
 			<?php 
 			$attr = array('id' => 'contentForm');
 			echo form_open(BASE_URL.'/admin/posts/new/add', $attr); ?>
@@ -32,40 +55,41 @@
                     
                     
                     
-                    
-                    <div class="form-actions">
-             
+              </div>      
+              <div class="panel-footer">
                     <a class="btn btn-primary" data-toggle="modal" href="#attributes"><?php echo $this->lang->line('btn_next'); ?></a>
 					<a class="btn" href="<?php echo BASE_URL; ?>/admin/posts"><?php echo $this->lang->line('btn_cancel'); ?></a>
-				</div> <!-- /form-actions -->
-             
-                
-                <!-- /widget-content --> 
-            </div>
-          </div>
-          <!-- /widget -->
-          
+				</div>
+			</div>
+         
      
-		<div id="attributes" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel"><?php echo $this->lang->line('posts_new_attributes'); ?></h3>
-            </div><div class="modal-body">
+		<div id="attributes" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><?php echo $this->lang->line('posts_new_attributes'); ?></h4>
+              </div>
+              <div class="modal-body">
             <div class="alert alert-info"><?php echo $this->lang->line('posts_new_required'); ?></div>	
-            <div class="control-group">		
-            		<?php echo form_error('postTitle', '<div class="alert">', '</div>'); ?>									
+            <div class="form-group">		
+            		<?php echo form_error('postTitle', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="postTitle"><?php echo $this->lang->line('posts_new_title'); ?></label>
 					<div class="controls">
                     <?php 	$data = array(
 						  'name'        => 'postTitle',
 						  'id'          => 'postTitle',
-						  'class'       => 'span5',
+						  'class'       => 'form-control',
 						  'value'		=> set_value('postTitle', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->
-               <div class="control-group">		
-            		<?php echo form_error('file_upload', '<div class="alert">', '</div>'); ?>									
+				</div> <!-- /form-group -->
+               <div class="form-group">		
+            		<?php echo form_error('file_upload', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="file_upload"><?php echo $this->lang->line('posts_new_feature'); ?></label>
 					<div class="controls">
 						<div><img src="" id="logo_preloaded" style='display:none;'></div>
@@ -74,65 +98,65 @@
 							$data = array(
 								'name'		=> 'file_upload',
 								'id'		=> 'file_upload',
-								'class'		=> 'span5'
+								'class'		=> 'form-control'
 							);
 							echo form_upload($data); 
 						?>
 						<input type="hidden" id="postImage" name="postImage" />
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->
-               <div class="control-group">		
-                    <?php echo form_error('postExcerpt', '<div class="alert">', '</div>'); ?>									
+				</div> <!-- /form-group -->
+               <div class="form-group">		
+                    <?php echo form_error('postExcerpt', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="postExcerpt"><?php echo $this->lang->line('posts_new_excerpt'); ?></label>
 					<div class="controls">
 						 <?php 	$data = array(
 						  'name'        => 'postExcerpt',
 						  'id'          => 'postExcerpt',
-						  'class'       => 'span5',
+						  'class'       => 'form-control',
 						  'rows'		=>	'4',
 						);
 			
 						echo form_textarea($data, set_value('postExcerpt', '', FALSE)); ?>
 
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->
+				</div> <!-- /form-group -->
                
-				<div class="control-group">		
-            		<?php echo form_error('postURL', '<div class="alert">', '</div>'); ?>									
+				<div class="form-group">		
+            		<?php echo form_error('postURL', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="postURL"><?php echo $this->lang->line('posts_new_url'); ?></label>
 					<div class="controls">
 						 <?php 	$data = array(
 						  'name'        => 'postURL',
 						  'id'          => 'postURL',
-						  'class'       => 'span5',
+						  'class'       => 'form-control URLField',
 						  'value'		=> set_value('postURL', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
 
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->
-				 <div class="control-group">		
-                <?php echo form_error('categoryID', '<div class="alert">', '</div>'); ?>									
+				</div> <!-- /form-group -->
+				 <div class="form-group">		
+                <?php echo form_error('categoryID', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="categoryID"><?php echo $this->lang->line('posts_new_category'); ?></label>
 					<div class="controls">
                         <?php
-						$att = 'id="categoryID" class="span5"';
+						$att = 'id="categoryID" class="form-control"';
 						$data = array();
 						foreach ($categories as $c){
 						$data[$c['categoryID']] = $c['categoryTitle'];	
 						}
 						echo form_dropdown('categoryID', $data, '0', $att); ?>
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->  
-            <div class="control-group">	
+				</div> <!-- /form-group -->  
+            <div class="form-group">	
                     <div id="datetimepicker1" class="input-append date">
                     <label class="control-label" for="categoryID"><?php echo $this->lang->line('posts_new_date'); ?></label>
                         <div class="controls">
                         <?php 	$data = array(
 						  'name'        => 'datePosted',
 						  'id'          => 'datetimepicker',
-						  'class'       => 'span5',
+						  'class'       => 'form-control',
 						  'value'		=> set_value('datePosted', '', FALSE)
 						);
 			
@@ -161,10 +185,7 @@
       </div>
       <!-- /row --> 
     </div>
-    <!-- /container --> 
-  </div>
-  <!-- /main-inner --> 
-</div>
+
 <script src="<?php echo ADMIN_THEME; ?>/js/datepicker/jquery.datetimepicker.js"></script>
 <script src="<?php echo ADMIN_THEME; ?>/js/trevor/underscore.js"></script>
 <script src="<?php echo ADMIN_THEME; ?>/js/trevor/eventable.js"></script>

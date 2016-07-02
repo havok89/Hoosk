@@ -7,8 +7,7 @@ class Users extends CI_Controller {
 		parent::__construct();
 		define("HOOSK_ADMIN",1);
 		$this->load->model('Hoosk_model');
-		$this->load->helper('url');
-		$this->load->helper('admincontrol');
+		$this->load->helper(array('admincontrol', 'url'));
 		$this->load->library('session');
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
@@ -112,17 +111,19 @@ class Users extends CI_Controller {
 			redirect('/admin/users', 'refresh');
 	  	}
 	}
+
 	
-	public function delete()
+		function delete() 
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		//Delete the user account
-		$this->Hoosk_model->removeUser($this->uri->segment(4));
-		//Return to user list
-		redirect('/admin/users', 'refresh');
+		if($this->input->post('deleteid')):
+			$this->Hoosk_model->removeUser($this->input->post('deleteid'));
+			redirect('/admin/users');
+		else:
+			$this->data['form']=$this->Hoosk_model->getUser($this->uri->segment(4));
+			$this->load->view('admin/deleteuser.php', $this->data );	
+		endif;
 	}
-	
-	
 	
 	/************** Forgotten Password Resets **************/
 	

@@ -7,9 +7,7 @@ class Posts extends CI_Controller {
 		parent::__construct();
 		define("HOOSK_ADMIN",1);
 		$this->load->model('Hoosk_model');
-		$this->load->helper('url');
-		$this->load->helper('file');
-		$this->load->helper('admincontrol');
+		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin', 'file'));
 		$this->load->library('session');
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
@@ -128,17 +126,17 @@ class Posts extends CI_Controller {
 	  	}
 	}
 	
-	
-	
-	public function delete()
+
+	function delete() 
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		//Delete the post account
-		$this->Hoosk_model->removePost($this->uri->segment(4));
-		//Return to post list
-		redirect('/admin/posts', 'refresh');
+		if($this->input->post('deleteid')):
+			$this->Hoosk_model->removePost($this->input->post('deleteid'));
+			redirect('/admin/posts');
+		else:
+			$this->data['form']=$this->Hoosk_model->getPost($this->uri->segment(4));
+			$this->load->view('admin/deletepost.php', $this->data );	
+		endif;
 	}
-	
-	
 	
 }

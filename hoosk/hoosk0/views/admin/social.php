@@ -1,34 +1,46 @@
 <?php echo $header; ?> 
-<div class="main">
-  <div class="main-inner">
-    <div class="container">
-      <div class="row">
-      <div class="span4">
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-share"></i>
-              <h3><?php echo $this->lang->line('social_header'); ?></h3>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                <?php echo $this->lang->line('social_header'); ?>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                <i class="fa fa-dashboard"></i>
+                	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
+                </li>
+                <li class="active">
+                <i class="fa fa-fw fa-share-alt"></i>
+                	<a href="/admin/social"><?php echo $this->lang->line('social_header'); ?></a>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+  	<div class="row">
+      	<div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-share-alt fa-fw"></i>
+                    <?php echo $this->lang->line('social_header'); ?>
+                </h3>
             </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-            <?php echo $this->lang->line('social_message'); ?>
-               
+         	<div class="panel-body">
+            	<?php echo $this->lang->line('social_message'); ?>
             </div> 
           </div>
-          <!-- /widget -->
- 
-         
-     </div>
-      <!-- /span4 -->
-
-	<div class="span8">
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-share"></i>
-              <h3><?php echo $this->lang->line('social_header'); ?></h3>
-            </div>
-            <!-- /widget-header -->
+          <div class="panel panel-default">
+			<div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-share-alt fa-fw"></i>
+                    <?php echo $this->lang->line('social_header'); ?>
+                </h3>
+               </div>
+         	<div class="panel-body">
              <?php echo form_open(BASE_URL.'/admin/social/update'); ?>
-
-            <div class="widget-content">
             <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
@@ -57,9 +69,8 @@
             
             </tbody>
             </table>
-            <hr />
-            
-			
+            </div>
+            <div class="panel-footer">
  				 <?php 	$data = array(
 						  'name'        => 'submit',
 						  'id'          => 'submit',
@@ -68,22 +79,10 @@
 						);
 					 echo form_submit($data); ?>                   
 					 <?php echo form_close();
-			 ?>
-					 
-                     
-                 
+			 	?>
+             </div>
             </div> 
           </div>
-          <!-- /widget -->
- 
-         
      </div>
-      </div>
-      <!-- /row --> 
-    </div>
-    <!-- /container --> 
-  </div>
-  <!-- /main-inner --> 
-</div>
-
+ </div>
 <?php echo $footer; ?>

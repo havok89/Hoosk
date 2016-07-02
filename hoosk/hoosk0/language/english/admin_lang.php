@@ -43,9 +43,9 @@ $lang['forgot_check_email']	= "Please check your email for further instructions"
 
 
 //Dashboard
-$lang['dash_welcome']		= "Welcome to Hoosk";
+$lang['dash_welcome']		= "Welcome <small>to Hoosk</small>";
 $lang['dash_recent']		= "Recently Updated Pages";
-$lang['dash_message']		= "This is your Hoosk dashboard, Using the navigation above you can add or edit the users, pages or navigation menus on your website. Hoosk is built around the bootstrap framework, this should make your website fully responsive with ease.";
+$lang['dash_message']		= "This is your Hoosk dashboard, Using the navigation bar you can add or edit the users, pages or navigation menus on your website. Hoosk is built around the bootstrap framework, this should make your website fully responsive with ease.";
 
 
 
@@ -100,7 +100,7 @@ $lang['pages_slider_link']		= "Image Link";
 $lang['pages_jumbo_header']		= "Jumbotron Content";
 $lang['pages_jumbo_header_att']	= "Jumbotron";
 $lang['pages_jumbo_enable']		= "Enable Jumbotron?";
-
+$lang['pages_jumbo_edit']		= "Edit Jumbotron";
 
 
 //Posts - All Posts

@@ -7,8 +7,7 @@ class Navigation extends CI_Controller {
 		parent::__construct();
 		define("HOOSK_ADMIN",1);
 		$this->load->model('Hoosk_model');
-		$this->load->helper('url');
-		$this->load->helper('admincontrol');
+		$this->load->helper(array('admincontrol', 'url'));
 		$this->load->library('session');
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
@@ -118,13 +117,16 @@ class Navigation extends CI_Controller {
 	  	}
 	}
 	
-	public function deleteNav()
+
+		function deleteNav() 
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		//Delete the nav
-		$this->Hoosk_model->removeNav($this->uri->segment(4));
-		//Return to user list
-		redirect('/admin/navigation', 'refresh');
+		if($this->input->post('deleteid')):
+			$this->Hoosk_model->removeNav($this->input->post('deleteid'));
+			redirect('/admin/navigation');
+		else:
+			$this->data['form']=$this->Hoosk_model->getNav($this->uri->segment(4));
+			$this->load->view('admin/deletenav.php', $this->data );	
+		endif;
 	}
-	
 }

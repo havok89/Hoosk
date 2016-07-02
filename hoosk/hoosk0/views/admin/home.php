@@ -1,69 +1,53 @@
 <?php echo $header; ?>
-
-<div class="main">
-  <div class="main-inner">
-    <div class="container">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                <?php echo $this->lang->line('dash_welcome'); ?>
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active">
+                <i class="fa fa-dashboard"></i>
+                	<?php echo $this->lang->line('nav_dash'); ?>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
       <div class="row">
-        <div class="span6">
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-dashboard"></i>
-              <h3><?php echo $this->lang->line('dash_welcome'); ?></h3>
+        <div class="col-md-6">
+        	<div class="panel panel-default">
+            	<div class="panel-body">
+					<p><?php echo $this->lang->line('dash_message'); ?></p>
+                </div>
             </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-                    <div class="text">
-                    <p><?php echo $this->lang->line('dash_message'); ?></p>
-                    </div>
-                <!-- /widget-content --> 
-            </div>
-          </div>
-          <!-- /widget -->
-
-         
         </div>
-        <!-- /span6 -->
-        <div class="span6">
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-file"></i>
-              <h3><?php echo $this->lang->line('dash_recent'); ?></h3>
+        <!-- /colmd6 -->
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                    <i class="fa fa-long-arrow-right fa-fw"></i>
+                    <?php echo $this->lang->line('dash_recent'); ?>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                    <?php 
+                    foreach ($recenltyUpdated as $p) {
+                        echo '<li class="list-group-item"><span class="badge">'.date("jS", strtotime($p["pageUpdated"])).' '.date("M", strtotime($p["pageUpdated"])).'</span>';
+                            echo '<p><a href="/admin/pages/edit/'.$p['pageID'].'" class="news-item-title" target="_blank">'.$p['pageTitle'].'</a></p>';
+                            echo '<p>'.wordlimit($p['pageContentHTML']).'</p>';
+                        echo '</li>';
+                    } ?>
+                  </ul>
+                </div>
             </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <ul class="news-items">
-				<?php 
-				function wordlimit($string, $length = 40, $ellipsis = "...")
-					{
-						$string = strip_tags($string, '<div>');
-						$string = strip_tags($string, '<p>');
-						$words = explode(' ', $string);
-						if (count($words) > $length)
-							return implode(' ', array_slice($words, 0, $length)) . $ellipsis;
-						else
-							return $string.$ellipsis;
-					}
-				foreach ($recenltyUpdated as $p) {
-                echo "<li>";
-                	echo '<div class="news-item-date"><span class="news-item-day">'.date("jS", strtotime($p["pageUpdated"])).'</span> <span class="news-item-month">'.date("M", strtotime($p["pageUpdated"])).'</span> </div>';
-                  	echo '<div class="news-item-detail"> <a href="/admin/pages/edit/'.$p['pageID'].'" class="news-item-title" target="_blank">'.$p['pageTitle'].'</a>';
-                   	echo '<p class="news-item-preview">'.wordlimit($p['pageContentHTML']).'</p>';
-                  	echo '</div>';
-				echo '</li>';
-				} ?>
-              </ul>
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
-
-
         </div>
-        <!-- /span6 --> 
+        <!-- /colmd6 --> 
       </div>
       <!-- /row --> 
     </div>
     <!-- /container --> 
-  </div>
-  <!-- /main-inner --> 
-</div>
-
 <?php echo $footer; ?>

@@ -7,9 +7,7 @@ class Pages extends CI_Controller {
 		parent::__construct();
 		define("HOOSK_ADMIN",1);
 		$this->load->model('Hoosk_model');
-		$this->load->helper('url');
-		$this->load->helper('file');
-		$this->load->helper('admincontrol');
+		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin', 'file'));
 		$this->load->library('session');
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
@@ -140,15 +138,18 @@ class Pages extends CI_Controller {
 		redirect('/admin/pages', 'refresh');
 	}
 	
-	public function delete()
+
+	
+	function delete() 
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		//Delete the page account
-		$this->Hoosk_model->removePage($this->uri->segment(4));
-		//Return to page list
-		redirect('/admin/pages', 'refresh');
+		if($this->input->post('deleteid')):
+			$this->Hoosk_model->removePage($this->input->post('deleteid'));
+			redirect('/admin/pages');
+		else:
+			$this->data['form']=$this->Hoosk_model->getPage($this->uri->segment(4));
+			$this->load->view('admin/deletepage.php', $this->data );	
+		endif;
 	}
-	
-	
 	
 }

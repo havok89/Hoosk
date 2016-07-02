@@ -1,68 +1,89 @@
 <?php echo $header; ?>
-
-<div class="main">
-  <div class="main-inner">
-    <div class="container">
-      <div class="row">
-      <div class="span12">
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-edit"></i>
-              <h3><?php echo $this->lang->line('cat_new_header'); ?></h3>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                <?php echo $this->lang->line('cat_new_header'); ?>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                <i class="fa fa-dashboard"></i>
+                	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
+                </li>
+                <li>
+                <i class="fa fa-fw fa-list"></i>
+                	<a href="/admin/posts/categories"><?php echo $this->lang->line('cat_header'); ?></a>
+                </li>
+                <li class="active">
+                <i class="fa fa-fw fa-pencil"></i>
+                	<?php echo $this->lang->line('cat_new_header'); ?>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-pencil fa-fw"></i>
+                    <?php echo $this->lang->line('cat_new_header'); ?>
+                </h3>
             </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-            <div class="content">
+            
+         <div class="panel-body">
 			<?php echo form_open(BASE_URL.'/admin/posts/categories/new/add'); ?>
             <div class="alert alert-info"><?php echo $this->lang->line('cat_new_required'); ?></div>	
-                <div class="control-group">		
-                <?php echo form_error('categoryTitle', '<div class="alert">', '</div>'); ?>									
+                <div class="form-group">		
+                <?php echo form_error('categoryTitle', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="categoryTitle"><?php echo $this->lang->line('cat_new_title'); ?></label>
 					<div class="controls">
                     <?php 	$data = array(
 						  'name'        => 'categoryTitle',
 						  'id'          => 'categoryTitle',
-						  'class'       => 'span4',
+						  'class'       => 'form-control',
 						  'value'		=> set_value('categoryTitle', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->
+				</div> <!-- /form-group -->
 
-				<div class="control-group">		
-                <?php echo form_error('categorySlug', '<div class="alert">', '</div>'); ?>									
+				<div class="form-group">		
+                <?php echo form_error('categorySlug', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="categorySlug"><?php echo $this->lang->line('cat_new_url'); ?></label>
 					<div class="controls">
 						 <?php 	$data = array(
 						  'name'        => 'categorySlug',
 						  'id'          => 'categorySlug',
-						  'class'       => 'span4',
+						  'class'       => 'form-control URLField',
 						  'value'		=> set_value('categorySlug', '', FALSE)
 						);
 			
 						echo form_input($data); ?>
 
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->
+				</div> <!-- /form-group -->
                 
-               	<div class="control-group">		
-                    <?php echo form_error('categoryDescription', '<div class="alert">', '</div>'); ?>									
+               	<div class="form-group">		
+                    <?php echo form_error('categoryDescription', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="categoryDescription"><?php echo $this->lang->line('cat_new_description'); ?></label>
 					<div class="controls">
 						 <?php 	$data = array(
 						  'name'        => 'categoryDescription',
 						  'id'          => 'categoryDescription',
-						  'class'       => 'span4',
+						  'class'       => 'form-control',
 						  'rows'		=>	'4',
 						);
 			
 						echo form_textarea($data, set_value('categoryDescription', '', FALSE)); ?>
 
 					</div> <!-- /controls -->				
-				</div> <!-- /control-group -->
-                
-                </div><!-- /content -->
-                <div class="form-actions">
+				</div> <!-- /form-group -->
+                </div>
+                <div class="panel-footer">
                 <?php 	$data = array(
 						  'name'        => 'submit',
 						  'id'          => 'submit',
@@ -71,24 +92,10 @@
 						);
 					 echo form_submit($data); ?> 
 					<a class="btn" href="<?php echo BASE_URL; ?>/admin/posts/categories"><?php echo $this->lang->line('btn_cancel'); ?></a>
-				</div> <!-- /form-actions -->
+				</div> 
                <?php  echo form_close(); ?>
-                
-                <!-- /widget-content --> 
-            </div>
-            
-          </div>
-          <!-- /widget -->
- 
-         
-     </div>
-      <!-- /span12 -->
-
-      </div>
-      <!-- /row --> 
-    </div>
-    <!-- /container --> 
-  </div>
-  <!-- /main-inner --> 
+			</div>
+		</div>
+	</div>
 </div>
 <?php echo $footer; ?>

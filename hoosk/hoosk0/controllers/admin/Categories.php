@@ -7,9 +7,7 @@ class Categories extends CI_Controller {
 		parent::__construct();
 		define("HOOSK_ADMIN",1);
 		$this->load->model('Hoosk_model');
-		$this->load->helper('url');
-		$this->load->helper('file');
-		$this->load->helper('admincontrol');
+		$this->load->helper(array('admincontrol', 'url', 'file'));
 		$this->load->library('session');
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
@@ -110,16 +108,18 @@ class Categories extends CI_Controller {
 	}
 	
 	
+
 	
-	public function delete()
+	function delete() 
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		//Delete the category account
-		$this->Hoosk_model->removeCategory($this->uri->segment(5));
-		//Return to category list
-		redirect('/admin/posts/categories', 'refresh');
+		if($this->input->post('deleteid')):
+			$this->Hoosk_model->removeCategory($this->input->post('deleteid'));
+			redirect('/admin/posts/categories');
+		else:
+			$this->data['form']=$this->Hoosk_model->getCategory($this->uri->segment(5));
+			$this->load->view('admin/deletecategory.php', $this->data );	
+		endif;
 	}
-	
-	
 	
 }

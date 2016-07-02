@@ -6,8 +6,7 @@ class Admin extends CI_Controller {
 	{
 		parent::__construct();
 		define("HOOSK_ADMIN",1);
-		$this->load->helper('admincontrol');
-		$this->load->helper('url');
+		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin'));
 		$this->load->library('session');
 		$this->load->model('Hoosk_model');
 		define ('LANG', $this->Hoosk_model->getLang());
@@ -138,13 +137,20 @@ class Admin extends CI_Controller {
 	public function uploadLogo()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		if($_FILES[0]['type']=='image/png' || $_FILES[0]['type']=='image/jpg' || $_FILES[0]['type']=='image/jpeg')
-		{
-			move_uploaded_file($_FILES[0]['tmp_name'], 'uploads/' .basename($_FILES[0]['name']));
-			echo json_encode(basename($_FILES[0]['name']));
-		}
-		else {
-		echo 0;
+		$config['upload_path']          = './uploads/';
+		$config['allowed_types']        = 'gif|jpg|png';
+
+		$this->load->library('upload', $config);
+		foreach ($_FILES as $key => $value) {
+			if ( ! $this->upload->do_upload($key))
+			{
+					$error = array('error' => $this->upload->display_errors());
+					echo 0;
+			}
+			else
+			{
+					echo '"'.$this->upload->data('file_name').'"';
+			}
 		}
 	}
 	
@@ -168,4 +174,3 @@ class Admin extends CI_Controller {
 		redirect('/admin', 'refresh');
 	}
 }
-
