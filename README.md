@@ -25,5 +25,15 @@ When you have entered these click install, and thats it, simple!
 
 Be sure and delete the "/install" directory from your server now
 
+# Locating the Admin dashboard
+
+The admin area is located at http://yourwebsite.com/admin
+The default login details are:
+
+Username: admin
+Password: h00sk
+
+Make sure you change the password when you log in for the first time, and update the admin email address, this way you will be able to request a password reset.
+
 # Want to know more?
 http://hoosk.org
