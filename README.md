@@ -6,4 +6,12 @@ Try out the live demo at http://demo.hoosk.org
 
 # Documentation
 Im gonna start adding some docs and guides to the wiki for installation, using the system, creating themes etc
-Click the Wiki tab at the top or if your lazy just click here https://github.com/havok89/Hoosk/wiki
+Click the Wiki tab at the top or if your lazy just use these links:
+
+## Getting Started
+- [Upload and Installation](https://github.com/havok89/Hoosk/wiki/Upload-and-Installation)
+- [Logging In](https://github.com/havok89/Hoosk/wiki/Logging-In)
+- [Creating a Page](https://github.com/havok89/Hoosk/wiki/Creating-a-Page)
+
+## Advanced
+- [Translating the admin dashboard](https://github.com/havok89/Hoosk/wiki/Translating-the-admin-dashboard)
