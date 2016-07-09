@@ -15,3 +15,5 @@ Click the Wiki tab at the top or if your lazy just use these links:
 
 ## Advanced
 - [Translating the admin dashboard](https://github.com/havok89/Hoosk/wiki/Translating-the-admin-dashboard)
+
+_**Note:** I am still writing more docs pages so check back soon_
