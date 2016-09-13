@@ -82,7 +82,7 @@
 						$data = array();
 						foreach ($themesdir as $t){
 							if (!is_dir($t)){
-								if (($t != "index.html") && ($t != "admin")){
+								if (($t != "index.html") && ($t != "admin/") && ($t != "admin")){
 									$data[$t] = str_replace("/", "", $t);	
 								}
 							}
