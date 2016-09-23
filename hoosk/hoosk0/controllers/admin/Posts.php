@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Posts extends CI_Controller {
-	
+
 	function __construct()
 	{
 		parent::__construct();
@@ -17,41 +17,39 @@ class Posts extends CI_Controller {
 		define('THEME', $this->Hoosk_model->getTheme());
 		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
 	}
-	
+
 	public function index()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$this->load->library('pagination');
-
-        $result_per_page =15;  // the number of result per page
-
-        $config['base_url'] = BASE_URL. '/admin/posts/';
-        $config['total_rows'] = $this->Hoosk_model->countPosts();
-        $config['per_page'] = $result_per_page;
+    $result_per_page =15;  // the number of result per page
+    $config['base_url'] = BASE_URL. '/admin/posts/';
+    $config['total_rows'] = $this->Hoosk_model->countPosts();
+    $config['per_page'] = $result_per_page;
 		$config['full_tag_open'] = '<div class="form-actions">';
 		$config['full_tag_close'] = '</div>';
-        $this->pagination->initialize($config);
+    $this->pagination->initialize($config);
 
 		//Get posts from database
-		$this->data['posts'] = $this->Hoosk_model->getPosts($result_per_page, $this->uri->segment(3)); 
+		$this->data['posts'] = $this->Hoosk_model->getPosts($result_per_page, $this->uri->segment(3));
 		//Load the view
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
 		$this->load->view('admin/posts', $this->data);
 	}
-	
+
 	public function addPost()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form helper
 		$this->load->helper('form');
-		$this->data['categories'] = $this->Hoosk_model->getCategories(); 
+		$this->data['categories'] = $this->Hoosk_model->getCategories();
 		//Load the view
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
-		$this->load->view('admin/newpost', $this->data);
+		$this->load->view('admin/post_new', $this->data);
 	}
-	
+
 	public function confirm()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
@@ -61,9 +59,9 @@ class Posts extends CI_Controller {
 		$this->form_validation->set_rules('postURL', 'post URL', 'trim|alpha_dash|required|is_unique[hoosk_post.postURL]');
 		$this->form_validation->set_rules('postTitle', 'post title', 'trim|required');
 		$this->form_validation->set_rules('postExcerpt', 'post excerpt', 'trim|required');
-		
+
 		if($this->form_validation->run() == FALSE) {
-			
+
 			//Validation failed
 			$this->addPost();
 		}  else  {
@@ -82,21 +80,21 @@ class Posts extends CI_Controller {
 			redirect('/admin/posts', 'refresh');
 	  	}
 	}
-	
+
 	public function editPost()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form helper
 		$this->load->helper('form');
-		$this->data['categories'] = $this->Hoosk_model->getCategories(); 
+		$this->data['categories'] = $this->Hoosk_model->getCategories();
 		//Get post details from database
-		$this->data['posts'] = $this->Hoosk_model->getPost($this->uri->segment(4)); 
+		$this->data['posts'] = $this->Hoosk_model->getPost($this->uri->segment(4));
 		//Load the view
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
-		$this->load->view('admin/editpost', $this->data);
+		$this->load->view('admin/post_edit', $this->data);
 	}
-	
+
 	public function edited()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
@@ -105,7 +103,7 @@ class Posts extends CI_Controller {
 		//Set validation rules
 		$this->form_validation->set_rules('postURL', 'post URL', 'trim|alpha_dash|required|is_unique[hoosk_post.postURL.postID.'.$this->uri->segment(4).']');
 		$this->form_validation->set_rules('postTitle', 'post title', 'trim|required');
-		
+
 		if($this->form_validation->run() == FALSE) {
 			//Validation failed
 			$this->editPost();
@@ -125,9 +123,9 @@ class Posts extends CI_Controller {
 			redirect('/admin/posts', 'refresh');
 	  	}
 	}
-	
 
-	function delete() 
+
+	function delete()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		if($this->input->post('deleteid')):
@@ -135,8 +133,8 @@ class Posts extends CI_Controller {
 			redirect('/admin/posts');
 		else:
 			$this->data['form']=$this->Hoosk_model->getPost($this->uri->segment(4));
-			$this->load->view('admin/deletepost.php', $this->data );	
+			$this->load->view('admin/post_delete.php', $this->data );	
 		endif;
 	}
-	
+
 }

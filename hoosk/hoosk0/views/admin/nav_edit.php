@@ -1,4 +1,4 @@
-<?php echo $header; ?> 
+<?php echo $header; ?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
@@ -10,7 +10,6 @@
                 <i class="fa fa-dashboard"></i>
                 	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
                 </li>
-                <li>
                 <li class="active">
                 <i class="fa fa-fw fa-list-alt"></i>
                 	<a href="/admin/navigation"><?php echo $this->lang->line('menu_header'); ?></a>
@@ -34,109 +33,110 @@
                 </h3>
             </div>
             <div class="panel-body">
-             <div class="form-group">		
-             		
-					<?php $attr = array('id' => 'navForm');
-					echo form_open('admin/navigation/insert', $attr); ?>	
+             <?php foreach ($nav as $n) { ?>
+             <div class="form-group">
 
-            		<?php echo form_error('navSlug', '<div class="alert alert-danger">', '</div>'); ?>									
-					<label class="control-label" for="navSlug"><?php echo $this->lang->line('menu_new_nav_slug'); ?></label>
+					<?php $attr = array('id' => 'navForm');
+					echo form_open('admin/navigation/update/'.$n['navSlug'], $attr); ?>
+
+					<label class="control-label" for="pageTitle"><?php echo $this->lang->line('menu_new_nav_slug'); ?></label>
 					<div class="controls">
                     <?php 	$data = array(
 						  'name'        => 'navSlug',
 						  'id'          => 'navSlug',
-						  'class'       => 'form-control URLField',
-						  'maxlength'		=> '10',
-						  'value'		=> set_value('navSlug', '', FALSE)
+						  'class'       => 'form-control URLField disabled',
+						  'disabled'	=> '',
+						  'value'		=> set_value('navSlug', $n['navSlug'])
 						);
-			
+
 						echo form_input($data); ?>
-					</div> <!-- /controls -->				
+					</div> <!-- /controls -->
 				</div> <!-- /form-group -->
-                
-                 <div class="form-group">		
-            		<?php echo form_error('navTitle', '<div class="alert alert-danger">', '</div>'); ?>									
+
+                 <div class="form-group">
+            		<?php echo form_error('navTitle', '<div class="alert">', '</div>'); ?>
 					<label class="control-label" for="navTitle"><?php echo $this->lang->line('menu_new_nav_title'); ?></label>
 					<div class="controls">
                     <?php 	$data = array(
 						  'name'        => 'navTitle',
 						  'id'          => 'navTitle',
 						  'class'       => 'form-control',
-						  'value'		=> set_value('navTitle', '', FALSE)
+						  'value'		=> set_value('navTitle', $n['navTitle'])
 						);
-			
+
 						echo form_input($data); ?>
-					</div> <!-- /controls -->				
+					</div> <!-- /controls -->
 				</div> <!-- /form-group -->
-              	<hr />
+               	<hr />
                 <h3><?php echo $this->lang->line('menu_new_add_page'); ?></h3>
                 <hr />
-             <div class="form-group">		
+             <div class="form-group">
 					<label class="control-label" for="pagesList"><?php echo $this->lang->line('menu_new_select_page'); ?></label>
 					<div class="controls">
-						
+
                        <?php $att = 'id="pagesList" class="form-control"';
 				$data = array();
 				foreach ($pages as $p){
-				$data[$p['pageURL']] = $p['navTitle'];	
+				$data[$p['pageURL']] = $p['navTitle'];
 				}
 				echo form_dropdown('pagesList', $data, '1', $att); ?>
 
-					</div> <!-- /controls -->				
-				</div> <!-- /form-group -->  
-      		<div class="form-group">		
+					</div> <!-- /controls -->
+				</div> <!-- /form-group -->
+      		<div class="form-group">
 					<div class="controls">
            				<a class="btn btn-primary" onClick="addNav()"><?php echo $this->lang->line('btn_add'); ?></a>
-      				</div> <!-- /controls -->				
-			</div> <!-- /form-group -->  
+      				</div> <!-- /controls -->
+			</div> <!-- /form-group -->
             <hr />
-            <div class="form-group">		
+            <div class="form-group">
 					<label class="control-label" for="customlinkTitle"><?php echo $this->lang->line('menu_new_custom_title'); ?></label>
 					<div class="controls">
-						
-                       <input type="text" id="customlinkTitle" value=""  class="form-control" />
 
-					</div> <!-- /controls -->				
-				</div> <!-- /form-group -->  
-            <div class="form-group">		
+                       <input type="text" id="customlinkTitle" value=""  class="form-control"/>
+
+					</div> <!-- /controls -->
+				</div> <!-- /form-group -->
+            <div class="form-group">
 					<label class="control-label" for="customURLHREF"><?php echo $this->lang->line('menu_new_custom_link'); ?></label>
 					<div class="controls">
-						
-                       <input type="text" id="customURLHREF" value="http://" class="form-control" />
 
-					</div> <!-- /controls -->				
+                       <input type="text" id="customURLHREF" value="http://"  class="form-control" />
+
+					</div> <!-- /controls -->
 				</div> <!-- /form-group -->
-      		<div class="form-group">		
+      		<div class="form-group">
 					<div class="controls">
            				<a class="btn btn-primary" onClick="addCustomURL()"><?php echo $this->lang->line('btn_add'); ?></a>
-      				</div> <!-- /controls -->				
-			</div> <!-- /form-group -->    
+      				</div> <!-- /controls -->
+			</div> <!-- /form-group -->
             <hr />
             <h3><?php echo $this->lang->line('menu_new_drop_down'); ?></h3>
             <hr />
-               <div class="form-group">		
+               <div class="form-group">
 					<label class="control-label" for="parent"><?php echo $this->lang->line('menu_new_drop_title'); ?></label>
 					<div class="controls">
-                       <input type="text" id="parentTitle" value="" class="form-control" />
-					</div> <!-- /controls -->				
+                       <input type="text" id="parentTitle" value=""  class="form-control"/>
+					</div> <!-- /controls -->
 				</div> <!-- /form-group -->
-                 <div class="form-group">		
+                <div class="form-group">
 					<label class="control-label" for="parent"><?php echo $this->lang->line('menu_new_drop_link'); ?></label>
 					<div class="controls">
-                       <input type="text" id="parentSlug" value="" class="form-control URLField" />
-					</div> <!-- /controls -->				
+                       <input type="text" id="parentSlug" value=""  class="form-control URLField"/>
+					</div> <!-- /controls -->
 				</div> <!-- /form-group -->
-      		<div class="form-group">		
+      		<div class="form-group">
 					<div class="controls">
            				<a class="btn btn-primary" onClick="addDropDown()"><?php echo $this->lang->line('btn_add'); ?></a>
-      				</div> <!-- /controls -->				
-			</div> <!-- /form-group -->    
-            </div> 
+      				</div> <!-- /controls -->
+			</div> <!-- /form-group -->
+
+            </div>
           </div>
      </div>
 
 	<div class="col-md-8">
-         <div class="panel panel-default">
+          <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
                     <?php echo $this->lang->line('menu_new_nav'); ?>
@@ -144,26 +144,31 @@
             </div>
             <div class="panel-body">
                 <div class="dd" id="navHolder">
-                    <ul class="dd-list list-group" id="mainNav">
-        
+                    <ul class="dd-list" id="mainNav">
+                        <?php echo $n['navEdit'] ?>
                     </ul>
                 </div>
-            </div> 
-            <div class="panel-footer">	
+            </div>
+            <div class="panel-footer">
                <input type="hidden" id="seriaNav" name="seriaNav"/>
                <input type="hidden" name="convertedNav" id="convertedNav"/>
                 <div class="controls">
                     <a class="btn btn-primary" onClick="serializeNav()"><?php echo $this->lang->line('btn_save'); ?></a>
-                </div> <!-- /controls -->				
+                </div> <!-- /controls -->
                 <?php echo form_close() ?>
-            </div>
-            
+			</div> <!-- /form-group -->
+
           </div>
-		</div>
-	</div>
-	<!-- /row --> 
-</div>
-<!-- /container --> 
+          <!-- /widget -->
+           </div>
+ <?php } ?>
+
+
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+
 <script type="text/javascript">
 
 function addNav(){
@@ -182,7 +187,7 @@ function addNav(){
 			alert('error');
 		  }
 		});
-	
+
 }
 
 function addCustomURL(){
@@ -190,7 +195,7 @@ function addCustomURL(){
 	var customlinkTitle = document.getElementById("customlinkTitle").value;
 	var customURLHREF = document.getElementById("customURLHREF").value;
 	if (customlinkTitle != ""){
-	newLink = "<li class='dd-item' data-href='" + customURLHREF +"' data-title='" + customlinkTitle +"' data-type='1'><a class='right' onclick='var li = this.parentNode; var ul = li.parentNode; ul.removeChild(li);'><i class='fa fa-remove'></i></a><div class='dd-handle'>" + customlinkTitle +"</div></li>";	
+	newLink = "<li class='dd-item' data-href='" + customURLHREF +"' data-title='" + customlinkTitle +"' data-type='1'><a class='right' onclick='var li = this.parentNode; var ul = li.parentNode; ul.removeChild(li);'><i class='fa fa-remove'></i></a><div class='dd-handle'>" + customlinkTitle +"</div></li>";
 	document.getElementById("mainNav").innerHTML += newLink;
 	}
 }
@@ -203,9 +208,9 @@ function addDropDown(){
 	if (parentSlug.search(regexp) == -1)
     { alert('<?php echo $this->lang->line('menu_new_drop_error'); ?>'); }
 	else
-    {  
+    {
 	if (parentTitle != "" && parentSlug != ""){
-	newLink = "<li class='dd-item parent' data-href='" + parentSlug + "' data-title='" + parentTitle +"'><a class='right' onclick='var li = this.parentNode; var ul = li.parentNode; ul.removeChild(li);'><i class='fa fa-remove'></i></a><div class='dd-handle'>" + parentTitle +" <b class='fa fa-caret-down'></b></div></li>";	
+	newLink = "<li class='dd-item parent' data-href='" + parentSlug + "' data-title='" + parentTitle +"'><a class='right' onclick='var li = this.parentNode; var ul = li.parentNode; ul.removeChild(li);'><i class='fa fa-remove'></i></a><div class='dd-handle'>" + parentTitle +" <b class='caret dd-caret'></b></div></li>";
 	document.getElementById("mainNav").innerHTML += newLink;
 	}}
 }
@@ -220,18 +225,18 @@ function addDropDown(){
             output.val('JSON browser support required for this demo.');
         }
     };
-	
+
 $(document).ready(function()
 {
 
-   
+
 
     // activate Nestable for list 1
     $('.dd').nestable({
         group: 1,
 		listNodeName:'ul',
 		maxDepth: 2,
-    })
+	    })
     .on('change', updateOutput);
 	 // output initial serialised data
     updateOutput($('.dd').data('output', $('#seriaNav')));
@@ -243,8 +248,8 @@ function serializeNav(){
   	var parentHREF = '';
 	var parseJsonAsHTMLTree = function(jsn) {
     var result = '';
-	
-jsn.forEach(function(item) {
+
+    jsn.forEach(function(item) {
       if (item.title && item.children) {
         result += '<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">' + item.title + '<b class="caret"></b></a><ul class="dropdown-menu">';
 		parentHREF = item.href;
@@ -261,7 +266,7 @@ jsn.forEach(function(item) {
 					}
 				} else {
 				result += '<li><a href="<?php echo BASE_URL; ?>">' + item.title + '</a></li>';
-				}				
+				}
 		  } else {
 				if (item.type != "1"){
 			  	result += '<li><a href="/' + parentHREF + "/" + item.href + '">' + item.title + '</a></li>';
