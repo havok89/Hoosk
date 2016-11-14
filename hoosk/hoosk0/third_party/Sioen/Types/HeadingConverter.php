@@ -19,6 +19,6 @@ class HeadingConverter extends BaseConverter implements ConverterInterface
 
     public function toHtml(array $data)
     {
-      return "<".$data['heading'].">".$data['text'] . "</".$data['heading'].">";
+      return "<".$data['heading'].">".stripslashes($data['text']) . "</".$data['heading'].">";
     }
 }
