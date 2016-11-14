@@ -1,10 +1,10 @@
-.jumbotron.errorpadding {padding-top:125px;padding-bottom:60px;background:#eee;}
-.jumbotron.jumbo-padding {padding-top:125px;padding-bottom:60px;background:#eee;}
+.jumbotron.errorpadding {padding-top:105px;padding-bottom:45px;background:#eee;}
+.jumbotron.jumbo-padding {padding-top:105px;padding-bottom:45px;background:#eee;}
 .jumbotron.slider-padding {padding:0;margin-top:60px;}
 .jumbotron.errorpadding img {margin-bottom:15px;}
 .jumbotron.text-center img {display:block;margin:0 auto;}
-.carouselpadding {margin-top:45px;}
-.carousel-inner > .item > a > img  {margin:0 auto!important;width:100%;}
+.carousel-inner .item img  {margin:0 auto!important;width:100%;}
+.content-padding {padding-top:40px;padding-bottom:40px;}
 .navbar-brand img {
     height: 36px!important;
 }
@@ -30,3 +30,10 @@
 .text-left {text-align:left;}
 .float-right {float:right;}
 .float-left {float:left;}
+h2 {margin-top:0;}
+.search-margin {margin-top:40px;}
+.search-container {background:#ddd}
+.footer {background:#eee}
+.search-container .form-group {margin:0;}
+.search-container .btn {display:block;width:100%;}
+.thumbnail .caption {min-height:300px;}

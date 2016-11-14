@@ -19,6 +19,6 @@ class HeadingConverter extends BaseConverter implements ConverterInterface
 
     public function toHtml(array $data)
     {
-        return Markdown::defaultTransform('## ' . $data['text']);
+      return "<".$data['heading'].">".$data['text'] . "</".$data['heading'].">";
     }
 }

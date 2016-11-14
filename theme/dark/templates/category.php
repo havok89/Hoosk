@@ -1,16 +1,5 @@
 <?php echo $header; ?>
-<!-- JUMBOTRON 
-=================================-->
 
-<div class="jumbotron text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col col-lg-12 col-sm-12">
-        </div>
-      </div>
-    </div> 
-</div>
-<!-- /JUMBOTRON container-->
 <!-- CONTENT
 =================================-->
 <?php $totSegments = $this->uri->total_segments();
@@ -21,7 +10,7 @@
 		}
 		$limit = 10;
 ?>
-<div class="container">
+<div class="container content-padding">
     <div class="row">
     	<div class="col-md-3"><div class="row">
            <div class="col-md-12"><h3>Latest Articles:</h3><?php getLatestNewsSidebar(); ?></div>

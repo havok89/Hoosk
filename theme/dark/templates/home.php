@@ -1,7 +1,7 @@
 <?php echo $header; ?>
-<!-- JUMBOTRON 
+<!-- JUMBOTRON
 =================================-->
-<div class="jumbotron text-center <?php if (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 1)) { echo "carouselpadding"; } elseif (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 0)) { echo "errorpadding"; } elseif (($page['enableJumbotron'] == 0) && ($page['enableSlider'] == 1)) { echo "slider-padding"; } ?>">
+<div class="jumbotron text-center">
 	<?php if ($page['enableSlider'] == 1) { ?>
     <div id="carousel" class="carousel slide " data-ride="carousel">
         <?php getCarousel($page['pageID']); ?>
@@ -15,20 +15,24 @@
       </a>
     </div>
     <?php } ?>
-
-    <div class="container">
-      <div class="row">
-			<?php if ($page['enableJumbotron'] == 1) { echo $page['jumbotronHTML']; } ?>        
+		<?php if ($page['enableJumbotron'] == 1) { ?>
+	    <div class="container content-padding">
+	      <div class="row">
+					<div class="col-md-12">
+						<?php echo $page['jumbotronHTML']; ?>
+					</div>
         </div>
       </div>
-    </div> 
+		<?php } ?>
 </div>
+
+
+
 <!-- /JUMBOTRON container-->
 <!-- CONTENT
 =================================-->
-<div class="container">
+<div class="container content-padding">
     <?php echo $page['pageContentHTML']; ?>
-  	<hr>
 </div>
 <!-- /CONTENT ============-->
 

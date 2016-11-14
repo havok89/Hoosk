@@ -12,8 +12,8 @@ class Hoosk_default extends CI_Controller {
 		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
 		$this->data['settings']=$this->Hoosk_page_model->getSettings();
 	}
-	
-	
+
+
 	public function index()
 	{
 		$totSegments = $this->uri->total_segments();
@@ -32,7 +32,7 @@ class Hoosk_default extends CI_Controller {
 			$this->error();
 		}
 	}
-	
+
 		public function category()
 	{
 		$catSlug = $this->uri->segment(2);
@@ -45,7 +45,7 @@ class Hoosk_default extends CI_Controller {
 			$this->error();
 		}
 	}
-	
+
 		public function article()
 	{
 		$articleURL = $this->uri->segment(2);
@@ -58,16 +58,16 @@ class Hoosk_default extends CI_Controller {
 			$this->error();
 		}
 	}
-	
+
 	public function error()
 	{
 		$this->data['page']['pageTitle']="Oops, Error";
 		$this->data['page']['pageDescription']="Oops, Error";
 		$this->data['page']['pageKeywords']="Oops, Error";
 		$this->data['page']['pageID']="0";
+		$this->data['page']['pageTemplate']="error";
 		$this->data['header'] = $this->load->view('templates/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('templates/footer', '', true);
-		$this->load->view('templates/error', $this->data);
+		$this->load->view('templates/'.$this->data['page']['pageTemplate'], $this->data);
 	}
 }
-

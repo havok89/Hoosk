@@ -17,9 +17,11 @@ class ButtonConverter extends BaseConverter implements ConverterInterface
 
     public function toHtml(array $data)
     {
-		// echo "<pre>";
-      // print_r($data);
-       //die();
-        return '<a href="' . $data['url'] . '" class="' . $data['style'] . ' ' . $data['size'] . '">' . $data['html'] . '</a>' . "\n";
+      if ($data['is_block']==1){
+        $block=" btn-block";
+      } else {
+        $block = "";
+      }
+      return '<a href="' . $data['url'] . '" class="btn ' . $data['style'] . ' ' . $data['size'] . $block .'">' . $data['html'] . '</a>' . "\n";
     }
 }

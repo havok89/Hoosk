@@ -1,5 +1,5 @@
 <?php echo $header; ?>
-<!-- JUMBOTRON 
+<!-- JUMBOTRON
 =================================-->
 
 <div class="jumbotron text-center errorpadding">
@@ -11,7 +11,7 @@
         <p>Sorry this page is currently unavailable.</p>
         </div>
       </div>
-    </div> 
+    </div>
 </div>
 <!-- /JUMBOTRON container-->
 <!--
