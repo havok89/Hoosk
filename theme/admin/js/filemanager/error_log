@@ -1,0 +1,29 @@
+[26-Nov-2016 21:09:04 Europe/Rome] PHP Notice:  Undefined index: language in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 33
+[26-Nov-2016 21:09:04 Europe/Rome] PHP Warning:  scandir(../source/): failed to open dir: No such file or directory in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 531
+[26-Nov-2016 21:09:04 Europe/Rome] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 531
+[26-Nov-2016 21:09:04 Europe/Rome] PHP Warning:  Invalid argument supplied for foreach() in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 543
+[26-Nov-2016 21:09:04 Europe/Rome] PHP Notice:  Undefined variable: files_prevent_duplicate in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 1089
+[26-Nov-2016 21:09:04 Europe/Rome] PHP Warning:  Invalid argument supplied for foreach() in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 1089
+[26-Nov-2016 21:10:56 Europe/Rome] PHP Warning:  scandir(../source/): failed to open dir: No such file or directory in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 531
+[26-Nov-2016 21:10:56 Europe/Rome] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 531
+[26-Nov-2016 21:10:56 Europe/Rome] PHP Warning:  Invalid argument supplied for foreach() in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 543
+[26-Nov-2016 21:10:56 Europe/Rome] PHP Notice:  Undefined variable: files_prevent_duplicate in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 1089
+[26-Nov-2016 21:10:56 Europe/Rome] PHP Warning:  Invalid argument supplied for foreach() in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 1089
+[26-Nov-2016 21:11:23 Europe/Rome] PHP Warning:  scandir(../source/): failed to open dir: No such file or directory in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 531
+[26-Nov-2016 21:11:23 Europe/Rome] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 531
+[26-Nov-2016 21:11:23 Europe/Rome] PHP Warning:  Invalid argument supplied for foreach() in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 543
+[26-Nov-2016 21:11:23 Europe/Rome] PHP Notice:  Undefined variable: files_prevent_duplicate in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 1089
+[26-Nov-2016 21:11:23 Europe/Rome] PHP Warning:  Invalid argument supplied for foreach() in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 1089
+[26-Nov-2016 21:13:04 Europe/Rome] PHP Warning:  scandir(../../../images/): failed to open dir: No such file or directory in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 531
+[26-Nov-2016 21:13:04 Europe/Rome] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 531
+[26-Nov-2016 21:13:04 Europe/Rome] PHP Warning:  Invalid argument supplied for foreach() in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 543
+[26-Nov-2016 21:13:04 Europe/Rome] PHP Notice:  Undefined variable: files_prevent_duplicate in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 1089
+[26-Nov-2016 21:13:04 Europe/Rome] PHP Warning:  Invalid argument supplied for foreach() in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 1089
+[26-Nov-2016 21:13:08 Europe/Rome] PHP Warning:  scandir(../../../images/): failed to open dir: No such file or directory in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 531
+[26-Nov-2016 21:13:08 Europe/Rome] PHP Warning:  scandir(): (errno 2): No such file or directory in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 531
+[26-Nov-2016 21:13:08 Europe/Rome] PHP Warning:  Invalid argument supplied for foreach() in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 543
+[26-Nov-2016 21:13:08 Europe/Rome] PHP Notice:  Undefined variable: files_prevent_duplicate in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 1089
+[26-Nov-2016 21:13:08 Europe/Rome] PHP Warning:  Invalid argument supplied for foreach() in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 1089
+[26-Nov-2016 22:17:23 Europe/Rome] PHP Notice:  Undefined index: language in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 33
+[27-Nov-2016 13:04:09 Europe/Rome] PHP Notice:  Undefined index: language in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 33
+[27-Nov-2016 14:15:35 Europe/Rome] PHP Notice:  Undefined index: language in /home/theloxie/public_html/betahoosk/theme/admin/js/filemanager/dialog.php on line 33

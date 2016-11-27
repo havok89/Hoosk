@@ -1,3 +1,4 @@
+var base_url = window.location.origin;
 (function() {
   var tab_template;
 
@@ -70,8 +71,7 @@
 (function() {
   var button_template,
     __hasProp = {}.hasOwnProperty;
-
-  button_template = '<span class="btn btn-default st-required" contenteditable="true">Button</span>';
+  button_template = '<span class="btn btn-default st-required placeholder-btn" contenteditable="true" data-ph="Button"></span>';
 
   SirTrevor.Blocks.Button = SirTrevor.Block.extend({
     button_sizes: {
@@ -90,7 +90,7 @@
     },
     type: "button",
     title: 'Button',
-    editorHTML: '<div class="st-button-form-wrapper form-inline well" style="margin: 10px; display: none;"> <div class="form-group"> Size: <select name="size"></select> </div> <div class="form-group"> Style: <select name="style"></select> </div> <div class="form-group"> Full width: <input type="checkbox" name="is_block"/> </div> <div class="form-group"> URL: <input type="text" name="url" value=""/> </div> <button type="button">OK</button> </div> <div class="st-button-wrapper" style="text-align: center; min-height: 0">' + button_template + '</div>',
+    editorHTML: '<div class="st-button-form-wrapper  well" style="margin: 10px; display: none;"> <div class="form-group"> Size: <select class="form-control" name="size"></select> </div> <div class="form-group"> Style: <select class="form-control" name="style"></select> </div> <div class="form-group"> Full width: <input type="checkbox" class="form-control" name="is_block"/> </div> <div class="form-group"> URL: <div class="input-group"><input class="form-control" type="text" name="url" value="" placeholder="Enter a URL or click the button to link to a file"/><span class="input-group-btn"><a href="'+base_url+'/theme/admin/js/filemanager/dialog.php?type=2&field_id=URLStore" class="btn btn-primary iframe-btn" onClick="event.preventDefault();return fancybox(this);">Link to File</a></span> </div></div> <button type="button" class="btn btn-primary">OK</button> </div> <div class="st-button-wrapper" style="text-align: center; min-height: 0">' + button_template + '</div>',
     icon_name: 'button',
     loadData: function(data) {
       return this.$find('.btn').html(SirTrevor.toHTML(data.text, this.type));

@@ -6,16 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="<?php echo ADMIN_THEME; ?>/css/bootstrap.min.css" rel="stylesheet">
 <link href="<?php echo ADMIN_THEME; ?>/css/sb-admin.css" rel="stylesheet">
+<link href="<?php echo ADMIN_THEME; ?>/css/jquery.fancybox-1.3.4.css" rel="stylesheet">
 <link href="<?php echo ADMIN_THEME; ?>/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
-<script src="<?php echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script> 
-<script src="<?php echo ADMIN_THEME; ?>/js/jquery-ui-1.9.2.js"></script> 
-<script src="<?php echo ADMIN_THEME; ?>/js/jquery.nestable.js"></script> 
-
-<script src="<?php echo ADMIN_THEME; ?>/js/excanvas.min.js"></script> 
+<script src="<?php echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script>
+<script src="<?php echo ADMIN_THEME; ?>/js/jquery.fancybox-1.3.4.pack.js"></script>
+<script src="<?php echo ADMIN_THEME; ?>/js/jquery-ui-1.9.2.js"></script>
+<script src="<?php echo ADMIN_THEME; ?>/js/jquery.nestable.js"></script>
+<script src="<?php echo ADMIN_THEME; ?>/js/excanvas.min.js"></script>
 <script src="<?php echo ADMIN_THEME; ?>/js/bootstrap.js"></script>
-<script src="<?php echo ADMIN_THEME; ?>/js/base.js"></script> 
+<script src="<?php echo ADMIN_THEME; ?>/js/base.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -49,7 +50,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="<?php if ($current == "") { echo "active"; } ?>">
-                    	<a href="/admin"><i class="fa fa-dashboard"></i> <span><?php echo $this->lang->line('nav_dash'); ?></span> </a> 
+                    	<a href="/admin"><i class="fa fa-dashboard"></i> <span><?php echo $this->lang->line('nav_dash'); ?></span> </a>
                     </li>
 					<li class="dropdown <?php if ($current == "pages") { echo "active"; } ?>">
                     	<a href="javascript:;" data-toggle="collapse" data-target="#pagesmenu"> <i class="fa fa-file"> </i> <span><?php echo $this->lang->line('nav_pages'); ?></span> <i class="fa fa-fw fa-caret-down"></i></a>
