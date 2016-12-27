@@ -31,7 +31,13 @@
 
 	}
 	
-	
+	function getFeedPosts()
+	{
+		$CI =& get_instance();
+		$CI->db->order_by("unixStamp", "desc");
+		$query=$CI->db->get('hoosk_post');
+		return $query->result_array();
+	}
 	//Get the Latest 5 news posts
 	function getLatestNewsSidebar()
 	{

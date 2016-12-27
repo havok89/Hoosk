@@ -237,47 +237,61 @@ $(document).ready(function()
 });
 
 function serializeNav(){
-    updateOutput($('.dd').data('output', $('#seriaNav')));
-  	var jsn = JSON.parse(document.getElementById('seriaNav').value);
-  	var parentHREF = '';
-	var parseJsonAsHTMLTree = function(jsn) {
-    var result = '';
 
-jsn.forEach(function(item) {
-      if (item.title && item.children) {
-        result += '<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">' + item.title + '<b class="caret"></b></a><ul class="dropdown-menu">';
-		parentHREF = item.href;
-        result += parseJsonAsHTMLTree(item.children);
-		parentHREF = "";
-        result += '</ul></li>';
+  $.ajax({
+    url: "/admin/check/session",
+  }).done(function(data) {
+    sessionExist = data;
+    if(sessionExist==0){
+      $('.modal').modal('hide');
+      $('#loginModal').modal({
+        backdrop: 'static',
+        keyboard: false
+      }).modal('show');
       } else {
-		  if (parentHREF == ""){
-			  	if (item.href != "home"){
-					if (item.type != "1"){
-        				result += '<li><a href="/' + item.href + '">' + item.title + '</a></li>';
-					} else {
-			  			result += '<li><a href="' + item.href + '">' + item.title + '</a></li>';
-					}
-				} else {
-				result += '<li><a href="<?php echo BASE_URL; ?>">' + item.title + '</a></li>';
-				}
-		  } else {
-				if (item.type != "1"){
-			  	result += '<li><a href="/' + parentHREF + "/" + item.href + '">' + item.title + '</a></li>';
-				} else {
-			  	result += '<li><a href="' + item.href + '">' + item.title + '</a></li>';
-				}
-		  }
-      }
-    });
+      updateOutput($('.dd').data('output', $('#seriaNav')));
+    	var jsn = JSON.parse(document.getElementById('seriaNav').value);
+    	var parentHREF = '';
+  	var parseJsonAsHTMLTree = function(jsn) {
+      var result = '';
 
-    return result + '';
-  };
+  jsn.forEach(function(item) {
+        if (item.title && item.children) {
+          result += '<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">' + item.title + '<b class="caret"></b></a><ul class="dropdown-menu">';
+  		parentHREF = item.href;
+          result += parseJsonAsHTMLTree(item.children);
+  		parentHREF = "";
+          result += '</ul></li>';
+        } else {
+  		  if (parentHREF == ""){
+  			  	if (item.href != "home"){
+  					if (item.type != "1"){
+          				result += '<li><a href="/' + item.href + '">' + item.title + '</a></li>';
+  					} else {
+  			  			result += '<li><a href="' + item.href + '">' + item.title + '</a></li>';
+  					}
+  				} else {
+  				result += '<li><a href="<?php echo BASE_URL; ?>">' + item.title + '</a></li>';
+  				}
+  		  } else {
+  				if (item.type != "1"){
+  			  	result += '<li><a href="/' + parentHREF + "/" + item.href + '">' + item.title + '</a></li>';
+  				} else {
+  			  	result += '<li><a href="' + item.href + '">' + item.title + '</a></li>';
+  				}
+  		  }
+        }
+      });
 
-  var result = '<ul class="nav navbar-nav">' + parseJsonAsHTMLTree(jsn) + '</ul>';
-  document.getElementById('convertedNav').value = result;
-  document.getElementById('seriaNav').value = document.getElementById("mainNav").innerHTML;
-  document.getElementById("navForm").submit();
+      return result + '';
+    };
+
+    var result = '<ul class="nav navbar-nav">' + parseJsonAsHTMLTree(jsn) + '</ul>';
+    document.getElementById('convertedNav').value = result;
+    document.getElementById('seriaNav').value = document.getElementById("mainNav").innerHTML;
+    document.getElementById("navForm").submit();
+  }
+});
  }
 </script>
 <?php echo $footer; ?>

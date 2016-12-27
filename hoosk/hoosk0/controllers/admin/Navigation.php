@@ -7,7 +7,7 @@ class Navigation extends CI_Controller {
 		parent::__construct();
 		define("HOOSK_ADMIN",1);
 		$this->load->model('Hoosk_model');
-		$this->load->helper(array('admincontrol', 'url'));
+		$this->load->helper(array('admincontrol', 'url', 'form'));
 		$this->load->library('session');
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
@@ -16,11 +16,12 @@ class Navigation extends CI_Controller {
 		define ('SITE_NAME', $this->Hoosk_model->getSiteName());
 		define('THEME', $this->Hoosk_model->getTheme());
 		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
+		//check session exists
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 	}
 
 	public function index()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$this->load->library('pagination');
     $result_per_page =15;  // the number of result per page
     $config['base_url'] = BASE_URL. '/admin/navigation/';
@@ -41,10 +42,8 @@ class Navigation extends CI_Controller {
 
 	public function newNav()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Get pages from database
 		$this->data['pages'] = $this->Hoosk_model->getPagesAll();
-		$this->load->helper('form');
 		//Load the view
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
@@ -53,12 +52,10 @@ class Navigation extends CI_Controller {
 
 	public function editNav()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Get pages from database
 		$this->data['pages'] = $this->Hoosk_model->getPagesAll();
 		//Get navigation from database
 		$this->data['nav'] = $this->Hoosk_model->getNav($this->uri->segment(4));
-		$this->load->helper('form');
 		//Load the view
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
@@ -67,7 +64,6 @@ class Navigation extends CI_Controller {
 
 	public function navAdd()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Get navigation from database
 		$this->data['page'] = $this->Hoosk_model->getPageNav($this->uri->segment(3));
 		//Load the view
@@ -76,7 +72,6 @@ class Navigation extends CI_Controller {
 
 	public function insert()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 
@@ -98,7 +93,6 @@ class Navigation extends CI_Controller {
 
 	public function update()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 
@@ -118,13 +112,12 @@ class Navigation extends CI_Controller {
 
 		function deleteNav()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		if($this->input->post('deleteid')):
 			$this->Hoosk_model->removeNav($this->input->post('deleteid'));
 			redirect('/admin/navigation');
 		else:
 			$this->data['form']=$this->Hoosk_model->getNav($this->uri->segment(4));
-			$this->load->view('admin/nav_delete.php', $this->data );	
+			$this->load->view('admin/nav_delete.php', $this->data );
 		endif;
 	}
 }

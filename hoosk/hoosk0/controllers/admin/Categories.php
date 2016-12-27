@@ -7,7 +7,7 @@ class Categories extends CI_Controller {
 		parent::__construct();
 		define("HOOSK_ADMIN",1);
 		$this->load->model('Hoosk_model');
-		$this->load->helper(array('admincontrol', 'url', 'file'));
+		$this->load->helper(array('admincontrol', 'url', 'file', 'form'));
 		$this->load->library('session');
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
@@ -16,11 +16,12 @@ class Categories extends CI_Controller {
 		define ('SITE_NAME', $this->Hoosk_model->getSiteName());
 		define('THEME', $this->Hoosk_model->getTheme());
 		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
+		//check session exists
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 	}
 
 	public function index()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$this->load->library('pagination');
     $result_per_page =15;  // the number of result per page
     $config['base_url'] = BASE_URL. '/admin/posts/categories/';
@@ -40,9 +41,6 @@ class Categories extends CI_Controller {
 
 	public function addCategory()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		//Load the form helper
-		$this->load->helper('form');
 		//Load the view
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
@@ -51,7 +49,6 @@ class Categories extends CI_Controller {
 
 	public function confirm()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 		//Set validation rules
@@ -72,9 +69,6 @@ class Categories extends CI_Controller {
 
 	public function editCategory()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		//Load the form helper
-		$this->load->helper('form');
 		//Get category details from database
 		$this->data['category'] = $this->Hoosk_model->getCategory($this->uri->segment(5));
 		//Load the view
@@ -85,7 +79,6 @@ class Categories extends CI_Controller {
 
 	public function edited()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 		//Set validation rules
@@ -109,7 +102,6 @@ class Categories extends CI_Controller {
 
 	function delete()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		if($this->input->post('deleteid')):
 			$this->Hoosk_model->removeCategory($this->input->post('deleteid'));
 			redirect('/admin/posts/categories');

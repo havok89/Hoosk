@@ -7,7 +7,7 @@ class Users extends CI_Controller {
 		parent::__construct();
 		define("HOOSK_ADMIN",1);
 		$this->load->model('Hoosk_model');
-		$this->load->helper(array('admincontrol', 'url'));
+		$this->load->helper(array('admincontrol', 'url', 'form'));
 		$this->load->library('session');
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
@@ -42,8 +42,6 @@ class Users extends CI_Controller {
 	public function addUser()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		//Load the form helper
-		$this->load->helper('form');
 		//Load the view
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
@@ -77,8 +75,6 @@ class Users extends CI_Controller {
 	public function editUser()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		//Load the form helper
-		$this->load->helper('form');
 		//Get user details from database
 		$this->data['users'] = $this->Hoosk_model->getUser($this->uri->segment(4));
 		//Load the view
@@ -119,7 +115,7 @@ class Users extends CI_Controller {
 			redirect('/admin/users');
 		else:
 			$this->data['form']=$this->Hoosk_model->getUser($this->uri->segment(4));
-			$this->load->view('admin/user_delete.php', $this->data );	
+			$this->load->view('admin/user_delete.php', $this->data );
 		endif;
 	}
 
@@ -198,7 +194,7 @@ class Users extends CI_Controller {
       	else
       	{
 			$this->load->database();
-			$this->load->helper(array('form', 'url'));
+			$this->load->helper('url');
 			$this->load->library('form_validation');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[20]|matches[con_password]');
 			$this->form_validation->set_rules('con_password', 'Password Confirmation', 'trim|required');

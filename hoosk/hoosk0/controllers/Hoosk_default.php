@@ -70,4 +70,26 @@ class Hoosk_default extends CI_Controller {
 		$this->data['footer'] = $this->load->view('templates/footer', '', true);
 		$this->load->view('templates/'.$this->data['page']['pageTemplate'], $this->data);
 	}
+	
+	public function feed()
+	{
+		
+		if (($this->uri->segment(2)=="atom")||($this->uri->segment(2)=="rss"))
+		{
+		$posts = getFeedPosts();
+		$this->load->library('feed');
+		$feed = new Feed();
+		$feed->title = SITE_NAME;
+		$feed->description = SITE_NAME;
+		$feed->link = BASE_URL;
+		$feed->pubdate = date("m/d/y H:i:s", $posts[0]['unixStamp']);
+		foreach ($posts as $post)
+		{
+			$feed->add($post['postTitle'], BASE_URL.'/article/'.$post['postURL'], date("m/d/y H:i:s", $post['unixStamp']), $post['postExcerpt']);
+		}
+		$feed->render($this->uri->segment(2));
+		} else {
+			$this->error();
+		}
+	}
 }

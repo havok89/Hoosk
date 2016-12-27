@@ -1,0 +1,38 @@
+.st-block[data-type=Columns] > .st-block__inner > .columns-row > .column {
+  position: relative; }
+  .st-block[data-type=Columns] > .st-block__inner > .columns-row > .column > .st-block-controls__top, .st-block[data-type=Columns] > .st-block__inner > .columns-row > .column > .st-block.st-icon--add::after {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto; }
+  .st-block[data-type=Columns] > .st-block__inner > .columns-row > .column::before {
+    display: none;
+    position: absolute;
+    width: 95%;
+    left: 2.5%;
+    border: 1px solid #35debc;
+    border-bottom: none;
+    height: 3px;
+    content: ' ';
+    box-sizing: border-box; }
+.st-block[data-type=Columns] > .st-block__inner > .st-block__control-ui [data-icon]:before {
+  font-family: 'ST-Columns-Icons'; }
+.st-block[data-type=Columns]:hover > .st-block__inner > .columns-row > .column::before {
+  display: block; }
+.st-block[data-type=Columns] .column .st-block-controls {
+  font-size: 90%; }
+  .st-block[data-type=Columns] .column .st-block-controls .st-block-control {
+    margin-right: 5px;
+    margin-bottom: 3px; }
+    .st-block[data-type=Columns] .column .st-block-controls .st-block-control[data-type=Columns] {
+      display: none; }
+
+.st-block-controls .st-block-control[data-type=Columns] .st-icon {
+  font-family: 'ST-Columns-Icons'; }
+
+@font-face {
+  font-family: 'ST-Columns-Icons';
+  src: url("fonts/ST-Columns-Icons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+/*# sourceMappingURL=sir-trevor-columns-block.css.map */

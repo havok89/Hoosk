@@ -7,7 +7,7 @@ class Posts extends CI_Controller {
 		parent::__construct();
 		define("HOOSK_ADMIN",1);
 		$this->load->model('Hoosk_model');
-		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin', 'file'));
+		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin', 'file', 'form'));
 		$this->load->library('session');
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
@@ -16,11 +16,13 @@ class Posts extends CI_Controller {
 		define ('SITE_NAME', $this->Hoosk_model->getSiteName());
 		define('THEME', $this->Hoosk_model->getTheme());
 		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
+		//check session exists
+		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 	}
 
 	public function index()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
+
 		$this->load->library('pagination');
     $result_per_page =15;  // the number of result per page
     $config['base_url'] = BASE_URL. '/admin/posts/';
@@ -40,9 +42,6 @@ class Posts extends CI_Controller {
 
 	public function addPost()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		//Load the form helper
-		$this->load->helper('form');
 		$this->data['categories'] = $this->Hoosk_model->getCategories();
 		//Load the view
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
@@ -52,7 +51,6 @@ class Posts extends CI_Controller {
 
 	public function confirm()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 		//Set validation rules
@@ -83,9 +81,6 @@ class Posts extends CI_Controller {
 
 	public function editPost()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		//Load the form helper
-		$this->load->helper('form');
 		$this->data['categories'] = $this->Hoosk_model->getCategories();
 		//Get post details from database
 		$this->data['posts'] = $this->Hoosk_model->getPost($this->uri->segment(4));
@@ -97,7 +92,6 @@ class Posts extends CI_Controller {
 
 	public function edited()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
 		//Set validation rules
@@ -127,13 +121,12 @@ class Posts extends CI_Controller {
 
 	function delete()
 	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		if($this->input->post('deleteid')):
 			$this->Hoosk_model->removePost($this->input->post('deleteid'));
 			redirect('/admin/posts');
 		else:
 			$this->data['form']=$this->Hoosk_model->getPost($this->uri->segment(4));
-			$this->load->view('admin/post_delete.php', $this->data );	
+			$this->load->view('admin/post_delete.php', $this->data );
 		endif;
 	}
 

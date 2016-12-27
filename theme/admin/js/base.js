@@ -1,17 +1,45 @@
+var sessionExist=1;
+
+$( document ).ready(function() {
+	setInterval(function() {
+		if(sessionExist==1){
+		$.ajax({
+				url: "/admin/check/session",
+			}).done(function(data) {
+				sessionExist = data;
+				if(sessionExist==0){
+					$('.modal').modal('hide');
+					$('#loginModal').modal({
+					  backdrop: 'static',
+					  keyboard: false
+					}).modal('show');
+				}
+			});
+		}
+	}, 60000);
+});
+
+$(document).on("click", "#ajaxLoginbtn", function(event){
+	$.post("/admin/ajax/login", {
+		username: $('#username').val(),
+		password: $('#password').val()
+	}).done(function(data) {
+    if(data==1){
+			$('#loginModal').modal('hide');
+			sessionExist=1;
+		} else {
+			$('#loginError').show();
+		}
+  });
+});
+
 $(function () {
-
-
 	$('.subnavbar').find ('li').each (function (i) {
-
 		var mod = i % 3;
-
 		if (mod === 2) {
 			$(this).addClass ('subnavbar-open-right');
 		}
-
 	});
-
-
 });
 
 $('#remote-modals').on("hidden.bs.modal", ".modal:not(.local-modal)", function (e) {

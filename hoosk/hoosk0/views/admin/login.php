@@ -23,7 +23,7 @@
                                               'value'		=> set_value('username'),
                                               'placeholder'	=> $this->lang->line('login_username')
                                             );
-                                
+
                                             echo form_input($data); ?>
                                 </div>
                                 <div class="form-group">
@@ -35,10 +35,10 @@
                                           'value'		=> set_value('password'),
                                           'placeholder'	=> $this->lang->line('login_password')
                                         );
-                            
+
                                         echo form_password($data); ?>
                                 </div>
-					
+
                                 <div class="form-group">
                                 	<input type="submit" class="btn btn-success btn-block" value="<?php echo $this->lang->line('login_signin'); ?>">
                                 </div>

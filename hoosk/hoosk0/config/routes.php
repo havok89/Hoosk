@@ -54,6 +54,8 @@ $route['admin'] = "admin/admin";
 $route['admin/login'] = "admin/admin/login";
 $route['admin/login/check'] = "admin/admin/loginCheck";
 $route['admin/logout'] = "admin/admin/logout";
+$route['admin/check/session'] = "admin/admin/checkSession";
+$route['admin/ajax/login'] = "admin/admin/ajaxLogin";
 $route['admin/users'] = "admin/users";
 $route['admin/users/new'] = "admin/users/addUser";
 $route['admin/users/new/add'] = "admin/users/confirm";
@@ -102,7 +104,7 @@ $route['admin/posts/(:any)'] = "admin/posts";
 
 $route['category/(:any)'] = "hoosk_default/category";
 $route['article/(:any)'] = "hoosk_default/article";
-
+$route['feed/(:any)'] = "hoosk_default/feed";
 $route['(.+)'] = "hoosk_default";
 $route['default_controller'] = "hoosk_default";
 $route['404_override'] = '';

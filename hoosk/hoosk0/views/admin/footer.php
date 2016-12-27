@@ -25,8 +25,49 @@
         </div> <!-- /.modal-dialog -->
     </div> <!-- /.modal -->
 </div>
-<script type="text/javascript">
+<!-- Modal -->
+<div id="loginModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-</script>
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><?php echo $this->lang->line('login_signin'); ?></h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-warning"><p><?php echo $this->lang->line('login_expired'); ?></p></div>
+        <div id="loginError" class='alert alert-danger'><?php echo $this->lang->line('login_incorrect'); ?></div>
+
+        <div class="form-group">
+            <label for="username"><?php echo $this->lang->line('login_username'); ?></label>
+<?php 	$data = array(
+                      'name'        => 'username',
+                      'id'          => 'username',
+                      'class'       => 'form-control',
+                      'value'		=> set_value('username'),
+                      'placeholder'	=> $this->lang->line('login_username')
+                    );
+
+                    echo form_input($data); ?>
+        </div>
+        <div class="form-group">
+            <label for="password"><?php echo $this->lang->line('login_password'); ?>:</label>
+<?php 	$data = array(
+                  'name'        => 'password',
+                  'id'          => 'password',
+                  'class'       => 'form-control',
+                  'value'		=> set_value('password'),
+                  'placeholder'	=> $this->lang->line('login_password')
+                );
+
+                echo form_password($data); ?>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a id="ajaxLoginbtn" class="btn btn-primary"><?php echo $this->lang->line('login_signin'); ?></a>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

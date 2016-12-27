@@ -29,7 +29,7 @@ $lang['login_password']		= "Password";
 $lang['login_signin']		= "Sign In";
 $lang['login_reset']		= "Reset Password";
 $lang['login_incorrect']	= "The Username of Password entered is incorrect.";
-
+$lang['login_expired']		= "Your session has expired, please use the form below to sign back in!";
 
 //Forgot Password
 $lang['forgot_reset']		= "Password Reset";
@@ -46,7 +46,7 @@ $lang['forgot_check_email']	= "Please check your email for further instructions"
 $lang['dash_welcome']		= "Welcome <small>to Hoosk</small>";
 $lang['dash_recent']		= "Recently Updated Pages";
 $lang['dash_message']		= "This is your Hoosk dashboard, Using the navigation bar you can add or edit the users, pages or navigation menus on your website. Hoosk is built around the bootstrap framework, this should make your website fully responsive with ease.";
-
+$lang['feed_heading']		= "Hoosk News";
 
 
 //Settings Page
