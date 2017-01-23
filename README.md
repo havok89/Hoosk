@@ -18,7 +18,6 @@ Click the Wiki tab at the top or if your lazy just use these links:
 
 _**Note:** I am still writing more docs pages so check back soon_
 
-
 ## Credits
 Plugins and libraries that I have made use of in Hoosk:
 - CI-Feed - https://github.com/RoumenDamianoff/ci-feed
@@ -32,3 +31,9 @@ Plugins and libraries that I have made use of in Hoosk:
 - CodeIgniter - https://github.com/bcit-ci/CodeIgniter
 - Fontawesome - https://github.com/FortAwesome/Font-Awesome
 - sb-admin - https://github.com/BlackrockDigital/startbootstrap-sb-admin
+
+##
+![BrowserStack](http://hoosk.org/browserstack-logo.png)
+
+Hoosk is cross browser tested using BrowserStack.
+BrowserStack provides instant access to multiple desktop and mobile browsers, check it out! - [https://www.browserstack.com](https://www.browserstack.com)
