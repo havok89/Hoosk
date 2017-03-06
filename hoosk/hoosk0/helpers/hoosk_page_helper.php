@@ -35,6 +35,7 @@
 	{
 		$CI =& get_instance();
 		$CI->db->order_by("unixStamp", "desc");
+        $CI->db->where('published', 1);
 		$query=$CI->db->get('hoosk_post');
 		return $query->result_array();
 	}
@@ -43,11 +44,12 @@
 	{
 		$CI =& get_instance();
 		$CI->db->order_by("unixStamp", "desc");
+        $CI->db->where('published', 1);
 		$CI->db->limit(5, 0);
 		$query=$CI->db->get('hoosk_post');
 		$posts = '<ul class="list-group">';
 		foreach($query->result_array() as $c):
-			$posts .= '<li class="list-group-item"><a href="/article/'.$c['postURL'].'">'.$c['postTitle'].'</a></li>';
+			$posts .= '<li class="list-group-item"><a href="'.BASE_URL.'/article/'.$c['postURL'].'">'.$c['postTitle'].'</a></li>';
 		endforeach;
 		$posts .= "</ul>";
 		echo $posts;
@@ -58,23 +60,24 @@
 	{
 		$CI =& get_instance();
 		$CI->db->order_by("unixStamp", "desc");
-		$CI->db->limit($limit, $offset);
+        $CI->db->where('published', 1);
+        $CI->db->limit($limit, $offset);
 		$query=$CI->db->get('hoosk_post');
 		$posts = '';
 		foreach($query->result_array() as $c):
 			$date = new DateTime($c['datePosted']);
 			$posts .= '<div class="row">';
 			if ($c['postImage'] != "") {
-			$posts .= '<div class="col-md-3"><a href="/article/'.$c['postURL'].'"><img class="img-responsive" src="'.BASE_URL.'/images/'.$c['postImage'].'" alt="'.$c['postTitle'].'"/></a></div>';
-			$posts .= '<div class="col-md-9"><h3><a href="/article/'.$c['postURL'].'">'.$c['postTitle'].'</a></h3>';
+			$posts .= '<div class="col-md-3"><a href="'.BASE_URL.'/article/'.$c['postURL'].'"><img class="img-responsive" src="'.BASE_URL.'/images/'.$c['postImage'].'" alt="'.$c['postTitle'].'"/></a></div>';
+			$posts .= '<div class="col-md-9"><h3><a href="'.BASE_URL.'/article/'.$c['postURL'].'">'.$c['postTitle'].'</a></h3>';
 			$posts .= '<p class="meta">'.date_format($date, 'd/m/Y').'</p>';
 			$posts .= '<p>'.$c['postExcerpt'].'</p>';
-			$posts .= '<p><a class="btn btn-primary" href="/article/'.$c['postURL'].'">Read More</a></p>';
+			$posts .= '<p><a class="btn btn-primary" href="'.BASE_URL.'/article/'.$c['postURL'].'">Read More</a></p>';
 			} else {
-			$posts .= '<div class="col-md-12"><h3><a href="/article/'.$c['postURL'].'">'.$c['postTitle'].'</a></h3>';
+			$posts .= '<div class="col-md-12"><h3><a href="'.BASE_URL.'/article/'.$c['postURL'].'">'.$c['postTitle'].'</a></h3>';
 			$posts .= '<p class="meta">'.date_format($date, 'd/m/Y').'</p>';
 			$posts .= '<p>'.$c['postExcerpt'].'</p>';
-			$posts .= '<p><a class="btn btn-primary" href="/article/'.$c['postURL'].'">Read More</a></p>';			}
+			$posts .= '<p><a class="btn btn-primary" href="'.BASE_URL.'/article/'.$c['postURL'].'">Read More</a></p>';			}
 			$posts .= '</div>';
 			$posts .= "</div><hr />";
 		endforeach;
@@ -90,11 +93,12 @@
 		$categories = '<ul class="list-group">';
 		foreach($query->result_array() as $c):
 			$CI->db->where('categoryID', $c['categoryID']);
-			$CI->db->from('hoosk_post');
+            $CI->db->where('published', 1);
+            $CI->db->from('hoosk_post');
 			$query = $CI->db->get();
 			$totPosts = $query->num_rows();
 			if ($totPosts > 0){
-			$categories .= '<li class="list-group-item"><a href="/category/'.$c['categorySlug'].'"><span class="badge">'.$totPosts.'</span>'.$c['categoryTitle'].'</a></li>';
+			$categories .= '<li class="list-group-item"><a href="'.BASE_URL.'/category/'.$c['categorySlug'].'"><span class="badge">'.$totPosts.'</span>'.$c['categoryTitle'].'</a></li>';
 			}
 		endforeach;
 		$categories .= "</ul>";
@@ -106,7 +110,8 @@
 	{
 		$CI =& get_instance();
 		$CI->db->from('hoosk_post');
-		$query = $CI->db->get();
+        $CI->db->where('published', 1);
+        $query = $CI->db->get();
 		$totPosts = $query->num_rows();
 		$showing = $offset+$limit;
 		if ($showing > $totPosts){
@@ -121,6 +126,7 @@
 		$CI =& get_instance();
 		$CI->db->from('hoosk_post');
 		$CI->db->where('categoryID', $categoryID);
+        $CI->db->where('published', 1);
 		$query = $CI->db->get();
 		$totPosts = $query->num_rows();
 		$showing = $offset+$limit;
@@ -143,8 +149,9 @@
 			$i++;
 		}
 		$CI->db->from('hoosk_post');
+        $CI->db->where('categoryID', $categoryID);
+        $CI->db->where('published', 1);
 		$query = $CI->db->get();
-		$CI->db->where('categoryID', $categoryID);
 		$totPosts = $query->num_rows();
 		$showing = $offset+$limit;
 		if ($showing > $totPosts){
@@ -171,6 +178,7 @@
 			$i++;
 		}
 		$CI->db->from('hoosk_post');
+        $CI->db->where('published', 1);
 		$CI->db->where('categoryID', $categoryID);
 		$query = $CI->db->get();
 		$totPosts = $query->num_rows();
@@ -198,6 +206,7 @@
 			}
 			$i++;
 		}
+        $CI->db->where('published', 1);
 		$CI->db->from('hoosk_post');
 		$query = $CI->db->get();
 		$totPosts = $query->num_rows();
@@ -225,6 +234,7 @@
 			}
 			$i++;
 		}
+        $CI->db->where('published', 1);
 		$CI->db->from('hoosk_post');
 		$query = $CI->db->get();
 		$totPosts = $query->num_rows();
@@ -247,22 +257,23 @@
 		$CI->db->order_by("unixStamp", "desc");
 		$CI->db->limit($limit, $offset);
 		$CI->db->where('categoryID', $categoryID);
+        $CI->db->where('published', 1);
 		$query=$CI->db->get('hoosk_post');
 		$posts = '';
 		foreach($query->result_array() as $c):
 			$date = new DateTime($c['datePosted']);
 			$posts .= '<div class="row">';
 			if ($c['postImage'] != "") {
-			$posts .= '<div class="col-md-3"><a href="/article/'.$c['postURL'].'"><img class="img-responsive" src="'.BASE_URL.'/images/'.$c['postImage'].'" alt="'.$c['postTitle'].'"/></a></div>';
-			$posts .= '<div class="col-md-9"><h3><a href="/article/'.$c['postURL'].'">'.$c['postTitle'].'</a></h3>';
+			$posts .= '<div class="col-md-3"><a href="'.BASE_URL.'/article/'.$c['postURL'].'"><img class="img-responsive" src="'.BASE_URL.'/images/'.$c['postImage'].'" alt="'.$c['postTitle'].'"/></a></div>';
+			$posts .= '<div class="col-md-9"><h3><a href="'.BASE_URL.'/article/'.$c['postURL'].'">'.$c['postTitle'].'</a></h3>';
 			$posts .= '<p class="meta">'.date_format($date, 'd/m/Y').'</p>';
 			$posts .= '<p>'.$c['postExcerpt'].'</p>';
-			$posts .= '<p><a class="btn btn-primary" href="/article/'.$c['postURL'].'">Read More</a></p>';
+			$posts .= '<p><a class="btn btn-primary" href="'.BASE_URL.'/article/'.$c['postURL'].'">Read More</a></p>';
 			} else {
-			$posts .= '<div class="col-md-12"><h3><a href="/article/'.$c['postURL'].'">'.$c['postTitle'].'</a></h3>';
+			$posts .= '<div class="col-md-12"><h3><a href="'.BASE_URL.'/article/'.$c['postURL'].'">'.$c['postTitle'].'</a></h3>';
 			$posts .= '<p class="meta">'.date_format($date, 'd/m/Y').'</p>';
 			$posts .= '<p>'.$c['postExcerpt'].'</p>';
-			$posts .= '<p><a class="btn btn-primary" href="/article/'.$c['postURL'].'">Read More</a></p>';			}
+			$posts .= '<p><a class="btn btn-primary" href="'.BASE_URL.'/article/'.$c['postURL'].'">Read More</a></p>';			}
 			$posts .= '</div>';
 			$posts .= "</div><hr />";
 		endforeach;

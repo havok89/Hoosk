@@ -75,7 +75,7 @@ class Posts extends CI_Controller {
 			$this->load->library('Sioen');
 			$this->Hoosk_model->createPost();
 			//Return to post list
-			redirect('/admin/posts', 'refresh');
+			redirect(BASE_URL.'/admin/posts', 'refresh');
 	  	}
 	}
 
@@ -114,7 +114,7 @@ class Posts extends CI_Controller {
 			$this->load->library('Sioen');
 			$this->Hoosk_model->updatePost($this->uri->segment(4));
 			//Return to post list
-			redirect('/admin/posts', 'refresh');
+			redirect(BASE_URL.'/admin/posts', 'refresh');
 	  	}
 	}
 
@@ -123,7 +123,7 @@ class Posts extends CI_Controller {
 	{
 		if($this->input->post('deleteid')):
 			$this->Hoosk_model->removePost($this->input->post('deleteid'));
-			redirect('/admin/posts');
+			redirect(BASE_URL.'/admin/posts');
 		else:
 			$this->data['form']=$this->Hoosk_model->getPost($this->uri->segment(4));
 			$this->load->view('admin/post_delete.php', $this->data );

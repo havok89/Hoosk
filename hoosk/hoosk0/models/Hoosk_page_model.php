@@ -66,7 +66,7 @@ class Hoosk_page_model extends CI_Model {
 			return $page;
 		
 		}
-        return array();
+        return array('pageID' => "",'pageTemplate' => "");
     }
 	function getCategory($catSlug) {
         // Get category
@@ -87,13 +87,14 @@ class Hoosk_page_model extends CI_Model {
 			return $category;
 		
 		}
-        return array();
+        return array('categoryID' => "");
     }
 	
 	function getArticle($postURL) {
         // Get article
         $this->db->select("*");
 		$this->db->where("postURL", $postURL);
+        $this->db->where("published", 1);
         $this->db->join('hoosk_post_category', 'hoosk_post_category.categoryID = hoosk_post.categoryID');
         $query = $this->db->get('hoosk_post');
         if ($query->num_rows() > 0) {
@@ -114,7 +115,7 @@ class Hoosk_page_model extends CI_Model {
 			return $category;
 		
 		}
-        return array();
+        return array('postID' => "");
     }
 	
 	

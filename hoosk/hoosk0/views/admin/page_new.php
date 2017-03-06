@@ -11,11 +11,11 @@
             <ol class="breadcrumb">
                 <li>
                 <i class="fa fa-dashboard"></i>
-                	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
                 </li>
                 <li>
                 <i class="fa fa-fw fa-file"></i>
-                	<a href="/admin/pages"><?php echo $this->lang->line('nav_pages_all'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin/pages"><?php echo $this->lang->line('nav_pages_all'); ?></a>
                 </li>
                 <li class="active">
                 <i class="fa fa-fw fa-pencil"></i>

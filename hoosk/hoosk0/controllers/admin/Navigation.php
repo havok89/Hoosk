@@ -85,7 +85,7 @@ class Navigation extends CI_Controller {
 			//Validation passed
 			$this->Hoosk_model->insertNav();
 			//Return to navigation list
-			redirect('/admin/navigation', 'refresh');
+			redirect(BASE_URL.'/admin/navigation', 'refresh');
 	  	}
 
 	}
@@ -105,7 +105,7 @@ class Navigation extends CI_Controller {
 			//Validation passed
 			$this->Hoosk_model->updateNav($this->uri->segment(4));
 			//Return to navigation list
-			redirect('/admin/navigation', 'refresh');
+			redirect(BASE_URL.'/admin/navigation', 'refresh');
 	  	}
 	}
 
@@ -114,7 +114,7 @@ class Navigation extends CI_Controller {
 	{
 		if($this->input->post('deleteid')):
 			$this->Hoosk_model->removeNav($this->input->post('deleteid'));
-			redirect('/admin/navigation');
+			redirect(BASE_URL.'/admin/navigation');
 		else:
 			$this->data['form']=$this->Hoosk_model->getNav($this->uri->segment(4));
 			$this->load->view('admin/nav_delete.php', $this->data );

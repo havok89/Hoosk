@@ -66,7 +66,7 @@ class Pages extends CI_Controller {
 			$this->load->library('Sioen');
 			$this->Hoosk_model->createPage();
 			//Return to page list
-			redirect('/admin/pages', 'refresh');
+			redirect(BASE_URL.'/admin/pages', 'refresh');
 	  	}
 	}
 
@@ -101,7 +101,7 @@ class Pages extends CI_Controller {
 			$this->load->library('Sioen');
 			$this->Hoosk_model->updatePage($this->uri->segment(4));
 			//Return to page list
-			redirect('/admin/pages', 'refresh');
+			redirect(BASE_URL.'/admin/pages', 'refresh');
 	  	}
 	}
 
@@ -121,7 +121,7 @@ class Pages extends CI_Controller {
 	{
 		$this->load->library('Sioen');
 		$this->Hoosk_model->updateJumbotron($this->uri->segment(4));
-		redirect('/admin/pages', 'refresh');
+		redirect(BASE_URL.'/admin/pages', 'refresh');
 	}
 
 

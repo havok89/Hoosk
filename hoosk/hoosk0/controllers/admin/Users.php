@@ -68,7 +68,7 @@ class Users extends CI_Controller {
 			//Add the user
 			$this->Hoosk_model->createUser();
 			//Return to user list
-			redirect('/admin/users', 'refresh');
+			redirect(BASE_URL.'/admin/users', 'refresh');
 	  	}
 	}
 
@@ -102,7 +102,7 @@ class Users extends CI_Controller {
 			//Update the user
 			$this->Hoosk_model->updateUser($this->uri->segment(4));
 			//Return to user list
-			redirect('/admin/users', 'refresh');
+			redirect(BASE_URL.'/admin/users', 'refresh');
 	  	}
 	}
 
@@ -112,7 +112,7 @@ class Users extends CI_Controller {
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		if($this->input->post('deleteid')):
 			$this->Hoosk_model->removeUser($this->input->post('deleteid'));
-			redirect('/admin/users');
+			redirect(BASE_URL.'/admin/users');
 		else:
 			$this->data['form']=$this->Hoosk_model->getUser($this->uri->segment(4));
 			$this->load->view('admin/user_delete.php', $this->data );

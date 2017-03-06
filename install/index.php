@@ -25,9 +25,9 @@ $filename = 'hoosk.sql';
 
 
 // Connect to MySQL server
-mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
+$con = mysqli_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysqli_error());
 // Select database
-mysql_select_db($mysql_database) or die('Error selecting MySQL database: ' . mysql_error());
+mysqli_select_db($con, $mysql_database) or die('Error selecting MySQL database: ' . mysqli_error());
 
 // Temporary variable, used to store current query
 $templine = '';
@@ -47,7 +47,7 @@ if (substr(trim($line), -1, 1) == '~')
 {
 	$templine = str_replace(";~", ";", $templine);
     // Perform the query
-    mysql_query($templine) or die(print('Error performing query \'<strong>' . htmlspecialchars($templine) . '\': ' . mysql_error() . '<br /><br />'));
+    mysqli_query($con, $templine) or die(print('Error performing query \'<strong>' . htmlspecialchars($templine) . '\': ' . mysqli_error() . '<br /><br />'));
     // Reset temp variable to empty
     $templine = '';
 }
@@ -68,6 +68,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $conn->close();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,10 +97,10 @@ $conn->close();
         <div class="col col-lg-12 col-sm-12">
         <img src="images/large_logo.png" />
         <h1>Installation Completed!</h1>
-        <p>The default username is admin and password is h00sk</p>
+        <p>The default username is <strong>demo</strong> and password is <strong>demo</strong></p>
         <p><strong>Change these when you login!</strong></p>
         <p>Please now delete the /install directory</p>
-		<a href="http://<?php echo $_POST['siteURL']; ?>/admin" class="btn-success btn">Login</a>
+		<a href="http://<?php echo $_POST['siteURL']; ?>/install/complete" class="btn-success btn">Login</a>
         </div>
       </div>
     </div> 
@@ -109,7 +110,7 @@ $conn->close();
     <!-- FOOTER
     =================================-->
     <div class="container">
-     <p>&copy; Hoosk 2014</p>
+     <p>&copy; Hoosk 2017</p>
     </div>
 	<!-- /FOOTER ============-->
 
@@ -209,7 +210,7 @@ $conn->close();
     <!-- FOOTER
     =================================-->
     <div class="container">
-     <p>&copy; Hoosk 2014</p>
+     <p>&copy; Hoosk 2017</p>
     </div>
 	<!-- /FOOTER ============-->
 

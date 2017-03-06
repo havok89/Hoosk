@@ -58,7 +58,7 @@
                     <?php 
                     foreach ($recenltyUpdated as $p) {
                         echo '<li class="list-group-item"><span class="badge">'.date("jS", strtotime($p["pageUpdated"])).' '.date("M", strtotime($p["pageUpdated"])).'</span>';
-                            echo '<p><a href="/admin/pages/edit/'.$p['pageID'].'" class="news-item-title" target="_blank">'.$p['pageTitle'].'</a></p>';
+                            echo '<p><a href="'.BASE_URL.'/admin/pages/edit/'.$p['pageID'].'" class="news-item-title" target="_blank">'.$p['pageTitle'].'</a></p>';
                             echo '<p>'.wordlimit($p['pageContentHTML']).'</p>';
                         echo '</li>';
                     } ?>

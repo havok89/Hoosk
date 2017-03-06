@@ -54,9 +54,6 @@ class Admin extends CI_Controller {
 	}
 	public function login()
 	{
-
-
-
 		$this->data['header'] = $this->load->view('admin/headerlog', '', true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
 		$this->load->view('admin/login', $this->data);
@@ -68,7 +65,7 @@ class Admin extends CI_Controller {
 		$password=md5($this->input->post('password').SALT);
 		$result=$this->Hoosk_model->login($username,$password);
 		if($result) {
-			redirect('/admin', 'refresh');
+			redirect(BASE_URL.'/admin', 'refresh');
 		}
 		else
 		{
@@ -128,7 +125,7 @@ class Admin extends CI_Controller {
 		{
 			//if the file was uploaded then update settings
 			$this->Hoosk_model->updateSettings();
-			redirect('/admin', 'refresh');
+			redirect(BASE_URL.'/admin', 'refresh');
 		}
 		else
 		{
@@ -140,7 +137,7 @@ class Admin extends CI_Controller {
 		{
 
 			$this->Hoosk_model->updateSettings();
-			redirect('/admin', 'refresh');
+			redirect(BASE_URL.'/admin', 'refresh');
 		}
 
 	}
@@ -181,7 +178,7 @@ class Admin extends CI_Controller {
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$this->Hoosk_model->updateSocial();
-		redirect('/admin', 'refresh');
+		redirect(BASE_URL.'/admin', 'refresh');
 	}
 
 	public function checkSession()
@@ -192,4 +189,11 @@ class Admin extends CI_Controller {
 			echo 1;
 		}
 	}
+
+    public function complete()
+    {
+        unlink(FCPATH."install/hoosk.sql");
+        unlink(FCPATH."install/index.php");
+        redirect(BASE_URL.'/admin', 'refresh');
+    }
 }

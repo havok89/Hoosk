@@ -8,11 +8,11 @@
             <ol class="breadcrumb">
                 <li>
                 <i class="fa fa-dashboard"></i>
-                	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
                 </li>
                 <li class="active">
                 <i class="fa fa-fw fa-list-alt"></i>
-                	<a href="/admin/navigation"><?php echo $this->lang->line('menu_header'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin/navigation"><?php echo $this->lang->line('menu_header'); ?></a>
                 </li>
             </ol>
         </div>
@@ -34,7 +34,7 @@
 						    <tr>
 						      <td><?php echo $n['navTitle']?></td>
 						      <td class="td-actions">
-                    <a href="/admin/navigation/edit/<?php echo $n['navSlug']?>" class="btn btn-small btn-success"><i class="fa fa-pencil"> </i></a>
+                    <a href="<?php echo BASE_URL; ?>/admin/navigation/edit/<?php echo $n['navSlug']?>" class="btn btn-small btn-success"><i class="fa fa-pencil"> </i></a>
                     <a data-toggle="modal" data-target="#ajaxModal" class="btn btn-danger btn-small" href="<?php echo BASE_URL.'/admin/navigation/delete/'.$n['navSlug']; ?>"><i class="fa fa-remove"> </i></a>
                   </td>
 						    </tr>

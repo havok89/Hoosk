@@ -63,7 +63,7 @@ class Categories extends CI_Controller {
 			//Add the category
 			$this->Hoosk_model->createCategory();
 			//Return to category list
-			redirect('/admin/posts/categories', 'refresh');
+			redirect(BASE_URL.'/admin/posts/categories', 'refresh');
 	  	}
 	}
 
@@ -93,7 +93,7 @@ class Categories extends CI_Controller {
 			//Update the category
 			$this->Hoosk_model->updateCategory($this->uri->segment(5));
 			//Return to category list
-			redirect('/admin/posts/categories', 'refresh');
+			redirect(BASE_URL.'/admin/posts/categories', 'refresh');
 	  	}
 	}
 
@@ -104,7 +104,7 @@ class Categories extends CI_Controller {
 	{
 		if($this->input->post('deleteid')):
 			$this->Hoosk_model->removeCategory($this->input->post('deleteid'));
-			redirect('/admin/posts/categories');
+			redirect(BASE_URL.'/admin/posts/categories');
 		else:
 			$this->data['form']=$this->Hoosk_model->getCategory($this->uri->segment(5));
 			$this->load->view('admin/post_category_delete.php', $this->data );

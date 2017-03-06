@@ -8,11 +8,11 @@
             <ol class="breadcrumb">
                 <li>
                 <i class="fa fa-dashboard"></i>
-                	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
                 </li>
                 <li class="active">
                 <i class="fa fa-fw fa-list"></i>
-                	<a href="/admin/posts/categories"><?php echo $this->lang->line('cat_header'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin/posts/categories"><?php echo $this->lang->line('cat_header'); ?></a>
                 </li>
             </ol>
         </div>
@@ -33,7 +33,7 @@
 					foreach ($categories as $c) {
 						echo '<tr>';
 						echo '<td>'.$c['categoryTitle'].'</td>';
-						echo '<td class="td-actions"><a href="/admin/posts/categories/edit/'.$c['categoryID'].'" class="btn btn-small btn-success"><i class="fa fa-pencil"> </i></a> <a data-toggle="modal" data-target="#ajaxModal" class="btn btn-danger btn-small" href="'.BASE_URL.'/admin/posts/categories/delete/'.$c['categoryID'].'"><i class="fa fa-remove"></i></a></td>';
+						echo '<td class="td-actions"><a href="'.BASE_URL.'/admin/posts/categories/edit/'.$c['categoryID'].'" class="btn btn-small btn-success"><i class="fa fa-pencil"> </i></a> <a data-toggle="modal" data-target="#ajaxModal" class="btn btn-danger btn-small" href="'.BASE_URL.'/admin/posts/categories/delete/'.$c['categoryID'].'"><i class="fa fa-remove"></i></a></td>';
 						echo '</tr>';
 					} ?>
                 </tbody>

@@ -8,11 +8,11 @@
             <ol class="breadcrumb">
                 <li>
                 <i class="fa fa-dashboard"></i>
-                	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
                 </li>
                 <li>
                 <i class="fa fa-fw fa-list"></i>
-                	<a href="/admin/posts/categories"><?php echo $this->lang->line('cat_header'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin/posts/categories"><?php echo $this->lang->line('cat_header'); ?></a>
                 </li>
                 <li class="active">
                 <i class="fa fa-fw fa-pencil"></i>

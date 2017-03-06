@@ -8,11 +8,11 @@
             <ol class="breadcrumb">
                 <li>
                 <i class="fa fa-dashboard"></i>
-                	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
                 </li>
                 <li class="active">
                 <i class="fa fa-fw fa-share-alt"></i>
-                	<a href="/admin/social"><?php echo $this->lang->line('social_header'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin/social"><?php echo $this->lang->line('social_header'); ?></a>
                 </li>
             </ol>
         </div>

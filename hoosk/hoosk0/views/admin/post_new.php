@@ -12,11 +12,11 @@
             <ol class="breadcrumb">
                 <li>
                 <i class="fa fa-dashboard"></i>
-                	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
                 </li>
                 <li>
                 <i class="fa fa-fw fa-newspaper-o"></i>
-                	<a href="/admin/posts"><?php echo $this->lang->line('nav_posts_all'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin/posts"><?php echo $this->lang->line('nav_posts_all'); ?></a>
                 </li>
                 <li class="active">
                 <i class="fa fa-fw fa-pencil"></i>
@@ -149,6 +149,20 @@
 						echo form_dropdown('categoryID', $data, '0', $att); ?>
 					</div> <!-- /controls -->
 				</div> <!-- /form-group -->
+                  <div class="form-group">
+                      <?php echo form_error('published', '<div class="alert alert-danger">', '</div>'); ?>
+                      <label class="control-label" for="published"><?php echo $this->lang->line('posts_new_published'); ?></label>
+                      <div class="controls">
+                          <?php
+                          $att = 'id="published" class="form-control"';
+                          $data = array(
+                              1 => 'Yes',
+                              0 => 'No'
+                          );
+
+                          echo form_dropdown('published', $data, '1', $att); ?>
+                      </div> <!-- /controls -->
+                  </div> <!-- /form-group -->
             <div class="form-group">
                     <div id="datetimepicker1" class="input-append date">
                     <label class="control-label" for="categoryID"><?php echo $this->lang->line('posts_new_date'); ?></label>

@@ -8,11 +8,11 @@
             <ol class="breadcrumb">
                 <li>
                 <i class="fa fa-dashboard"></i>
-                	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
                 </li>
                 <li class="active">
                 <i class="fa fa-fw fa-file"></i>
-                	<a href="/admin/pages"><?php echo $this->lang->line('nav_pages_all'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin/pages"><?php echo $this->lang->line('nav_pages_all'); ?></a>
                 </li>
             </ol>
         </div>
@@ -28,6 +28,7 @@
                     <th> <?php echo $this->lang->line('pages_table_page'); ?> </th>
                     <th> <?php echo $this->lang->line('pages_table_updated'); ?> </th>
                     <th> <?php echo $this->lang->line('pages_table_created'); ?> </th>
+                      <th> <?php echo $this->lang->line('pages_table_published'); ?> </th>
                     <th class="td-actions"> </th>
                   </tr>
                 </thead>
@@ -38,7 +39,8 @@
 							echo '<td>'.$p['navTitle'].'</td>';
 							echo '<td>'.$p['pageUpdated'].'</td>';
 							echo '<td>'.$p['pageCreated'].'</td>';
-							echo '<td class="td-actions"><a href="/admin/pages/jumbo/'.$p['pageID'].'" class="btn btn-small btn-primary">'.$this->lang->line('btn_jumbotron').'</a> <a href="/admin/pages/edit/'.$p['pageID'].'" class="btn btn-small btn-success"><i class="fa fa-pencil"> </i></a> <a data-toggle="modal" data-target="#ajaxModal" class="btn btn-danger btn-small" href="'.BASE_URL.'/admin/pages/delete/'.$p['pageID'].'"><i class="fa fa-remove"> </i></a></td>';
+                            echo '<td>'.($p['pagePublished'] ? '<span class="fa fa-2x fa-check-circle"></span>' : '<span class="fa fa-2x fa-times-circle"></span>').'</td>';
+							echo '<td class="td-actions"><a href="'.BASE_URL.'/admin/pages/jumbo/'.$p['pageID'].'" class="btn btn-small btn-primary">'.$this->lang->line('btn_jumbotron').'</a> <a href="'.BASE_URL.'/admin/pages/edit/'.$p['pageID'].'" class="btn btn-small btn-success"><i class="fa fa-pencil"> </i></a> <a data-toggle="modal" data-target="#ajaxModal" class="btn btn-danger btn-small" href="'.BASE_URL.'/admin/pages/delete/'.$p['pageID'].'"><i class="fa fa-remove"> </i></a></td>';
 						echo '</tr>';
 					} ?>
                 </tbody>

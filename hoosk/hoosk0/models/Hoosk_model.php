@@ -508,6 +508,7 @@ class Hoosk_model extends CI_Model {
 			'postContent' => $this->input->post('content'),
             'postContentHTML' => $HTMLContent,
 			'postExcerpt' => $this->input->post('postExcerpt'),
+            'published' => $this->input->post('published'),
 			'datePosted' => $this->input->post('datePosted'),
 			'unixStamp' => $this->input->post('unixStamp'),
         );
@@ -550,6 +551,7 @@ class Hoosk_model extends CI_Model {
 			'postContent' => $this->input->post('content'),
             'postContentHTML' => $HTMLContent,
 			'postExcerpt' => $this->input->post('postExcerpt'),
+            'published' => $this->input->post('published'),
 			'datePosted' => $this->input->post('datePosted'),
 			'unixStamp' => $this->input->post('unixStamp'),
         );

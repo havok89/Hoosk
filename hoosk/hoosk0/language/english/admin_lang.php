@@ -67,6 +67,7 @@ $lang['pages_header']			= "All Pages";
 $lang['pages_table_page']		= "Page";
 $lang['pages_table_updated']	= "Updated";
 $lang['pages_table_created']	= "Created";
+$lang['pages_table_published']	= "Published";
 $lang['pages_delete']			= "Delete page ";
 $lang['pages_delete_message']	= "This is permanent and cannot be undone…";
 $lang['pages_delete_home']		= "You cannot delete the home page…";
@@ -108,6 +109,7 @@ $lang['posts_header']			= "All Posts";
 $lang['posts_table_post']		= "Post Title";
 $lang['posts_table_category']	= "Category";
 $lang['posts_table_posted']		= "Date Posted";
+$lang['posts_table_published']	= "Published";
 $lang['posts_delete']			= "Delete post ";
 $lang['posts_delete_message']	= "This is permanent and cannot be undone…";
 
@@ -123,7 +125,7 @@ $lang['posts_new_excerpt']			= "Excerpt*";
 $lang['posts_new_category']			= "Category";
 $lang['posts_new_url']				= "Post URL* (no spaces or special characters allowed)";
 $lang['posts_new_date']				= "Date";
-
+$lang['posts_new_published']		= "Published?";
 
 //Posts - All Categories
 $lang['cat_header']			= "All Categories";

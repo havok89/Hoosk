@@ -8,11 +8,11 @@
             <ol class="breadcrumb">
                 <li>
                 <i class="fa fa-dashboard"></i>
-                	<a href="/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
                 </li>
                 <li class="active">
                 <i class="fa fa-fw fa-list-alt"></i>
-                	<a href="/admin/navigation"><?php echo $this->lang->line('menu_header'); ?></a>
+                	<a href="<?php echo BASE_URL; ?>/admin/navigation"><?php echo $this->lang->line('menu_header'); ?></a>
                 </li>
                 <li class="active">
                 <i class="fa fa-fw fa-pencil"></i>
@@ -36,7 +36,7 @@
              <div class="form-group">
 
 					<?php $attr = array('id' => 'navForm');
-					echo form_open('admin/navigation/insert', $attr); ?>
+					echo form_open(BASE_URL.'admin/navigation/insert', $attr); ?>
 
             		<?php echo form_error('navSlug', '<div class="alert alert-danger">', '</div>'); ?>
 					<label class="control-label" for="navSlug"><?php echo $this->lang->line('menu_new_nav_slug'); ?></label>
