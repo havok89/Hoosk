@@ -22,27 +22,32 @@
 					<p><?php echo $this->lang->line('dash_message'); ?></p>
                 </div>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                    <i class="fa fa-newspaper-o fa-fw"></i>
-                    <?php echo $this->lang->line('feed_heading'); ?>
-                    </h3>
+            <?php if(RSS_FEED) { ?>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                        <i class="fa fa-newspaper-o fa-fw"></i>
+                        <?php echo $this->lang->line('feed_heading'); ?>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                        <?php
+                        if($hooskFeed) {
+                            foreach ($hooskFeed as $item) {
+                                $date = date_create($item['pubDate']);
+                                echo '<li class="list-group-item"><span class="badge">' . date_format($date, "jS M y") . '</span>';
+                                echo '<p><a href="' . $item['link'] . '" class="news-item-title" target="_blank">' . $item['title'] . '</a></p>';
+                                echo '<p>' . wordlimit($item['description']) . '</p>';
+                                echo '</li>';
+                            }
+                        } else {
+                            echo '<p>'.$this->lang->line('dash_unreachable').'</p>';
+                        }?>
+                      </ul>
+                    </div>
                 </div>
-                <div class="panel-body">
-                    <ul class="list-group">
-                    <?php 
-                    foreach ($hooskFeed as $item) 
-                    {
-						$date = date_create($item['pubDate']);
-                        echo '<li class="list-group-item"><span class="badge">'.date_format($date,"jS M y").'</span>';
-                            echo '<p><a href="'.$item['link'].'" class="news-item-title" target="_blank">'.$item['title'].'</a></p>';
-                            echo '<p>'.wordlimit($item['description']).'</p>';
-                        echo '</li>';
-                    } ?>
-                  </ul>
-                </div>
-            </div>
+            <?php } ?>
         </div>
         <!-- /colmd6 -->
         <div class="col-md-6">

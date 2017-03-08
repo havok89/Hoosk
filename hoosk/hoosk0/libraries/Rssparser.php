@@ -45,6 +45,10 @@ class RSSParser {
 	}
 
 	// --------------------------------------------------------------------
+    function get_http_response_code($url) {
+        $headers = get_headers($url);
+        return substr($headers[0], 9, 3);
+    }
 
 	function parse()
 	{
@@ -83,8 +87,12 @@ class RSSParser {
 		// Parse the document
 		if (!isset($rawFeed))
 		{
-			$rawFeed = file_get_contents($this->feed_uri);
-		}
+            if($this->get_http_response_code($this->feed_uri) != "200"){
+                return false;
+            }else{
+                $rawFeed = file_get_contents($this->feed_uri);
+            }
+        }
 
 		$xml = new SimpleXmlElement($rawFeed, 0, false);
 

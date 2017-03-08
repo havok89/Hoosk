@@ -21,10 +21,12 @@ class Admin extends CI_Controller {
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$this->data['current'] = $this->uri->segment(2);
 		$this->data['recenltyUpdated'] = $this->Hoosk_model->getUpdatedPages();
-		$this->load->library('rssparser');
-		$this->rssparser->set_feed_url('http://hoosk.org/feed/rss');
-		$this->rssparser->set_cache_life(30);
-		$this->data['hooskFeed'] = $this->rssparser->getFeed(3);
+		if(RSS_FEED) {
+            $this->load->library('rssparser');
+            $this->rssparser->set_feed_url('http://hoosk.org/feed/rss');
+            $this->rssparser->set_cache_life(30);
+            $this->data['hooskFeed'] = $this->rssparser->getFeed(3);
+        }
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
 		$this->load->view('admin/home', $this->data);
