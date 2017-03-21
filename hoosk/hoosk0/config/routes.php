@@ -104,6 +104,7 @@ $route['admin/posts/categories/(:any)'] = "admin/categories";
 $route['admin/posts/(:any)'] = "admin/posts";
 
 $route['category/(:any)'] = "hoosk_default/category";
+$route['category/(:any)/(:any)'] = "hoosk_default/category";
 $route['article/(:any)'] = "hoosk_default/article";
 $route['feed/(:any)'] = "hoosk_default/feed";
 $route['(.+)'] = "hoosk_default";
