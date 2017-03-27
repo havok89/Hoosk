@@ -304,7 +304,7 @@ $(function () {
 			}
 			
 			var files;
-			$('input[name=logo_upload]').on('change', prepareUpload);
+			$('input[name=file_upload]').on('change', prepareUpload);
 		}
 	if(document.getElementById('favicon_upload'))
 		{
