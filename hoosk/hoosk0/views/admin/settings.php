@@ -93,7 +93,7 @@
 					</div> <!-- /controls -->				
 				</div> <!-- /form-group -->
                 <div class="form-group">
-					<label class="control-label" for="themes"><?php echo $this->lang->line('settings_lang'); ?></label>
+					<label class="control-label" for="siteLang"><?php echo $this->lang->line('settings_lang'); ?></label>
 					<div class="controls">
 					<?php
 						$att = 'id="siteLang" class="form-control"';
@@ -101,7 +101,8 @@
 						foreach ($langdir as $l){
 							if (!is_dir($l)){
 								if ($l != "index.html"){
-									$data[$l] = str_replace("/", "", $l);	
+									$l = str_replace("/", "", $l);
+									$data[$l] = $l;		
 								}
 							}
 						}
