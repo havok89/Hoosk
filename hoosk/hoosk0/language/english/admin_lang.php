@@ -51,15 +51,21 @@ $lang['feed_heading']		= "Hoosk News";
 
 
 //Settings Page
-$lang['settings_header']		= "Settings";
-$lang['settings_message']		= "Some basic settings for your site ";
-$lang['settings_info']			= "Information";
-$lang['settings_name']			= "Site Name*";
-$lang['settings_footer']		= "Site Footer Message";
-$lang['settings_theme']			= "Current Theme:";
-$lang['settings_lang']			= "Current Dash Language:";
-$lang['settings_logo']			= "Site Logo";
-$lang['settings_image_error']	= "Error! The file is not an image.";
+$lang['settings_header']				= "Settings";
+$lang['settings_message']				= "Some basic settings for your site ";
+$lang['settings_info']					= "Information";
+$lang['settings_name']					= "Site Name*";
+$lang['settings_footer']				= "Site Footer Message";
+$lang['settings_theme']					= "Current Theme:";
+$lang['settings_lang']					= "Current Dash Language:";
+$lang['settings_logo']					= "Site Logo";
+$lang['settings_favicon']				= "Site Favicon";
+$lang['settings_maintenance']			= "Enable Maintenance Mode?";
+$lang['settings_maintenance_heading']	= "Maintenance Page Heading:";
+$lang['settings_maintenance_meta']		= "Maintenance Page Meta Description";
+$lang['settings_maintenance_content']	= "Maintenance Page Content:";
+$lang['settings_additional_js']			= "Additional Javascript (such as Google Analytics) this will be loaded into all pages, remember to include script tags where necessary:";
+$lang['settings_image_error']			= "Error! The file is not an image.";
 
 
 

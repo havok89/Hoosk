@@ -117,31 +117,16 @@ class Admin extends CI_Controller {
 	public function updateSettings()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-
-		if ($this->input->post('siteLogo') != ""){
-		//path to save the image
 		$path_upload = $_SERVER["DOCUMENT_ROOT"] . '/uploads/';
 		$path_images = $_SERVER["DOCUMENT_ROOT"] . '/images/';
-		//moving temporary file to images folder
-		if(rename($path_upload . $this->input->post('siteLogo'), $path_images . $this->input->post('siteLogo')))
-		{
-			//if the file was uploaded then update settings
-			$this->Hoosk_model->updateSettings();
-			redirect(BASE_URL.'/admin', 'refresh');
+		if ($this->input->post('siteLogo') != ""){
+			rename($path_upload . $this->input->post('siteLogo'), $path_images . $this->input->post('siteLogo'));
 		}
-		else
-		{
-			//return to settings
-			$this->settings();
+		if ($this->input->post('siteFavicon') != ""){
+			rename($path_upload . $this->input->post('siteFavicon'), $path_images . $this->input->post('siteFavicon'));
 		}
-		}
-		else
-		{
-
-			$this->Hoosk_model->updateSettings();
-			redirect(BASE_URL.'/admin', 'refresh');
-		}
-
+		$this->Hoosk_model->updateSettings();
+		redirect(BASE_URL.'/admin', 'refresh');
 	}
 
 	public function uploadLogo()

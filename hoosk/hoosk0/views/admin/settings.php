@@ -83,7 +83,8 @@
 						foreach ($themesdir as $t){
 							if (!is_dir($t)){
 								if (($t != "index.html") && ($t != "admin/") && ($t != "admin")){
-									$data[$t] = str_replace("/", "", $t);	
+									$t = str_replace("/", "", $t);
+									$data[$t] = $t;	
 								}
 							}
 						}
@@ -127,7 +128,92 @@
 						<input type="hidden" id="siteLogo" name="siteLogo" />
 					</div> <!-- /controls -->				
 				</div> <!-- /form-group -->
-                
+              <hr />
+               <div class="form-group">		
+            		<?php echo form_error('file_upload', '<div class="alert">', '</div>'); ?>									
+					<label class="control-label" for="favicon_upload"><?php echo $this->lang->line('settings_favicon'); ?></label>
+					<div class="controls">
+						<div><img src="<?php if ($s['siteFavicon'] != "") { echo BASE_URL.'/images/'.$s['siteFavicon']; } ?>" id="favicon_preloaded" <?php if ($s['siteFavicon'] == "") { echo "style='display:none;'"; } ?>></div>
+						<img src="<?php echo BASE_URL; ?>/theme/admin/images/ajax-loader.gif" style="margin:-7px 5px 0 5px;display:none;" id="loading_pic_favicon" />
+						<?php
+							$data = array(
+								'name'		=> 'favicon_upload',
+								'id'		=> 'favicon_upload',
+								'class'		=> 'form-control'
+							);
+							echo form_upload($data); 
+						?>
+						<input type="hidden" id="siteFavicon" name="siteFavicon" />
+					</div> <!-- /controls -->				
+				</div> <!-- /form-group -->
+                <hr />
+                <div class="form-group">
+					<label class="control-label" for="siteMaintenance"><?php echo $this->lang->line('settings_maintenance'); ?></label>
+					<div class="controls">
+					<?php
+						$att = 'id="siteMaintenance" class="form-control"';
+						$data = array(
+						"0" => "Disabled",
+						"1" => "Enabled"
+						);
+						
+						
+						echo form_dropdown('siteMaintenance', $data, $s['siteMaintenance'], $att); ?>
+					</div> <!-- /controls -->				
+				</div> <!-- /form-group -->
+               <div class="form-group">	
+					<label class="control-label" for="siteMaintenanceHeading"><?php echo $this->lang->line('settings_maintenance_heading'); ?></label>
+					<div class="controls">
+                    <?php 	$data = array(
+						  'name'        => 'siteMaintenanceHeading',
+						  'id'          => 'siteMaintenanceHeading',
+						  'class'       => 'form-control',
+						  'value'		=> set_value('siteMaintenanceHeading', $s['siteMaintenanceHeading'], FALSE)
+						);
+			
+						echo form_input($data); ?>
+					</div> <!-- /controls -->				
+				</div> <!-- /form-group -->
+               <div class="form-group">	
+					<label class="control-label" for="siteMaintenanceMeta"><?php echo $this->lang->line('settings_maintenance_meta'); ?></label>
+					<div class="controls">
+                    <?php 	$data = array(
+						  'name'        => 'siteMaintenanceMeta',
+						  'id'          => 'siteMaintenanceMeta',
+						  'class'       => 'form-control',
+						  'value'		=> set_value('siteMaintenanceMeta', $s['siteMaintenanceMeta'], FALSE)
+						);
+			
+						echo form_input($data); ?>
+					</div> <!-- /controls -->				
+				</div> <!-- /form-group -->
+                <div class="form-group">	
+					<label class="control-label" for="siteMaintenanceContent"><?php echo $this->lang->line('settings_maintenance_content'); ?></label>
+					<div class="controls">
+                    <?php 	$data = array(
+						  'name'        => 'siteMaintenanceContent',
+						  'id'          => 'siteMaintenanceContent',
+						  'class'       => 'form-control',
+						  'value'		=> set_value('siteMaintenanceContent', $s['siteMaintenanceContent'], FALSE)
+						);
+			
+						echo form_textarea($data); ?>
+					</div> <!-- /controls -->				
+				</div> <!-- /form-group -->
+			  <hr/>
+			  <div class="form-group">	
+					<label class="control-label" for="siteAdditionalJS"><?php echo $this->lang->line('settings_additional_js'); ?></label>
+					<div class="controls">
+					<?php 	$data = array(
+						  'name'        => 'siteAdditionalJS',
+						  'id'          => 'siteAdditionalJS',
+						  'class'       => 'form-control',
+						  'value'		=> set_value('siteAdditionalJS', $s['siteAdditionalJS'], FALSE)
+						);
+
+						echo form_textarea($data); ?>
+					</div> <!-- /controls -->				
+				</div> <!-- /form-group -->
            </div>
            <div class="panel-footer">
 
@@ -217,7 +303,78 @@ $(function () {
 			}
 			
 			var files;
-			$('input[type=file]').on('change', prepareUpload);
+			$('input[name=logo_upload]').on('change', prepareUpload);
+		}
+	if(document.getElementById('favicon_upload'))
+		{
+			function prepareUploadFavi(event)
+			{
+				files = event.target.files;
+				uploadFilesFavi(event);
+			}
+	
+			function uploadFilesFavi(event)
+			{
+				event.stopPropagation();
+				event.preventDefault();
+	
+				$('#loading_pic_favicon').show();
+	
+				var data = new FormData();
+				$.each(files, function(key, value){ data.append(key, value); });
+				
+				$.ajax({
+					url: '<?php echo BASE_URL; ?>/admin/settings/submit/?files',
+					type: 'POST',
+					data: data,
+					cache: false,
+					dataType: 'json',
+					processData: false,
+					contentType: false,
+					success: function(data, textStatus, jqXHR){
+						if(data!='0')
+						{
+							$('#favicon_preloaded').show();
+							document.getElementById('favicon_preloaded').src = '<?php echo BASE_URL; ?>/uploads/' + data;
+							document.getElementById('siteFavicon').value = data;
+							$('#loading_pic_favicon').hide();
+						}
+						else
+							alert('<?php echo $this->lang->line('settings_image_error'); ?>');
+					}
+				});
+			}
+	
+			function submitForm(event, data)
+			{
+				$form = $(event.target);
+				var formData = $form.serialize();
+				$.each(data.files, function(key, value){ formData = formData + '&filenames[]=' + value; });
+	
+				$.ajax({
+					url: '<?php echo BASE_URL; ?>/admin/settings/submit',
+					type: 'POST',
+					data: formData,
+					cache: false,
+					dataType: 'json',
+					success: function(data, textStatus, jqXHR){
+						if(typeof data.error === 'undefined')
+							console.log('SUCCESS: ' + data.success);
+						else
+							console.log('ERRORS: ' + data.error);
+					},
+					error: function(jqXHR, textStatus, errorThrown){
+						console.log('ERRORS: ' + textStatus);
+					},
+					complete: function()
+					{
+						$('#loading_pic_favicon').hide();
+					}
+				});
+			}
+			
+			var files;
+			$('input[name=favicon_upload]').on('change', prepareUploadFavi);
 		}
 	});	
 </script>

@@ -7,6 +7,9 @@
 		<meta name="description" content="<?php echo $page['pageDescription']; ?> " />
 		<meta name="keywords" content="<?php echo $page['pageKeywords']; ?>" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<?php if ($settings['siteFavicon']!=""){ ?>
+		<link rel="icon" href="<?php echo BASE_URL; ?>/images/<?php echo $settings['siteFavicon']; ?>" />
+		<?php } ?>
 		<link href="<?php echo THEME_FOLDER; ?>/css/bootstrap.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -24,7 +27,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>/images/<?php echo $settings['siteLogo']; ?>" alt="Hoosk"></a>
+      <a class="navbar-brand" href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>/images/<?php echo $settings['siteLogo']; ?>" alt="<?php echo $settings['siteTitle']; ?>"></a>
       </div>
     <div class="collapse navbar-collapse">
 <?php hooskNav('header') ?>

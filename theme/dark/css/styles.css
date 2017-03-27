@@ -5,6 +5,8 @@
 .jumbotron.text-center img {display:block;margin:0 auto;}
 .carousel-inner .item img  {margin:0 auto!important;width:100%;}
 .content-padding {padding-top:40px;padding-bottom:40px;}
+.maintenance {height:100vh;background:#eee;padding-top: 10%;}
+.maintenance-logo {margin-bottom:15px;}
 .navbar-brand img {
     height: 36px!important;
 }

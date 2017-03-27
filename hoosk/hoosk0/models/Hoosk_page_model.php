@@ -12,7 +12,7 @@ class Hoosk_page_model extends CI_Model {
 	/*     * *************************** */
     /*     * ** Page Querys ************ */
     /*     * *************************** */
-	function getSiteName() {
+	/*function getSiteName() {
         // Get Theme
         $this->db->select("*");
        	$this->db->where("siteID", 0);
@@ -38,7 +38,7 @@ class Hoosk_page_model extends CI_Model {
 			endforeach; 
 		}
         return array();
-    }
+    }*/
 	
     function getPage($pageURL) {
         // Get page
@@ -128,9 +128,16 @@ class Hoosk_page_model extends CI_Model {
             $results = $query->result_array();
         	foreach ($results as $u): 
 				$page = array(
-						'siteLogo'    			=> $u['siteLogo'],
-						'siteTitle'    			=> $u['siteTitle'],
-						'siteFooter'    		=> $u['siteFooter'],
+						'siteLogo'    				=> $u['siteLogo'],
+						'siteFavicon'    			=> $u['siteFavicon'],
+						'siteTitle'    				=> $u['siteTitle'],
+						'siteTheme'    				=> $u['siteTheme'],
+						'siteFooter'    			=> $u['siteFooter'],
+						'siteMaintenanceHeading'    => $u['siteMaintenanceHeading'],
+						'siteMaintenanceMeta'	    => $u['siteMaintenanceMeta'],
+						'siteMaintenanceContent'    => $u['siteMaintenanceContent'],
+						'siteMaintenance'    		=> $u['siteMaintenance'],
+						'siteAdditionalJS'    		=> $u['siteAdditionalJS'],
                      );      	
 			endforeach; 
 			return $page;

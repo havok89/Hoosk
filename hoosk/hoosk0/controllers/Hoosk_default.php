@@ -7,55 +7,72 @@ class Hoosk_default extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Hoosk_page_model');
 		$this->load->helper('hoosk_page_helper');
-		define ('SITE_NAME', $this->Hoosk_page_model->getSiteName());
-		define ('THEME', $this->Hoosk_page_model->getTheme());
-		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
+		$this->load->library('session');
 		$this->data['settings']=$this->Hoosk_page_model->getSettings();
+		define ('SITE_NAME', $this->data['settings']['siteTitle']);
+		define ('THEME', $this->data['settings']['siteTheme']);
+		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
+		$this->maintenanceMode = $this->data['settings']['siteMaintenance'];
+		if (($this->maintenanceMode)&&($this->session->userdata('logged_in'))){
+			$this->maintenanceMode = false;
+		}
 	}
 
 
 	public function index()
 	{
-		$totSegments = $this->uri->total_segments();
-		if(!is_numeric($this->uri->segment($totSegments))){
-		$pageURL = $this->uri->segment($totSegments);
-		} else if(is_numeric($this->uri->segment($totSegments))){
-		$pageURL = $this->uri->segment($totSegments-1);
-		}
-		if ($pageURL == ""){ $pageURL = "home"; }
-		$this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
-		if ($this->data['page']['pageTemplate'] != ""){
-		$this->data['header'] = $this->load->view('templates/header', $this->data, true);
-		$this->data['footer'] = $this->load->view('templates/footer', '', true);
-		$this->load->view('templates/'.$this->data['page']['pageTemplate'], $this->data);
+		if(!$this->maintenanceMode){
+			$totSegments = $this->uri->total_segments();
+			if(!is_numeric($this->uri->segment($totSegments))){
+			$pageURL = $this->uri->segment($totSegments);
+			} else if(is_numeric($this->uri->segment($totSegments))){
+			$pageURL = $this->uri->segment($totSegments-1);
+			}
+			if ($pageURL == ""){ $pageURL = "home"; }
+			$this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
+			if ($this->data['page']['pageTemplate'] != ""){
+			$this->data['header'] = $this->load->view('templates/header', $this->data, true);
+			$this->data['footer'] = $this->load->view('templates/footer', '', true);
+			$this->load->view('templates/'.$this->data['page']['pageTemplate'], $this->data);
+			} else {
+				$this->error();
+			}
 		} else {
-			$this->error();
+			$this->maintenance();
 		}
 	}
 
 		public function category()
 	{
-		$catSlug = $this->uri->segment(2);
-		$this->data['page']=$this->Hoosk_page_model->getCategory($catSlug);
-		if ($this->data['page']['categoryID'] != ""){
-		$this->data['header'] = $this->load->view('templates/header', $this->data, true);
-		$this->data['footer'] = $this->load->view('templates/footer', '', true);
-		$this->load->view('templates/category', $this->data);
+		if(!$this->maintenanceMode){
+			$catSlug = $this->uri->segment(2);
+			$this->data['page']=$this->Hoosk_page_model->getCategory($catSlug);
+			if ($this->data['page']['categoryID'] != ""){
+			$this->data['header'] = $this->load->view('templates/header', $this->data, true);
+			$this->data['footer'] = $this->load->view('templates/footer', '', true);
+			$this->load->view('templates/category', $this->data);
+			} else {
+				$this->error();
+			}
 		} else {
-			$this->error();
+			$this->maintenance();
 		}
 	}
 
 		public function article()
 	{
-		$articleURL = $this->uri->segment(2);
-		$this->data['page']=$this->Hoosk_page_model->getArticle($articleURL);
-		if ($this->data['page']['postID'] != ""){
-		$this->data['header'] = $this->load->view('templates/header', $this->data, true);
-		$this->data['footer'] = $this->load->view('templates/footer', '', true);
-		$this->load->view('templates/article', $this->data);
+		if(!$this->maintenanceMode){
+			$articleURL = $this->uri->segment(2);
+			$this->data['page']=$this->Hoosk_page_model->getArticle($articleURL);
+			if ($this->data['page']['postID'] != ""){
+			$this->data['header'] = $this->load->view('templates/header', $this->data, true);
+			$this->data['footer'] = $this->load->view('templates/footer', '', true);
+			$this->load->view('templates/article', $this->data);
+			} else {
+				$this->error();
+			}
 		} else {
-			$this->error();
+			$this->maintenance();
 		}
 	}
 
@@ -66,6 +83,18 @@ class Hoosk_default extends CI_Controller {
 		$this->data['page']['pageKeywords']="Oops, Error";
 		$this->data['page']['pageID']="0";
 		$this->data['page']['pageTemplate']="error";
+		$this->data['header'] = $this->load->view('templates/header', $this->data, true);
+		$this->data['footer'] = $this->load->view('templates/footer', '', true);
+		$this->load->view('templates/'.$this->data['page']['pageTemplate'], $this->data);
+	}
+	
+	public function maintenance()
+	{
+		$this->data['page']['pageTitle']="Maintenance Mode";
+		$this->data['page']['pageDescription']="Maintenance Mode";
+		$this->data['page']['pageKeywords']="Maintenance Mode";
+		$this->data['page']['pageID']="0";
+		$this->data['page']['pageTemplate']="maintenance";
 		$this->data['header'] = $this->load->view('templates/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('templates/footer', '', true);
 		$this->load->view('templates/'.$this->data['page']['pageTemplate'], $this->data);

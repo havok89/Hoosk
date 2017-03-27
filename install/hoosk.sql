@@ -43,10 +43,10 @@ CREATE TABLE IF NOT EXISTS `hoosk_sessions` (  `id` varchar(40) NOT NULL,  `ip_a
 
 
 DROP TABLE IF EXISTS `hoosk_settings`;~
-CREATE TABLE IF NOT EXISTS `hoosk_settings` (  `siteID` int(11) NOT NULL,  `siteTitle` text NOT NULL,  `siteDescription` text NOT NULL,  `siteLogo` text NOT NULL,  `siteTheme` varchar(250) NOT NULL,  `siteFooter` text NOT NULL,  `siteLang` text NOT NULL,  UNIQUE KEY `siteID` (`siteID`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;~
+CREATE TABLE IF NOT EXISTS `hoosk_settings` (  `siteID` int(11) NOT NULL,  `siteTitle` text NOT NULL,  `siteDescription` text NOT NULL,  `siteLogo` text NOT NULL,  `siteFavicon` text,  `siteTheme` varchar(250) NOT NULL,  `siteFooter` text NOT NULL,  `siteLang` text NOT NULL,  `siteMaintenance` int(11) NOT NULL DEFAULT '0',  `siteMaintenanceHeading` text NOT NULL,  `siteMaintenanceMeta` text NOT NULL,  `siteMaintenanceContent` text NOT NULL,  `siteAdditionalJS` text NOT NULL,  UNIQUE KEY `siteID` (`siteID`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;~
 
 
-INSERT INTO `hoosk_settings` (`siteID`, `siteTitle`, `siteDescription`, `siteLogo`, `siteTheme`, `siteFooter`, `siteLang`) VALUES(0, 'Hoosk Demo 2016', 'Hoosk', 'logo.png', 'dark/', '&copy; Hoosk CMS 2016', 'english/' );~
+INSERT INTO `hoosk_settings` (`siteID`, `siteTitle`, `siteDescription`, `siteLogo`, `siteFavicon`, `siteTheme`, `siteFooter`, `siteLang`, `siteMaintenance`, `siteMaintenanceHeading`, `siteMaintenanceMeta`, `siteMaintenanceContent`, `siteAdditionalJS`) VALUES (0, 'Hoosk Demo', 'Hoosk', 'logo.png', 'favicon.png', 'dark', '&copy; Hoosk CMS 2017', 'english/', 0, 'Down for maintenance', 'Down for maintenance', 'This site is currently down for maintenance, please check back soon.', '');~
 
 DROP TABLE IF EXISTS `hoosk_social`;~
 CREATE TABLE IF NOT EXISTS `hoosk_social` (  `socialName` varchar(250) NOT NULL,  `socialLink` varchar(250) NOT NULL,  `socialEnabled` int(11) NOT NULL DEFAULT '0',  UNIQUE KEY `socialName` (`socialName`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;~

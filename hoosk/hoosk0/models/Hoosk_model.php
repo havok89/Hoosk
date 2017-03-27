@@ -459,17 +459,26 @@ class Hoosk_model extends CI_Model {
 		$data = array(
 			'siteTheme' => $this->input->post('siteTheme'),
 			'siteLang' => $this->input->post('siteLang'),
-			'siteFooter' => $this->input->post('siteFooter')
+			'siteFooter' => $this->input->post('siteFooter'),
+			'siteMaintenance' => $this->input->post('siteMaintenance'),
+			'siteMaintenanceHeading' => $this->input->post('siteMaintenanceHeading'),
+			'siteMaintenanceMeta' => $this->input->post('siteMaintenanceMeta'),
+			'siteMaintenanceContent' => $this->input->post('siteMaintenanceContent'),
+			'siteAdditionalJS' => $this->input->post('siteAdditionalJS')
 		);
 		
-		if ($this->input->post('siteTitle') != "")
-				 $data['siteTitle'] = $this->input->post('siteTitle');
-	
-			if ($this->input->post('siteLogo') != ""){
-				$data['siteLogo'] = $this->input->post('siteLogo');
-			}	
-			$this->db->where("siteID", 0);
-			$this->db->update('hoosk_settings', $data);
+		if ($this->input->post('siteTitle') != "") {
+			 $data['siteTitle'] = $this->input->post('siteTitle');
+		}
+
+		if ($this->input->post('siteLogo') != ""){
+			$data['siteLogo'] = $this->input->post('siteLogo');
+		}
+		if ($this->input->post('siteFavicon') != ""){
+			$data['siteFavicon'] = $this->input->post('siteFavicon');
+		}	
+		$this->db->where("siteID", 0);
+		$this->db->update('hoosk_settings', $data);
 	}
 	
 	
