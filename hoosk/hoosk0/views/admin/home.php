@@ -12,6 +12,13 @@
                 </li>
             </ol>
         </div>
+        <?php if($maintenaceActive){ ?>
+        <div class="col-md-12">
+        	<div class="alert alert-warning">
+        		<p><?php echo $this->lang->line('dash_maintenance_message'); ?></p>
+        	</div>
+        </div>
+        <?php } ?>
     </div>
 </div>
 <div class="container-fluid">

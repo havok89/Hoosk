@@ -27,6 +27,7 @@ class Admin extends CI_Controller {
             $this->rssparser->set_cache_life(30);
             $this->data['hooskFeed'] = $this->rssparser->getFeed(3);
         }
+		$this->data['maintenaceActive'] = $this->Hoosk_model->checkMaintenance();
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
 		$this->load->view('admin/home', $this->data);

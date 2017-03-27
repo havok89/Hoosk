@@ -12,7 +12,6 @@ class Hoosk_model extends CI_Model {
     /*     * ** Dash Querys ************ */
     /*     * *************************** */
 	function getSiteName() {
-        // Get Theme
         $this->db->select("*");
        	$this->db->where("siteID", 0);
 		$query = $this->db->get('hoosk_settings');
@@ -24,7 +23,18 @@ class Hoosk_model extends CI_Model {
 		}
         return array();
     }
-	
+	function checkMaintenance(){
+		$this->db->select("*");
+       	$this->db->where("siteID", 0);
+		$query = $this->db->get('hoosk_settings');
+        if ($query->num_rows() > 0) {
+            $results = $query->result_array();
+        	foreach ($results as $u): 
+				return $u['siteMaintenance'];			
+			endforeach; 
+		}
+        return array();
+	}
 	function getTheme() {
         // Get Theme
         $this->db->select("*");
