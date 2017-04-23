@@ -10,7 +10,7 @@
         	<div class="input-group searchContainer">
 			  <input type="text" class="form-control" id="searchString">
 			  <span class="input-group-btn">
-				<button class="btn btn-default" type="button" onClick="doPageSearch();"><span class="fa fa-search"></span></button>
+				<button class="btn btn-default" id="searchBtn" type="button" onClick="doPageSearch();"><span class="fa fa-search"></span></button>
 			  </span>
 			</div><!-- /input-group -->
         </div>
@@ -56,6 +56,9 @@
 					} ?>
                 </tbody>
               </table>
+              <div class="text-center" id="loadingSpinner">
+              	<i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+              </div>
              <div id="paginationContainer">
 				  <?php echo $this->pagination->create_links(); ?>
 			  </div>

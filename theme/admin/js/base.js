@@ -76,11 +76,20 @@ function responsive_filemanager_callback(field_id){
 	$(field).val(url);
 
 }
-
+$(function(){
+	$('#searchString').on("keyup", function(e) {
+		if (e.keyCode == 13) {
+			$("#searchBtn").trigger("click");
+		}
+	});
+});
 function doPostSearch(){
+	$('#postContainer').html("");
+	$('#loadingSpinner').show();
 	$.post("/admin/ajax/post-search", {
 		term: $('#searchString').val(),
 	}).done(function(data) {
+		$('#loadingSpinner').hide();
 		$('#postContainer').html(data);
 		if($('#searchString').val()==""){
 			$('#paginationContainer').show();
@@ -91,9 +100,12 @@ function doPostSearch(){
 	
 }
 function doPageSearch(){
+	$('#pageContainer').html("");
+	$('#loadingSpinner').show();
 	$.post("/admin/ajax/page-search", {
 		term: $('#searchString').val(),
 	}).done(function(data) {
+		$('#loadingSpinner').hide();
 		$('#pageContainer').html(data);
 		if($('#searchString').val()==""){
 			$('#paginationContainer').show();
@@ -101,3 +113,5 @@ function doPageSearch(){
 			$('#paginationContainer').hide();
 		}  });
 }
+
+
