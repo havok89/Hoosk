@@ -248,6 +248,7 @@ $lang['email_reset_message']= "Please click the link below to reset your passwor
 
 
 // ERROR MESSAGES
+$lang['no_results']			= "No results found.";
 $lang['email_check']		= "This email address does not exist.";
 $lang['required']			= "The %s field is required.";
 $lang['isset']				= "The %s field must have a value.";

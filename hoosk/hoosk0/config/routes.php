@@ -102,6 +102,8 @@ $route['admin/posts/categories/edit/(:any)'] = "admin/categories/editCategory";
 $route['admin/posts/categories/edited/(:any)'] = "admin/categories/edited";
 $route['admin/posts/categories/(:any)'] = "admin/categories";
 $route['admin/posts/(:any)'] = "admin/posts";
+$route['admin/ajax/post-search'] = "admin/posts/postSearch";
+$route['admin/ajax/page-search'] = "admin/pages/pageSearch";
 
 $route['category/(:any)'] = "hoosk_default/category";
 $route['category/(:any)/(:any)'] = "hoosk_default/category";

@@ -129,4 +129,9 @@ class Posts extends CI_Controller {
 		endif;
 	}
 
+	function postSearch()
+	{
+		$this->Hoosk_model->postSearch($this->input->post('term'));
+	}
+	
 }

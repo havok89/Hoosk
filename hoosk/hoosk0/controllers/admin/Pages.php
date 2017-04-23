@@ -134,5 +134,11 @@ class Pages extends CI_Controller {
 			$this->load->view('admin/page_delete.php', $this->data );
 		endif;
 	}
+	
+	function pageSearch()
+	{
+		$this->Hoosk_model->pageSearch($this->input->post('term'));
+	}
+	
 
 }

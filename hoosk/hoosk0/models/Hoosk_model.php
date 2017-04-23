@@ -167,7 +167,31 @@ class Hoosk_model extends CI_Model {
     /*     * *************************** */
     /*     * ** Page Querys ************ */
     /*     * *************************** */
-
+	function pageSearch($term){
+		$this->db->select("*");
+		$this->db->like("pageTitle", $term);
+		$this->db->join('hoosk_page_content', 'hoosk_page_content.pageID = hoosk_page_attributes.pageID');
+        $this->db->join('hoosk_page_meta', 'hoosk_page_meta.pageID = hoosk_page_attributes.pageID');
+		$this->db->limit($limit, $offset);
+        $query = $this->db->get('hoosk_page_attributes');
+		if($term==""){
+			$this->db->limit(15);
+		}
+		if ($query->num_rows() > 0) {
+			$results = $query->result_array();
+			foreach ($results as $p): 
+				echo '<tr>';
+					echo '<td>'.$p['navTitle'].'</td>';
+					echo '<td>'.$p['pageUpdated'].'</td>';
+					echo '<td>'.$p['pageCreated'].'</td>';
+					echo '<td>'.($p['pagePublished'] ? '<span class="fa fa-2x fa-check-circle"></span>' : '<span class="fa fa-2x fa-times-circle"></span>').'</td>';
+					echo '<td class="td-actions"><a href="'.BASE_URL.'/admin/pages/jumbo/'.$p['pageID'].'" class="btn btn-small btn-primary">'.$this->lang->line('btn_jumbotron').'</a> <a href="'.BASE_URL.'/admin/pages/edit/'.$p['pageID'].'" class="btn btn-small btn-success"><i class="fa fa-pencil"> </i></a> <a data-toggle="modal" data-target="#ajaxModal" class="btn btn-danger btn-small" href="'.BASE_URL.'/admin/pages/delete/'.$p['pageID'].'"><i class="fa fa-remove"> </i></a></td>';
+				echo '</tr>';		
+			endforeach; 
+		} else {
+			echo "<tr><td colspan='5'><p>".$this->lang->line('no_results')."</p></td></tr>";
+		}
+	}
 	function countPages(){
         return $this->db->count_all('hoosk_page_attributes');
     }
@@ -495,7 +519,30 @@ class Hoosk_model extends CI_Model {
 	/*     * *************************** */
     /*     * ** Post Querys ************ */
     /*     * *************************** */
-	
+		function postSearch($term){
+			$this->db->select("*");
+			$this->db->like("postTitle", $term);
+			$this->db->join('hoosk_post_category', 'hoosk_post_category.categoryID = hoosk_post.categoryID');
+			$this->db->order_by("unixStamp", "desc");
+			if($term==""){
+				$this->db->limit(15);
+			}
+			$query = $this->db->get('hoosk_post');
+			if ($query->num_rows() > 0) {
+				$results = $query->result_array();
+				foreach ($results as $p): 
+					echo '<tr>';
+						echo '<td>'.$p['postTitle'].'</td>';
+						echo '<td>'.$p['categoryTitle'].'</td>';
+						echo '<td>'.$p['datePosted'].'</td>';
+						echo '<td>'.($p['published'] ? '<span class="fa fa-2x fa-check-circle"></span>' : '<span class="fa fa-2x fa-times-circle"></span>').'</td>';
+						echo '<td class="td-actions"><a href="'.BASE_URL.'/admin/posts/edit/'.$p['postID'].'" class="btn btn-small btn-success"><i class="fa fa-pencil"> </i></a> <a data-toggle="modal" data-target="#ajaxModal" class="btn btn-danger btn-small" href="'.BASE_URL.'/admin/posts/delete/'.$p['postID'].'"><i class="fa fa-remove"> </i></a></td>';
+					echo '</tr>';		
+				endforeach; 
+			} else {
+				echo "<tr><td colspan='5'><p>".$this->lang->line('no_results')."</p></td></tr>";
+			}
+		}
 		function countPosts(){
 			return $this->db->count_all('hoosk_post');
 		}    

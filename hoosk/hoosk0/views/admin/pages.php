@@ -1,10 +1,20 @@
 <?php echo $header; ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-8">
             <h1 class="page-header">
                 <?php echo $this->lang->line('pages_header'); ?>
             </h1>
+		</div>
+           <div class="col-lg-4">
+        	<div class="input-group searchContainer">
+			  <input type="text" class="form-control" id="searchString">
+			  <span class="input-group-btn">
+				<button class="btn btn-default" type="button" onClick="doPageSearch();"><span class="fa fa-search"></span></button>
+			  </span>
+			</div><!-- /input-group -->
+        </div>
+           <div class="col-lg-12">
             <ol class="breadcrumb">
                 <li>
                 <i class="fa fa-dashboard"></i>
@@ -15,6 +25,7 @@
                 	<a href="<?php echo BASE_URL; ?>/admin/pages"><?php echo $this->lang->line('nav_pages_all'); ?></a>
                 </li>
             </ol>
+            
         </div>
     </div>
 </div>
@@ -32,7 +43,7 @@
                     <th class="td-actions"> </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="pageContainer">
                     <?php 
 					foreach ($pages as $p) {
 						echo '<tr>';
@@ -45,7 +56,9 @@
 					} ?>
                 </tbody>
               </table>
-              <?php echo $this->pagination->create_links(); ?>
+             <div id="paginationContainer">
+				  <?php echo $this->pagination->create_links(); ?>
+			  </div>
      </div>
       <!-- /colmd12 -->
   </div>

@@ -76,3 +76,28 @@ function responsive_filemanager_callback(field_id){
 	$(field).val(url);
 
 }
+
+function doPostSearch(){
+	$.post("/admin/ajax/post-search", {
+		term: $('#searchString').val(),
+	}).done(function(data) {
+		$('#postContainer').html(data);
+		if($('#searchString').val()==""){
+			$('#paginationContainer').show();
+		} else {
+			$('#paginationContainer').hide();
+		}
+  });
+	
+}
+function doPageSearch(){
+	$.post("/admin/ajax/page-search", {
+		term: $('#searchString').val(),
+	}).done(function(data) {
+		$('#pageContainer').html(data);
+		if($('#searchString').val()==""){
+			$('#paginationContainer').show();
+		} else {
+			$('#paginationContainer').hide();
+		}  });
+}
