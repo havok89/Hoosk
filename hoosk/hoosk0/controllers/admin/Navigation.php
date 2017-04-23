@@ -27,8 +27,7 @@ class Navigation extends CI_Controller {
     $config['base_url'] = BASE_URL. '/admin/navigation/';
     $config['total_rows'] = $this->Hoosk_model->countNavigation();
     $config['per_page'] = $result_per_page;
-		$config['full_tag_open'] = '<div class="form-actions">';
-		$config['full_tag_close'] = '</div>';
+
     $this->pagination->initialize($config);
 
 		//Get pages from database

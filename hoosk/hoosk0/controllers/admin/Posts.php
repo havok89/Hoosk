@@ -28,8 +28,7 @@ class Posts extends CI_Controller {
     $config['base_url'] = BASE_URL. '/admin/posts/';
     $config['total_rows'] = $this->Hoosk_model->countPosts();
     $config['per_page'] = $result_per_page;
-		$config['full_tag_open'] = '<div class="form-actions">';
-		$config['full_tag_close'] = '</div>';
+
     $this->pagination->initialize($config);
 
 		//Get posts from database

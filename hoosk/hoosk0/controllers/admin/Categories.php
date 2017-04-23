@@ -28,8 +28,7 @@ class Categories extends CI_Controller {
     $config['total_rows'] = $this->Hoosk_model->countCategories();
 		$config['uri_segment'] = 4;
     $config['per_page'] = $result_per_page;
-		$config['full_tag_open'] = '<div class="form-actions">';
-		$config['full_tag_close'] = '</div>';
+		
     $this->pagination->initialize($config);
 		//Get categorys from database
 		$this->data['categories'] = $this->Hoosk_model->getCategoriesAll($result_per_page, $this->uri->segment(4));

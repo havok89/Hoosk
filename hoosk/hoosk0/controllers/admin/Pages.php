@@ -23,15 +23,13 @@ class Pages extends CI_Controller {
 	public function index()
 	{
  		$this->load->library('pagination');
-    $result_per_page =15;  // the number of result per page
-    $config['base_url'] = BASE_URL. '/admin/pages/';
-    $config['total_rows'] = $this->Hoosk_model->countPages();
-    $config['per_page'] = $result_per_page;
-		$config['full_tag_open'] = '<div class="form-actions">';
-		$config['full_tag_close'] = '</div>';
-    $this->pagination->initialize($config);
+		$result_per_page =15;  // the number of result per page
+		$config['base_url'] = BASE_URL. '/admin/pages/';
+		$config['total_rows'] = $this->Hoosk_model->countPages();
+		$config['per_page'] = $result_per_page;
+		$this->pagination->initialize($config);
 		//Get pages from database
-    $this->data['pages'] = $this->Hoosk_model->getPages($result_per_page, $this->uri->segment(3));
+		$this->data['pages'] = $this->Hoosk_model->getPages($result_per_page, $this->uri->segment(3));
 
 		//Load the view
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
