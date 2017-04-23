@@ -117,6 +117,28 @@ class Hoosk_default extends CI_Controller {
 			$feed->add($post['postTitle'], BASE_URL.'/article/'.$post['postURL'], date("m/d/y H:i:s", $post['unixStamp']), $post['postExcerpt']);
 		}
 		$feed->render($this->uri->segment(2));
+		} else if ($this->uri->segment(2)=="json"){
+			$posts = getFeedPosts();
+			$json_posts = array();
+			foreach ($posts as $post){
+				$single_post = array(
+					'postTitle' 		=> $post['postTitle'],
+					'postExcerpt' 		=> $post['postExcerpt'],
+					'postDate' 			=> date("m/d/y H:i:s", $post['unixStamp']),
+					'postURL' 			=> BASE_URL.'/article/'.$post['postURL'],
+					'postContentHTML' 	=> $post['postContentHTML'],
+					'postContentJSON' 	=> json_decode($post['postContent']),
+				);
+				array_push($json_posts, $single_post);
+			}
+			$response = array('status' => 'OK');
+
+			$this->output
+					->set_status_header(200)
+					->set_content_type('application/json', 'utf-8')
+					->set_output(json_encode($json_posts, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES))
+					->_display();
+			exit;
 		} else {
 			$this->error();
 		}
