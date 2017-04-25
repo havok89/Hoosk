@@ -5,7 +5,7 @@
   <div class="footer-inner">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12"> &copy; <?php echo date("Y"); ?> <a href="http://hoosk.org/">Hoosk CMS</a>. </div>
+        <div class="col-md-12"> &copy; <?php echo date("Y"); ?> <a href="http://hoosk.org/">Hoosk CMS </a>. v1.7.0</div>
         <!-- /span12 -->
       </div>
       <!-- /row -->
@@ -15,7 +15,6 @@
   <!-- /footer-inner -->
 </div>
 <!-- /footer -->
-
 <!-- remote modals -->
 <div id="remote-modals">
     <div class="modal fade" id="ajaxModal" aria-labelledby="ajaxModal" aria-hidden="true">
