@@ -1,18 +1,15 @@
-<?php  if (! defined('BASEPATH')) {
+<?php if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
 // EXTENDS/MODIFIES LOADER CLASS TO BRANCH TO /CINCH/THEME DIRECTORY FOR PUBLIC FILES
 // SEE AROUND LINE 65
- 
 
-class MY_Loader extends CI_Loader
-{
-    public function __construct()
-    {
+class MY_Loader extends CI_Loader {
+    public function __construct() {
         parent::__construct();
     }
-    
+
     /**
      * CUSTOMISED Loader function
      *
@@ -20,60 +17,55 @@ class MY_Loader extends CI_Loader
      * Variables are prefixed with _ci_ to avoid symbol collision with
      * variables made available to view files
      *
-     * @param	array
-     * @return	void
+     * @param    array
+     * @return    void
      */
-    protected function _ci_load($_ci_data)
-    {
-        
+    protected function _ci_load($_ci_data) {
+
         // Set the default data variables
         foreach (array('_ci_view', '_ci_vars', '_ci_path', '_ci_return') as $_ci_val) {
-            $$_ci_val = (! isset($_ci_data[$_ci_val])) ? false : $_ci_data[$_ci_val];
+            $$_ci_val = (!isset($_ci_data[$_ci_val])) ? false : $_ci_data[$_ci_val];
         }
 
         $file_exists = false;
 
         // Set the path to the requested file
         if ($_ci_path != '') {
-            $_ci_x = explode('/', $_ci_path);
+            $_ci_x    = explode('/', $_ci_path);
             $_ci_file = end($_ci_x);
         } else {
-            $_ci_ext = pathinfo($_ci_view, PATHINFO_EXTENSION);
-            $_ci_file = ($_ci_ext == '') ? $_ci_view.'.php' : $_ci_view;
-            
-            
+            $_ci_ext  = pathinfo($_ci_view, PATHINFO_EXTENSION);
+            $_ci_file = ($_ci_ext == '') ? $_ci_view . '.php' : $_ci_view;
 
             foreach ($this->_ci_view_paths as $view_file => $cascade) {
-                if (file_exists($view_file.$_ci_file)) {
-                    $_ci_path = $view_file.$_ci_file;
+                if (file_exists($view_file . $_ci_file)) {
+                    $_ci_path    = $view_file . $_ci_file;
                     $file_exists = true;
                     break;
                 }
 
-                if (! $cascade) {
+                if (!$cascade) {
                     break;
                 }
             }
         }
 
         if (!defined('HOOSK_ADMIN')):
-                $_ci_path = 'theme/'.THEME.'/'.$_ci_file;
+            $_ci_path = 'theme/' . THEME . '/' . $_ci_file;
         endif;
         ##########################################################################################
 
-        if (! $file_exists && ! file_exists($_ci_path)) {
-            show_error('Unable to load the requested file: '.$_ci_file);
+        if (!$file_exists && !file_exists($_ci_path)) {
+            show_error('Unable to load the requested file: ' . $_ci_file);
         }
-        
-        
 
         // This allows anything loaded using $this->load (views, files, etc.)
         // to become accessible from within the Controller and Model functions.
 
-        $_ci_CI =& get_instance();
+        $_ci_CI = &get_instance();
         foreach (get_object_vars($_ci_CI) as $_ci_key => $_ci_var) {
-            if (! isset($this->$_ci_key)) {
-                $this->$_ci_key =& $_ci_CI->$_ci_key;
+            if (!isset($this->$_ci_key)) {
+                $this->$_ci_key = &$_ci_CI->$_ci_key;
             }
         }
 
@@ -107,15 +99,14 @@ class MY_Loader extends CI_Loader
         // If the PHP installation does not support short tags we'll
         // do a little string replacement, changing the short tags
         // to standard PHP echo statements.
-        
 
         if ((bool) @ini_get('short_open_tag') === false and config_item('rewrite_short_tags') == true) {
-            echo eval('?>'.preg_replace("/;*\s*\?>/", "; ?>", str_replace('<?=', '<?php echo ', file_get_contents($_ci_path))));
+            echo eval('?>' . preg_replace("/;*\s*\?>/", "; ?>", str_replace('<?=', '<?php echo ', file_get_contents($_ci_path))));
         } else {
-            include($_ci_path); // include() vs include_once() allows for multiple views with the same name
+            include $_ci_path; // include() vs include_once() allows for multiple views with the same name
         }
 
-        log_message('debug', 'File loaded: '.$_ci_path);
+        log_message('debug', 'File loaded: ' . $_ci_path);
 
         // Return the file data if requested
         if ($_ci_return === true) {

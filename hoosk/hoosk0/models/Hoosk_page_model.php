@@ -1,48 +1,46 @@
-<?php
+<?php if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
-class Hoosk_page_model extends CI_Model
-{
-    public function __construct()
-    {
+class Hoosk_page_model extends CI_Model {
+    public function __construct() {
         // Call the Model constructor
         parent::__construct();
         $this->load->database();
     }
 
-
     /*     * *************************** */
     /*     * ** Page Querys ************ */
     /*     * *************************** */
     /*function getSiteName() {
-        // Get Theme
-        $this->db->select("*");
-           $this->db->where("siteID", 0);
-        $query = $this->db->get('hoosk_settings');
-        if ($query->num_rows() > 0) {
-            $results = $query->result_array();
-            foreach ($results as $u):
-                return $u['siteTitle'];
-            endforeach;
-        }
-        return array();
+    // Get Theme
+    $this->db->select("*");
+    $this->db->where("siteID", 0);
+    $query = $this->db->get('hoosk_settings');
+    if ($query->num_rows() > 0) {
+    $results = $query->result_array();
+    foreach ($results as $u):
+    return $u['siteTitle'];
+    endforeach;
+    }
+    return array();
     }
 
     function getTheme() {
-        // Get Theme
-        $this->db->select("*");
-           $this->db->where("siteID", 0);
-        $query = $this->db->get('hoosk_settings');
-        if ($query->num_rows() > 0) {
-            $results = $query->result_array();
-            foreach ($results as $u):
-                return $u['siteTheme'];
-            endforeach;
-        }
-        return array();
+    // Get Theme
+    $this->db->select("*");
+    $this->db->where("siteID", 0);
+    $query = $this->db->get('hoosk_settings');
+    if ($query->num_rows() > 0) {
+    $results = $query->result_array();
+    foreach ($results as $u):
+    return $u['siteTheme'];
+    endforeach;
+    }
+    return array();
     }*/
-    
-    public function getPage($pageURL)
-    {
+
+    public function getPage($pageURL) {
         // Get page
         $this->db->select("*");
         $this->db->join('hoosk_page_content', 'hoosk_page_content.pageID = hoosk_page_attributes.pageID');
@@ -54,23 +52,23 @@ class Hoosk_page_model extends CI_Model
             $results = $query->result_array();
             foreach ($results as $u):
                 $page = array(
-                        'pageID'                => $u['pageID'],
-                        'pageTitle'            => $u['pageTitle'],
-                        'pageKeywords'            => $u['pageKeywords'],
-                        'pageDescription'        => $u['pageDescription'],
-                        'pageContentHTML'    => $u['pageContentHTML'],
-                        'pageTemplate'            => $u['pageTemplate'],
-                        'enableJumbotron'    => $u['enableJumbotron'],
-                        'enableSlider'        => $u['enableSlider'],
-                        'jumbotronHTML'            => $u['jumbotronHTML'],
-                     );
+                    'pageID'          => $u['pageID'],
+                    'pageTitle'       => $u['pageTitle'],
+                    'pageKeywords'    => $u['pageKeywords'],
+                    'pageDescription' => $u['pageDescription'],
+                    'pageContentHTML' => $u['pageContentHTML'],
+                    'pageTemplate'    => $u['pageTemplate'],
+                    'enableJumbotron' => $u['enableJumbotron'],
+                    'enableSlider'    => $u['enableSlider'],
+                    'jumbotronHTML'   => $u['jumbotronHTML'],
+                );
             endforeach;
             return $page;
         }
-        return array('pageID' => "",'pageTemplate' => "");
+        return array('pageID' => "", 'pageTemplate' => "");
     }
-    public function getCategory($catSlug)
-    {
+
+    public function getCategory($catSlug) {
         // Get category
         $this->db->select("*");
         $this->db->where("categorySlug", $catSlug);
@@ -79,20 +77,19 @@ class Hoosk_page_model extends CI_Model
             $results = $query->result_array();
             foreach ($results as $u):
                 $category = array(
-                        'pageID'                => $u['categoryID'],
-                        'categoryID'            => $u['categoryID'],
-                        'pageTitle'            => $u['categoryTitle'],
-                        'pageKeywords'            => '',
-                        'pageDescription'        => $u['categoryDescription'],
-                     );
+                    'pageID'          => $u['categoryID'],
+                    'categoryID'      => $u['categoryID'],
+                    'pageTitle'       => $u['categoryTitle'],
+                    'pageKeywords'    => '',
+                    'pageDescription' => $u['categoryDescription'],
+                );
             endforeach;
             return $category;
         }
         return array('categoryID' => "");
     }
-    
-    public function getArticle($postURL)
-    {
+
+    public function getArticle($postURL) {
         // Get article
         $this->db->select("*");
         $this->db->where("postURL", $postURL);
@@ -103,25 +100,23 @@ class Hoosk_page_model extends CI_Model
             $results = $query->result_array();
             foreach ($results as $u):
                 $category = array(
-                        'pageID'                => $u['postID'],
-                        'postID'                => $u['postID'],
-                        'pageTitle'            => $u['postTitle'],
-                        'pageKeywords'            => '',
-                        'pageDescription'        => $u['postExcerpt'],
-                        'postContent'            => $u['postContentHTML'],
-                        'datePosted'            => $u['datePosted'],
-                        'categoryTitle'        => $u['categoryTitle'],
-                        'categorySlug'            => $u['categorySlug'],
-                     );
+                    'pageID'          => $u['postID'],
+                    'postID'          => $u['postID'],
+                    'pageTitle'       => $u['postTitle'],
+                    'pageKeywords'    => '',
+                    'pageDescription' => $u['postExcerpt'],
+                    'postContent'     => $u['postContentHTML'],
+                    'datePosted'      => $u['datePosted'],
+                    'categoryTitle'   => $u['categoryTitle'],
+                    'categorySlug'    => $u['categorySlug'],
+                );
             endforeach;
             return $category;
         }
         return array('postID' => "");
     }
-    
-    
-    public function getSettings()
-    {
+
+    public function getSettings() {
         // Get settings
         $this->db->select("*");
         $this->db->where("siteID", 0);
@@ -130,17 +125,17 @@ class Hoosk_page_model extends CI_Model
             $results = $query->result_array();
             foreach ($results as $u):
                 $page = array(
-                        'siteLogo'                    => $u['siteLogo'],
-                        'siteFavicon'                => $u['siteFavicon'],
-                        'siteTitle'                    => $u['siteTitle'],
-                        'siteTheme'                    => $u['siteTheme'],
-                        'siteFooter'                => $u['siteFooter'],
-                        'siteMaintenanceHeading'    => $u['siteMaintenanceHeading'],
-                        'siteMaintenanceMeta'        => $u['siteMaintenanceMeta'],
-                        'siteMaintenanceContent'    => $u['siteMaintenanceContent'],
-                        'siteMaintenance'            => $u['siteMaintenance'],
-                        'siteAdditionalJS'            => $u['siteAdditionalJS'],
-                     );
+                    'siteLogo'               => $u['siteLogo'],
+                    'siteFavicon'            => $u['siteFavicon'],
+                    'siteTitle'              => $u['siteTitle'],
+                    'siteTheme'              => $u['siteTheme'],
+                    'siteFooter'             => $u['siteFooter'],
+                    'siteMaintenanceHeading' => $u['siteMaintenanceHeading'],
+                    'siteMaintenanceMeta'    => $u['siteMaintenanceMeta'],
+                    'siteMaintenanceContent' => $u['siteMaintenanceContent'],
+                    'siteMaintenance'        => $u['siteMaintenance'],
+                    'siteAdditionalJS'       => $u['siteAdditionalJS'],
+                );
             endforeach;
             return $page;
         }
