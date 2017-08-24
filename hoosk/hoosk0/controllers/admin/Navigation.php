@@ -2,8 +2,10 @@
     exit('No direct script access allowed');
 }
 
-class Navigation extends CI_Controller {
-    public function __construct() {
+class Navigation extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         define("HOOSK_ADMIN", 1);
         $this->load->model('Hoosk_model');
@@ -20,7 +22,8 @@ class Navigation extends CI_Controller {
         Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
     }
 
-    public function index() {
+    public function index()
+    {
         $this->load->library('pagination');
         $result_per_page      = 15; // the number of result per page
         $config['base_url']   = BASE_URL . '/admin/navigation/';
@@ -38,7 +41,8 @@ class Navigation extends CI_Controller {
         $this->load->view('admin/navigation', $this->data);
     }
 
-    public function newNav() {
+    public function newNav()
+    {
         //Get pages from database
         $this->data['pages'] = $this->Hoosk_model->getPagesAll();
         //Load the view
@@ -47,7 +51,8 @@ class Navigation extends CI_Controller {
         $this->load->view('admin/nav_new', $this->data);
     }
 
-    public function editNav() {
+    public function editNav()
+    {
         //Get pages from database
         $this->data['pages'] = $this->Hoosk_model->getPagesAll();
         //Get navigation from database
@@ -58,14 +63,16 @@ class Navigation extends CI_Controller {
         $this->load->view('admin/nav_edit', $this->data);
     }
 
-    public function navAdd() {
+    public function navAdd()
+    {
         //Get navigation from database
         $this->data['page'] = $this->Hoosk_model->getPageNav($this->uri->segment(3));
         //Load the view
         $this->load->view('admin/nav_add', $this->data);
     }
 
-    public function insert() {
+    public function insert()
+    {
         //Load the form validation library
         $this->load->library('form_validation');
 
@@ -83,7 +90,8 @@ class Navigation extends CI_Controller {
         }
     }
 
-    public function update() {
+    public function update()
+    {
         //Load the form validation library
         $this->load->library('form_validation');
 
@@ -100,12 +108,13 @@ class Navigation extends CI_Controller {
         }
     }
 
-    public function deleteNav() {
+    public function deleteNav()
+    {
         if ($this->input->post('deleteid')):
             $this->Hoosk_model->removeNav($this->input->post('deleteid'));
-            redirect(BASE_URL . '/admin/navigation');else:
+        redirect(BASE_URL . '/admin/navigation'); else:
             $this->data['form'] = $this->Hoosk_model->getNav($this->uri->segment(4));
-            $this->load->view('admin/nav_delete.php', $this->data);
+        $this->load->view('admin/nav_delete.php', $this->data);
         endif;
     }
 }

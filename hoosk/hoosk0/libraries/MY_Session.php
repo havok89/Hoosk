@@ -20,14 +20,16 @@
 new Cache_Session_Handler;
 session_start();
 
-class MY_Session extends CI_Session {
+class MY_Session extends CI_Session
+{
     /**
      * Session Constructor
      *
      * The constructor runs the session routines automatically
      * whenever the class is instantiated.
      */
-    public function __construct($params = array()) {
+    public function __construct($params = array())
+    {
         parent::__construct($params);
     }
 
@@ -39,7 +41,8 @@ class MY_Session extends CI_Session {
      * @access    public
      * @return    bool
      */
-    public function sess_read() {
+    public function sess_read()
+    {
         // Fetch the cookie
         $session = $_SESSION;
 
@@ -83,7 +86,8 @@ class MY_Session extends CI_Session {
      * @access    public
      * @return    void
      */
-    public function sess_write() {
+    public function sess_write()
+    {
         // set the custom userdata, the session data we will set in a second
         $_SESSION = array();
         foreach ($this->userdata as $key => $val) {
@@ -99,7 +103,8 @@ class MY_Session extends CI_Session {
      * @access    public
      * @return    void
      */
-    public function sess_create() {
+    public function sess_create()
+    {
         if (session_id() == '') {
             session_start();
         }
@@ -120,7 +125,8 @@ class MY_Session extends CI_Session {
      * @access    public
      * @return    void
      */
-    public function sess_update() {
+    public function sess_update()
+    {
         // We only update the session every five minutes by default
         if (($this->userdata['last_activity'] + $this->sess_time_to_update) >= $this->now) {
             return;
@@ -142,7 +148,8 @@ class MY_Session extends CI_Session {
      * @access    public
      * @return    void
      */
-    public function sess_destroy($destroy = true) {
+    public function sess_destroy($destroy = true)
+    {
         session_unset();
         session_regenerate_id();
 
@@ -159,17 +166,20 @@ class MY_Session extends CI_Session {
      * @access public
      * @return void
      */
-    public function _sess_gc() {
+    public function _sess_gc()
+    {
     }
 }
 
 // Customize the PHP Session handler
 // @see http://php.net/manual/en/function.session-set-save-handler.php
-class Cache_Session_Handler {
+class Cache_Session_Handler
+{
     private $_lifetime = 0;
     private $_CI;
 
-    public function __construct() {
+    public function __construct()
+    {
         session_name(config_item('sess_cookie_name'));
 
         session_set_save_handler(
@@ -195,7 +205,8 @@ class Cache_Session_Handler {
         }
     }
 
-    public function open() {
+    public function open()
+    {
         $this->_lifetime = ini_get('session.gc_maxlifetime');
         if ($this->_lifetime <= config_item('sess_expiration')) {
             $this->_lifetime = config_item('sess_expiration');
@@ -204,27 +215,33 @@ class Cache_Session_Handler {
         return true;
     }
 
-    public function read($id) {
+    public function read($id)
+    {
         return $this->_CI->cache->get("sess_{$id}");
     }
 
-    public function write($id, $data) {
+    public function write($id, $data)
+    {
         return $this->_CI->cache->replace("sess_{$id}", $data, $this->_lifetime);
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         return $this->_CI->cache->delete("sess_{$id}");
     }
 
-    public function gc() {
+    public function gc()
+    {
         return true;
     }
 
-    public function close() {
+    public function close()
+    {
         return true;
     }
 
-    public function __destruct() {
+    public function __destruct()
+    {
         session_write_close();
     }
 }

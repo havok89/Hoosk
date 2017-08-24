@@ -2,8 +2,10 @@
     exit('No direct script access allowed');
 }
 
-class Hoosk_default extends CI_Controller {
-    public function __construct() {
+class Hoosk_default extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('Hoosk_page_model');
         $this->load->helper('hoosk_page_helper');
@@ -18,7 +20,8 @@ class Hoosk_default extends CI_Controller {
         }
     }
 
-    public function index() {
+    public function index()
+    {
         if (!$this->maintenanceMode) {
             $totSegments = $this->uri->total_segments();
             if (!is_numeric($this->uri->segment($totSegments))) {
@@ -42,7 +45,8 @@ class Hoosk_default extends CI_Controller {
         }
     }
 
-    public function category() {
+    public function category()
+    {
         if (!$this->maintenanceMode) {
             $catSlug            = $this->uri->segment(2);
             $this->data['page'] = $this->Hoosk_page_model->getCategory($catSlug);
@@ -58,7 +62,8 @@ class Hoosk_default extends CI_Controller {
         }
     }
 
-    public function article() {
+    public function article()
+    {
         if (!$this->maintenanceMode) {
             $articleURL         = $this->uri->segment(2);
             $this->data['page'] = $this->Hoosk_page_model->getArticle($articleURL);
@@ -74,7 +79,8 @@ class Hoosk_default extends CI_Controller {
         }
     }
 
-    public function error() {
+    public function error()
+    {
         $this->data['page']['pageTitle']       = "Oops, Error";
         $this->data['page']['pageDescription'] = "Oops, Error";
         $this->data['page']['pageKeywords']    = "Oops, Error";
@@ -85,7 +91,8 @@ class Hoosk_default extends CI_Controller {
         $this->load->view('templates/' . $this->data['page']['pageTemplate'], $this->data);
     }
 
-    public function maintenance() {
+    public function maintenance()
+    {
         $this->data['page']['pageTitle']       = "Maintenance Mode";
         $this->data['page']['pageDescription'] = "Maintenance Mode";
         $this->data['page']['pageKeywords']    = "Maintenance Mode";
@@ -96,7 +103,8 @@ class Hoosk_default extends CI_Controller {
         $this->load->view('templates/' . $this->data['page']['pageTemplate'], $this->data);
     }
 
-    public function feed() {
+    public function feed()
+    {
         if (($this->uri->segment(2) == "atom") || ($this->uri->segment(2) == "rss")) {
             $posts = getFeedPosts();
             $this->load->library('feed');

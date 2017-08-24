@@ -5,8 +5,10 @@
 // EXTENDS/MODIFIES LOADER CLASS TO BRANCH TO /CINCH/THEME DIRECTORY FOR PUBLIC FILES
 // SEE AROUND LINE 65
 
-class MY_Loader extends CI_Loader {
-    public function __construct() {
+class MY_Loader extends CI_Loader
+{
+    public function __construct()
+    {
         parent::__construct();
     }
 
@@ -20,7 +22,8 @@ class MY_Loader extends CI_Loader {
      * @param    array
      * @return    void
      */
-    protected function _ci_load($_ci_data) {
+    protected function _ci_load($_ci_data)
+    {
 
         // Set the default data variables
         foreach (array('_ci_view', '_ci_vars', '_ci_path', '_ci_return') as $_ci_val) {

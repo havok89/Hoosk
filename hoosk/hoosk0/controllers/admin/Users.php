@@ -2,8 +2,10 @@
     exit('No direct script access allowed');
 }
 
-class Users extends CI_Controller {
-    public function __construct() {
+class Users extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         define("HOOSK_ADMIN", 1);
         $this->load->model('Hoosk_model');
@@ -18,7 +20,8 @@ class Users extends CI_Controller {
         define('THEME_FOLDER', BASE_URL . '/theme/' . THEME);
     }
 
-    public function index() {
+    public function index()
+    {
         Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
         $this->load->library('pagination');
         $result_per_page      = 15; // the number of result per page
@@ -37,7 +40,8 @@ class Users extends CI_Controller {
         $this->load->view('admin/users', $this->data);
     }
 
-    public function addUser() {
+    public function addUser()
+    {
         Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
         //Load the view
         $this->data['header'] = $this->load->view('admin/header', $this->data, true);
@@ -45,7 +49,8 @@ class Users extends CI_Controller {
         $this->load->view('admin/user_new', $this->data);
     }
 
-    public function confirm() {
+    public function confirm()
+    {
         Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
         //Load the form validation library
         $this->load->library('form_validation');
@@ -67,7 +72,8 @@ class Users extends CI_Controller {
         }
     }
 
-    public function editUser() {
+    public function editUser()
+    {
         Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
         //Get user details from database
         $this->data['users'] = $this->Hoosk_model->getUser($this->uri->segment(4));
@@ -77,7 +83,8 @@ class Users extends CI_Controller {
         $this->load->view('admin/user_edit', $this->data);
     }
 
-    public function edited() {
+    public function edited()
+    {
         Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
         //Load the form validation library
         $this->load->library('form_validation');
@@ -98,19 +105,21 @@ class Users extends CI_Controller {
         }
     }
 
-    public function delete() {
+    public function delete()
+    {
         Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
         if ($this->input->post('deleteid')):
             $this->Hoosk_model->removeUser($this->input->post('deleteid'));
-            redirect(BASE_URL . '/admin/users');else:
+        redirect(BASE_URL . '/admin/users'); else:
             $this->data['form'] = $this->Hoosk_model->getUser($this->uri->segment(4));
-            $this->load->view('admin/user_delete.php', $this->data);
+        $this->load->view('admin/user_delete.php', $this->data);
         endif;
     }
 
     /************** Forgotten Password Resets **************/
 
-    public function forgot() {
+    public function forgot()
+    {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|callback_email_check');
         if ($this->form_validation->run() == false) {
@@ -148,7 +157,8 @@ class Users extends CI_Controller {
         }
     }
 
-    public function email_check($str) {
+    public function email_check($str)
+    {
         $query = $this->db->get_where('hoosk_user', array('email' => $str), 1);
         if ($query->num_rows() == 1) {
             return true;
@@ -158,7 +168,8 @@ class Users extends CI_Controller {
         }
     }
 
-    public function getPassword() {
+    public function getPassword()
+    {
         $rs    = $this->uri->segment(3);
         $query = $this->db->get_where('hoosk_user', array('rs' => $rs), 1);
 

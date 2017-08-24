@@ -1,6 +1,7 @@
 <?php
 
-function wordlimit($string, $length = 40, $ellipsis = "...") {
+function wordlimit($string, $length = 40, $ellipsis = "...")
+{
     $string = strip_tags($string, '<div>');
     $string = strip_tags($string, '<p>');
     $words  = explode(' ', $string);

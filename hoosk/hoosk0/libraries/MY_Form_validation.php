@@ -2,8 +2,10 @@
     exit('No direct script access allowed');
 }
 
-class MY_Form_validation extends CI_Form_validation {
-    public function is_unique($str, $field) {
+class MY_Form_validation extends CI_Form_validation
+{
+    public function is_unique($str, $field)
+    {
         if (substr_count($field, '.') == 3) {
             list($table, $field, $id_field, $id_val) = explode('.', $field);
             $query                                   = $this->CI->db->limit(1)->where($field, $str)->where($id_field . ' != ', $id_val)->get($table);

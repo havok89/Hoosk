@@ -2,8 +2,10 @@
     exit('No direct script access allowed');
 }
 
-class Hoosk_page_model extends CI_Model {
-    public function __construct() {
+class Hoosk_page_model extends CI_Model
+{
+    public function __construct()
+    {
         // Call the Model constructor
         parent::__construct();
         $this->load->database();
@@ -40,7 +42,8 @@ class Hoosk_page_model extends CI_Model {
     return array();
     }*/
 
-    public function getPage($pageURL) {
+    public function getPage($pageURL)
+    {
         // Get page
         $this->db->select("*");
         $this->db->join('hoosk_page_content', 'hoosk_page_content.pageID = hoosk_page_attributes.pageID');
@@ -68,7 +71,8 @@ class Hoosk_page_model extends CI_Model {
         return array('pageID' => "", 'pageTemplate' => "");
     }
 
-    public function getCategory($catSlug) {
+    public function getCategory($catSlug)
+    {
         // Get category
         $this->db->select("*");
         $this->db->where("categorySlug", $catSlug);
@@ -89,7 +93,8 @@ class Hoosk_page_model extends CI_Model {
         return array('categoryID' => "");
     }
 
-    public function getArticle($postURL) {
+    public function getArticle($postURL)
+    {
         // Get article
         $this->db->select("*");
         $this->db->where("postURL", $postURL);
@@ -116,7 +121,8 @@ class Hoosk_page_model extends CI_Model {
         return array('postID' => "");
     }
 
-    public function getSettings() {
+    public function getSettings()
+    {
         // Get settings
         $this->db->select("*");
         $this->db->where("siteID", 0);

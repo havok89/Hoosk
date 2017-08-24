@@ -2,8 +2,10 @@
     exit('No direct script access allowed');
 }
 
-class Categories extends CI_Controller {
-    public function __construct() {
+class Categories extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         define("HOOSK_ADMIN", 1);
         $this->load->model('Hoosk_model');
@@ -20,7 +22,8 @@ class Categories extends CI_Controller {
         Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
     }
 
-    public function index() {
+    public function index()
+    {
         $this->load->library('pagination');
         $result_per_page       = 15; // the number of result per page
         $config['base_url']    = BASE_URL . '/admin/posts/categories/';
@@ -37,14 +40,16 @@ class Categories extends CI_Controller {
         $this->load->view('admin/post_categories', $this->data);
     }
 
-    public function addCategory() {
+    public function addCategory()
+    {
         //Load the view
         $this->data['header'] = $this->load->view('admin/header', $this->data, true);
         $this->data['footer'] = $this->load->view('admin/footer', '', true);
         $this->load->view('admin/post_category_new', $this->data);
     }
 
-    public function confirm() {
+    public function confirm()
+    {
         //Load the form validation library
         $this->load->library('form_validation');
         //Set validation rules
@@ -63,7 +68,8 @@ class Categories extends CI_Controller {
         }
     }
 
-    public function editCategory() {
+    public function editCategory()
+    {
         //Get category details from database
         $this->data['category'] = $this->Hoosk_model->getCategory($this->uri->segment(5));
         //Load the view
@@ -72,7 +78,8 @@ class Categories extends CI_Controller {
         $this->load->view('admin/post_category_edit', $this->data);
     }
 
-    public function edited() {
+    public function edited()
+    {
         //Load the form validation library
         $this->load->library('form_validation');
         //Set validation rules
@@ -91,12 +98,13 @@ class Categories extends CI_Controller {
         }
     }
 
-    public function delete() {
+    public function delete()
+    {
         if ($this->input->post('deleteid')):
             $this->Hoosk_model->removeCategory($this->input->post('deleteid'));
-            redirect(BASE_URL . '/admin/posts/categories');else:
+        redirect(BASE_URL . '/admin/posts/categories'); else:
             $this->data['form'] = $this->Hoosk_model->getCategory($this->uri->segment(5));
-            $this->load->view('admin/post_category_delete.php', $this->data);
+        $this->load->view('admin/post_category_delete.php', $this->data);
         endif;
     }
 }

@@ -2,8 +2,10 @@
     exit('No direct script access allowed');
 }
 
-class Sioen {
-    public function __construct() {
+class Sioen
+{
+    public function __construct()
+    {
         require_once APPPATH . 'third_party/Michelf/Markdown.inc.php';
         require_once APPPATH . 'third_party/Sioen/Converter.php';
         require_once APPPATH . 'third_party/Sioen/ToHtmlContext.php';

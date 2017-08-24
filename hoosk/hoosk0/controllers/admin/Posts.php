@@ -2,8 +2,10 @@
     exit('No direct script access allowed');
 }
 
-class Posts extends CI_Controller {
-    public function __construct() {
+class Posts extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         define("HOOSK_ADMIN", 1);
         $this->load->model('Hoosk_model');
@@ -20,7 +22,8 @@ class Posts extends CI_Controller {
         Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
     }
 
-    public function index() {
+    public function index()
+    {
         $this->load->library('pagination');
         $result_per_page      = 15; // the number of result per page
         $config['base_url']   = BASE_URL . '/admin/posts/';
@@ -37,7 +40,8 @@ class Posts extends CI_Controller {
         $this->load->view('admin/posts', $this->data);
     }
 
-    public function addPost() {
+    public function addPost()
+    {
         $this->data['categories'] = $this->Hoosk_model->getCategories();
         //Load the view
         $this->data['header'] = $this->load->view('admin/header', $this->data, true);
@@ -45,7 +49,8 @@ class Posts extends CI_Controller {
         $this->load->view('admin/post_new', $this->data);
     }
 
-    public function confirm() {
+    public function confirm()
+    {
         //Load the form validation library
         $this->load->library('form_validation');
         //Set validation rules
@@ -74,7 +79,8 @@ class Posts extends CI_Controller {
         }
     }
 
-    public function editPost() {
+    public function editPost()
+    {
         $this->data['categories'] = $this->Hoosk_model->getCategories();
         //Get post details from database
         $this->data['posts'] = $this->Hoosk_model->getPost($this->uri->segment(4));
@@ -84,7 +90,8 @@ class Posts extends CI_Controller {
         $this->load->view('admin/post_edit', $this->data);
     }
 
-    public function edited() {
+    public function edited()
+    {
         //Load the form validation library
         $this->load->library('form_validation');
         //Set validation rules
@@ -111,16 +118,18 @@ class Posts extends CI_Controller {
         }
     }
 
-    public function delete() {
+    public function delete()
+    {
         if ($this->input->post('deleteid')):
             $this->Hoosk_model->removePost($this->input->post('deleteid'));
-            redirect(BASE_URL . '/admin/posts');else:
+        redirect(BASE_URL . '/admin/posts'); else:
             $this->data['form'] = $this->Hoosk_model->getPost($this->uri->segment(4));
-            $this->load->view('admin/post_delete.php', $this->data);
+        $this->load->view('admin/post_delete.php', $this->data);
         endif;
     }
 
-    public function postSearch() {
+    public function postSearch()
+    {
         $this->Hoosk_model->postSearch($this->input->post('term'));
     }
 }

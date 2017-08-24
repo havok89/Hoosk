@@ -11,7 +11,8 @@
  * @license http://opensource.org/licenses/mit-license.php MIT License
  */
 
-class Feed {
+class Feed
+{
     protected $items    = array();
     public $title       = 'My feed title';
     public $description = 'My feed description';
@@ -41,7 +42,8 @@ class Feed {
      *
      * @return void
      */
-    public function add($title, $link, $pubdate, $description, $content = '', $enclosure = array()) {
+    public function add($title, $link, $pubdate, $description, $content = '', $enclosure = array())
+    {
         if ($this->shortening) {
             $description = mb_substr($description, 0, $this->shorteningLimit, 'UTF-8');
         }
@@ -63,7 +65,8 @@ class Feed {
      *
      * @return void
      */
-    public function addArray(array $a) {
+    public function addArray(array $a)
+    {
         if ($this->shortening) {
             $a['description'] = mb_substr($a['description'], 0, $this->shorteningLimit, 'UTF-8');
         }
@@ -80,7 +83,8 @@ class Feed {
      *
      * @return view
      */
-    public function render($format = null, $cache = null, $key = null) {
+    public function render($format = null, $cache = null, $key = null)
+    {
         $CI = &get_instance();
 
         if ($format == null && $this->customView == null) {
@@ -144,7 +148,8 @@ class Feed {
      *
      * @return string
      */
-    public function link($url, $format = 'atom') {
+    public function link($url, $format = 'atom')
+    {
         if ($this->ctype == null) {
             ($format == 'rss') ? $type = 'application/rss+xml' : $type = 'application/atom+xml';
         } else {
@@ -161,7 +166,8 @@ class Feed {
      *
      * @return void
      */
-    public function setView($name = null) {
+    public function setView($name = null)
+    {
         $this->customView = $name;
     }
 
@@ -172,7 +178,8 @@ class Feed {
      *
      * @return void
      */
-    public function setTextLimit($l = 150) {
+    public function setTextLimit($l = 150)
+    {
         $this->shorteningLimit = $l;
     }
 
@@ -183,7 +190,8 @@ class Feed {
      *
      * @return void
      */
-    public function setShortening($b = false) {
+    public function setShortening($b = false)
+    {
         $this->shortening = $b;
     }
 
@@ -194,7 +202,8 @@ class Feed {
      *
      * @return string
      */
-    protected function formatDate($date, $format = "atom") {
+    protected function formatDate($date, $format = "atom")
+    {
         if ($format == "atom") {
             switch ($this->dateFormat) {
             case "carbon":
@@ -231,7 +240,8 @@ class Feed {
      *
      * @return void
      */
-    public function addNamespace($n) {
+    public function addNamespace($n)
+    {
         $this->namespaces[] = $n;
     }
 
@@ -242,7 +252,8 @@ class Feed {
      *
      * @return void
      */
-    public function getNamespaces() {
+    public function getNamespaces()
+    {
         return $this->namespaces;
     }
 
@@ -253,7 +264,8 @@ class Feed {
      *
      * @return void
      */
-    public function setDateFormat($format = "datetime") {
+    public function setDateFormat($format = "datetime")
+    {
         $this->dateFormat = $format;
     }
 }
