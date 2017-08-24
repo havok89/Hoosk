@@ -1,4 +1,6 @@
-<?php if (!defined('BASEPATH')) exit ('No direct script access allowed');
+<?php if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
 /**
  * Feed generator class for ci-feed library.
@@ -11,7 +13,6 @@
 
 class Feed
 {
-
     protected $items = array();
     public $title = 'My feed title';
     public $description = 'My feed description';
@@ -44,9 +45,7 @@ class Feed
      */
     public function add($title, $link, $pubdate, $description, $content='', $enclosure = array())
     {
-
-        if ($this->shortening)
-        {
+        if ($this->shortening) {
             $description = mb_substr($description, 0, $this->shorteningLimit, 'UTF-8');
         }
 
@@ -70,9 +69,7 @@ class Feed
      */
     public function addArray(array $a)
     {
-
-        if ($this->shortening)
-        {
+        if ($this->shortening) {
             $a['description'] = mb_substr($a['description'], 0, $this->shorteningLimit, 'UTF-8');
         }
 
@@ -91,25 +88,36 @@ class Feed
      */
     public function render($format = null, $cache = null, $key = null)
     {
-
         $CI =& get_instance();
 
-        if ($format == null && $this->customView == null) $format = "atom";
-        if ($this->customView == null) $this->customView = $format;
-        if ($cache != null) $this->caching = $cache;
-        if ($key != null) $this->cacheKey = $key;
+        if ($format == null && $this->customView == null) {
+            $format = "atom";
+        }
+        if ($this->customView == null) {
+            $this->customView = $format;
+        }
+        if ($cache != null) {
+            $this->caching = $cache;
+        }
+        if ($key != null) {
+            $this->cacheKey = $key;
+        }
 
-        if ($this->ctype == null)
-        {
+        if ($this->ctype == null) {
             ($format == 'rss') ? $this->ctype = 'application/rss+xml' : $this->ctype = 'application/atom+xml';
         }
 
-        if (empty($this->lang)) $this->lang = $CI->config->item('language');
-        if (empty($this->link)) $this->link = $CI->config->item('base_url');
-        if (empty($this->pubdate)) $this->pubdate = date('D, d M Y H:i:s O');
+        if (empty($this->lang)) {
+            $this->lang = $CI->config->item('language');
+        }
+        if (empty($this->link)) {
+            $this->link = $CI->config->item('base_url');
+        }
+        if (empty($this->pubdate)) {
+            $this->pubdate = date('D, d M Y H:i:s O');
+        }
 
-        foreach($this->items as $k => $v)
-        {
+        foreach ($this->items as $k => $v) {
             $this->items[$k]['title'] = html_entity_decode(strip_tags($this->items[$k]['title']));
             $this->items[$k]['pubdate'] = $this->formatDate($this->items[$k]['pubdate'], $format);
         }
@@ -133,8 +141,7 @@ class Feed
         );
 
         $CI->load->view('feed/'.$this->customView, $viewData);
-
-     }
+    }
 
 
     /**
@@ -145,20 +152,16 @@ class Feed
       *
       * @return string
       */
-     public function link($url, $format='atom')
-     {
-
-        if ($this->ctype == null)
-        {
+    public function link($url, $format='atom')
+    {
+        if ($this->ctype == null) {
             ($format == 'rss') ? $type = 'application/rss+xml' : $type = 'application/atom+xml';
-        }
-        else
-        {
+        } else {
             $type = $this->ctype;
         }
 
         return '<link rel="alternate" type="'.$type.'" href="'.$url.'" />';
-     }
+    }
 
 
     /**
@@ -209,10 +212,8 @@ class Feed
      */
     protected function formatDate($date, $format="atom")
     {
-        if ($format == "atom")
-        {
-            switch ($this->dateFormat)
-            {
+        if ($format == "atom") {
+            switch ($this->dateFormat) {
                 case "carbon":
                     $date = date('c', strtotime($date->toDateTimeString()));
                     break;
@@ -223,11 +224,8 @@ class Feed
                     $date = date('c', strtotime($date));
                     break;
             }
-        }
-        else
-        {
-            switch ($this->dateFormat)
-            {
+        } else {
+            switch ($this->dateFormat) {
                 case "carbon":
                     $date = date('D, d M Y H:i:s O', strtotime($date->toDateTimeString()));
                     break;
@@ -282,6 +280,4 @@ class Feed
     {
         $this->dateFormat = $format;
     }
-
-
 }
