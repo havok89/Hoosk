@@ -1,0 +1,39 @@
+version: "2"
+
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    container_name: hoosk_web
+    volumes:
+      - "./:/var/www/html"
+    links:
+      - mysqldb:mysqldb
+
+  mysqldb:
+    image: mysql
+    restart: always
+    container_name: hoosk_mysqldb
+    environment:
+      MYSQL_ROOT_PASSWORD: 1
+      MYSQL_DATABASE: hoosk_cms
+      MYSQL_USER: hoosk_cms
+      MYSQL_PASSWORD: hoosk_cms
+    volumes:
+      - ./.runtime/mysql:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: hoosk_phpmyadmin
+    environment:
+      PMA_HOST: mysqldb
+      PMA_USER: hoosk_cms
+      PMA_PASSWORD: hoosk_cms
+      PHP_UPLOAD_MAX_FILESIZE: 1G
+      PHP_MAX_INPUT_VARS: 1G
+    restart: always
+    ports:
+     - 8001:80
+    volumes:
+     - /sessions
