@@ -6,7 +6,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014 - 2015, British Columbia Institute of Technology
+ * Copyright (c) 2014 - 2019, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,10 +28,10 @@
  *
  * @package	CodeIgniter
  * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (http://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	http://codeigniter.com
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
+ * @license	https://opensource.org/licenses/MIT	MIT License
+ * @link	https://codeigniter.com
  * @since	Version 1.0.0
  * @filesource
  */
@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @subpackage	Helpers
  * @category	Helpers
  * @author		EllisLab Dev Team
- * @link		http://codeigniter.com/user_guide/helpers/url_helper.html
+ * @link		https://codeigniter.com/user_guide/helpers/url_helper.html
  */
 
 // ------------------------------------------------------------------------
@@ -161,7 +161,7 @@ if ( ! function_exists('anchor'))
 
 		$site_url = is_array($uri)
 			? site_url($uri)
-			: preg_match('#^(\w+:)?//#i', $uri) ? $uri : site_url($uri);
+			: (preg_match('#^(\w+:)?//#i', $uri) ? $uri : site_url($uri));
 
 		if ($title === '')
 		{
@@ -393,10 +393,10 @@ if ( ! function_exists('auto_link'))
 	function auto_link($str, $type = 'both', $popup = FALSE)
 	{
 		// Find and replace any URLs.
-		if ($type !== 'email' && preg_match_all('#(\w*://|www\.)[^\s()<>;]+\w#i', $str, $matches, PREG_OFFSET_CAPTURE | PREG_SET_ORDER))
+		if ($type !== 'email' && preg_match_all('#(\w*://|www\.)[a-z0-9]+(-+[a-z0-9]+)*(\.[a-z0-9]+(-+[a-z0-9]+)*)+(/([^\s()<>;]+\w)?/?)?#i', $str, $matches, PREG_OFFSET_CAPTURE | PREG_SET_ORDER))
 		{
 			// Set our target HTML if using popup links.
-			$target = ($popup) ? ' target="_blank"' : '';
+			$target = ($popup) ? ' target="_blank" rel="noopener"' : '';
 
 			// We process the links in reverse order (last -> first) so that
 			// the returned string offsets from preg_match_all() are not
@@ -474,7 +474,7 @@ if ( ! function_exists('url_title'))
 	 * @param	string	$str		Input string
 	 * @param	string	$separator	Word separator
 	 *			(usually '-' or '_')
-	 * @param	bool	$lowercase	Wether to transform the output string to lowercase
+	 * @param	bool	$lowercase	Whether to transform the output string to lowercase
 	 * @return	string
 	 */
 	function url_title($str, $separator = '-', $lowercase = FALSE)
@@ -492,7 +492,7 @@ if ( ! function_exists('url_title'))
 
 		$trans = array(
 			'&.+?;'			=> '',
-			'[^a-z0-9 _-]'		=> '',
+			'[^\w\d _-]'		=> '',
 			'\s+'			=> $separator,
 			'('.$q_separator.')+'	=> $separator
 		);
@@ -500,7 +500,7 @@ if ( ! function_exists('url_title'))
 		$str = strip_tags($str);
 		foreach ($trans as $key => $val)
 		{
-			$str = preg_replace('#'.$key.'#i', $val, $str);
+			$str = preg_replace('#'.$key.'#i'.(UTF8_ENABLED ? 'u' : ''), $val, $str);
 		}
 
 		if ($lowercase === TRUE)
