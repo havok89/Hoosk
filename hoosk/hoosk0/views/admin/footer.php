@@ -5,7 +5,7 @@
   <div class="footer-inner">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12"> &copy; <?php echo date("Y"); ?> <a href="http://hoosk.org/">Hoosk CMS </a>. v1.7.0</div>
+        <div class="col-md-12"> &copy; <?php echo date("Y"); ?> <a href="http://hoosk.org/">Hoosk CMS </a>. v1.7.3</div>
         <!-- /span12 -->
       </div>
       <!-- /row -->
