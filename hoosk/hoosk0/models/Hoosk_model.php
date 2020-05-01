@@ -155,6 +155,7 @@ class Hoosk_model extends CI_Model
             'userName' => $this->input->post('username'),
             'email'    => $this->input->post('email'),
             'password' => md5($this->input->post('password') . SALT),
+            'RS' => ''
         );
         $this->db->insert('hoosk_user', $data);
     }
