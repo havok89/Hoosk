@@ -1,0 +1,1550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <title>Hoosk CMS</title>
+        <link><![CDATA[http://hoosk.org]]></link>
+        <description>Hoosk CMS</description>
+        <atom:link href="http://hoosk.org" rel="self"></atom:link>
+                <lastBuildDate>Tue, 25 Apr 2017 17:25:37 -0400</lastBuildDate>
+                <item>
+            <title>New features with V1.7.0</title>
+            <link>http://hoosk.org/article/new-features-with-v170</link>
+            <guid isPermaLink="true">http://hoosk.org/article/new-features-with-v170</guid>
+            <description><![CDATA[JSON post feed and admin search tools!]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Tue, 25 Apr 2017 17:25:37 -0400</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>v1.6.1 - New Maintenance Mode and bug fixes</title>
+            <link>http://hoosk.org/article/hoosk-updated-1-6-1-maintenance-mode</link>
+            <guid isPermaLink="true">http://hoosk.org/article/hoosk-updated-1-6-1-maintenance-mode</guid>
+            <description><![CDATA[This new update fixes a few bugs and adds a new Maintenance Mode feature]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Mon, 27 Mar 2017 16:23:10 -0400</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>v1.5.7 quick fix release</title>
+            <link>http://hoosk.org/article/quick-fix-release</link>
+            <guid isPermaLink="true">http://hoosk.org/article/quick-fix-release</guid>
+            <description><![CDATA[Quick fix release]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Tue, 21 Mar 2017 18:10:18 -0400</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>v1.5.5 update released</title>
+            <link>http://hoosk.org/article/1-5-5-update-released</link>
+            <guid isPermaLink="true">http://hoosk.org/article/1-5-5-update-released</guid>
+            <description><![CDATA[This update addresses a number of requests]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Mon, 06 Mar 2017 17:30:58 -0500</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Hoosk 1.5 Update - RSS Feeds and more</title>
+            <link>http://hoosk.org/article/hoosk-15-update--rss-feeds-and-more</link>
+            <guid isPermaLink="true">http://hoosk.org/article/hoosk-15-update--rss-feeds-and-more</guid>
+            <description><![CDATA[This update has adds a couple new features, the inclusion of RSS feeds for news posts and session checks have been something I have wanted to do for a while but haven't had the time till now]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Tue, 27 Dec 2016 12:16:13 -0500</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Hoosk 1.4</title>
+            <link>http://hoosk.org/article/hoosk-1-4</link>
+            <guid isPermaLink="true">http://hoosk.org/article/hoosk-1-4</guid>
+            <description><![CDATA[Added a file manager for the button, you can now upload PDF or other files and link to it from a button.]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Wed, 30 Nov 2016 17:11:00 -0500</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Release v1.3.1</title>
+            <link>http://hoosk.org/article/new-release-v1-3-1</link>
+            <guid isPermaLink="true">http://hoosk.org/article/new-release-v1-3-1</guid>
+            <description><![CDATA[Check the bugfixes and new features in the latest release]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Mon, 14 Nov 2016 18:02:12 -0500</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Hoosk Property Management</title>
+            <link>http://hoosk.org/article/hoosk-property-management</link>
+            <guid isPermaLink="true">http://hoosk.org/article/hoosk-property-management</guid>
+            <description><![CDATA[Hoosk CMS with added ability for creating branches and properties (for sale and lettings) which can be published to Rightmove using their ADF API.]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Fri, 14 Oct 2016 08:35:47 -0400</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Update: New Admin Dashboard + More</title>
+            <link>http://hoosk.org/article/update-new-admin-dashboard-and-more</link>
+            <guid isPermaLink="true">http://hoosk.org/article/update-new-admin-dashboard-and-more</guid>
+            <description><![CDATA[Admin dashboard facelift.    Delete modals are now remote modals instead of onpage.    Image uploads are now done with the CodeIgniter upload library.    Possibly something else that I have forgotten.]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Sat, 02 Jul 2016 18:06:14 -0400</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Update coming soon!</title>
+            <link>http://hoosk.org/article/update-coming-soon</link>
+            <guid isPermaLink="true">http://hoosk.org/article/update-coming-soon</guid>
+            <description><![CDATA[Working on a new update for the system, at current it is mainly a refresh of the admin dashboard but if you have any feature requests please add them to the github!]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Sun, 22 Nov 2015 08:30:32 -0500</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>New website PerfectGiftsFor.us is built on Hoosk CMS</title>
+            <link>http://hoosk.org/article/perfectgiftsfor-us-built-on-hoosk-cms</link>
+            <guid isPermaLink="true">http://hoosk.org/article/perfectgiftsfor-us-built-on-hoosk-cms</guid>
+            <description><![CDATA[The website is a good example of how expandable Hoosk can be, it allows you to create a gift list of items youd like for your birthday, christmas or your wedding! and send out email invites to friends and family.]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Sat, 11 Jul 2015 06:38:14 -0400</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Hoosk goes social!</title>
+            <link>http://hoosk.org/article/hoosk_goes_social</link>
+            <guid isPermaLink="true">http://hoosk.org/article/hoosk_goes_social</guid>
+            <description><![CDATA[In the latest update Socicon font has been added to the themes and a new section has been added to admin dash allowing you to easily add your social media platform links]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Sun, 10 May 2015 14:12:33 -0400</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Hoosk Twitter page has been set up!</title>
+            <link>http://hoosk.org/article/hoosk_twitter_page</link>
+            <guid isPermaLink="true">http://hoosk.org/article/hoosk_twitter_page</guid>
+            <description><![CDATA[There is now an Hoosk twitter page set up, follow it for news on updates and generally whats happening with Hoosk: @HooskCMS]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Sat, 09 May 2015 09:36:43 -0400</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Hoosk has been upgraded to Codeigniter 3</title>
+            <link>http://hoosk.org/article/hoosk_upgraded_to_codeigniter_3</link>
+            <guid isPermaLink="true">http://hoosk.org/article/hoosk_upgraded_to_codeigniter_3</guid>
+            <description><![CDATA[Hoosk has now been updated to use Codeigniter 3.0 framework (previously was using 2.2.0)]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Fri, 08 May 2015 20:20:34 -0400</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Hoosk is now completely free!</title>
+            <link>http://hoosk.org/article/hoosk_is_now_completely_free</link>
+            <guid isPermaLink="true">http://hoosk.org/article/hoosk_is_now_completely_free</guid>
+            <description><![CDATA[Hoosk is now on GitHub and completely free. I thought about it a bit and decided it is the best way to go. This way it will reach a wider audience which will hopefully mean more feedback and suggestions for improvement.]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Wed, 08 Apr 2015 16:32:27 -0400</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Hoosk website refresh!</title>
+            <link>http://hoosk.org/article/hoosk_website_refresh</link>
+            <guid isPermaLink="true">http://hoosk.org/article/hoosk_website_refresh</guid>
+            <description><![CDATA[I thought it was about time that I created a proper theme for the Hoosk website, its built in bootstrap and not far off the default themes that are included.]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Wed, 25 Mar 2015 18:17:08 -0400</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Hoosk 1.8! Translating the admin dashboard</title>
+            <link>http://hoosk.org/article/hoosk_1_8_translating_admin_dashboard</link>
+            <guid isPermaLink="true">http://hoosk.org/article/hoosk_1_8_translating_admin_dashboard</guid>
+            <description><![CDATA[In the latest update the admin dashboard is now translatable! taking advantage of CodeIgniters language functions. There has also been a couple bug fixes...]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Mon, 23 Mar 2015 16:03:00 -0400</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Hotshoe Client/Photographer CMS</title>
+            <link>http://hoosk.org/article/hotshoe_client_photographer_cms</link>
+            <guid isPermaLink="true">http://hoosk.org/article/hotshoe_client_photographer_cms</guid>
+            <description><![CDATA[The CMS is designed for Photographers to use for sending a photoshoot to a client to view. other features will be added as they are requested and planned out. Anything to make the whole process a lot simpler.]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Tue, 03 Mar 2015 10:32:53 -0500</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Need some ipsum?</title>
+            <link>http://hoosk.org/article/need_some_will_i_ipsum</link>
+            <guid isPermaLink="true">http://hoosk.org/article/need_some_will_i_ipsum</guid>
+            <description><![CDATA[Need to spice up your mockup? get some Will.I.Ipsum!]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Sat, 07 Feb 2015 10:34:17 -0500</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Image Sliders Are Here</title>
+            <link>http://hoosk.org/article/image_sliders_are_here</link>
+            <guid isPermaLink="true">http://hoosk.org/article/image_sliders_are_here</guid>
+            <description><![CDATA[Yep, when editing the Jumbotron for a page there is a new button for "slider options" clicking it allows you to add a image slider to the page!]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Fri, 09 Jan 2015 05:01:00 -0500</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>What features do you want to see?</title>
+            <link>http://hoosk.org/article/what_features_do_you_want_in_hoosk</link>
+            <guid isPermaLink="true">http://hoosk.org/article/what_features_do_you_want_in_hoosk</guid>
+            <description><![CDATA[Thought I'd open up for a bit of feature requests, you can either email them over to callum@hoosk.org or submit them as a ticket on the support desk.]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Sat, 27 Dec 2014 07:12:00 -0500</pubDate>
+                                                                                                        </item>
+                <item>
+            <title>Blogging Made Simple</title>
+            <link>http://hoosk.org/article/blogging_made_simple</link>
+            <guid isPermaLink="true">http://hoosk.org/article/blogging_made_simple</guid>
+            <description><![CDATA[As you can see, because you are reading this post, Hoosk now includes a blogging system, with articles and categories!]]></description>
+                        <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">
+<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: author</p>
+<p>Filename: feed/rss.php</p>
+<p>Line Number: 26</p>
+
+
+	<p>Backtrace:</p>
+	
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/theme/hoosk2015/feed/rss.php<br />
+			Line: 26<br />
+			Function: _error_handler			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/core/MY_Loader.php<br />
+			Line: 128<br />
+			Function: include			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/libraries/Feed.php<br />
+			Line: 135<br />
+			Function: view			</p>
+
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/hoosk/hoosk0/controllers/Hoosk_default.php<br />
+			Line: 96<br />
+			Function: render			</p>
+
+		
+	
+		
+	
+		
+			<p style="margin-left:10px">
+			File: /home/theloxie/public_html/hooskorg/index.php<br />
+			Line: 316<br />
+			Function: require_once			</p>
+
+		
+	
+
+</div></dc:creator>
+            <pubDate>Tue, 09 Dec 2014 05:12:00 -0500</pubDate>
+                                                                                                        </item>
+            </channel>
+</rss>

@@ -6,7 +6,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014 - 2015, British Columbia Institute of Technology
+ * Copyright (c) 2014 - 2019, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,10 +28,10 @@
  *
  * @package	CodeIgniter
  * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (http://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	http://codeigniter.com
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
+ * @license	https://opensource.org/licenses/MIT	MIT License
+ * @link	https://codeigniter.com
  * @since	Version 1.0.0
  * @filesource
  */
@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @subpackage	Helpers
  * @category	Helpers
  * @author		EllisLab Dev Team
- * @link		http://codeigniter.com/user_guide/helpers/inflector_helper.html
+ * @link		https://codeigniter.com/user_guide/helpers/inflector_helper.html
  */
 
 // --------------------------------------------------------------------
@@ -63,7 +63,7 @@ if ( ! function_exists('singular'))
 	{
 		$result = strval($str);
 
-		if ( ! is_countable($result))
+		if ( ! word_is_countable($result))
 		{
 			return $result;
 		}
@@ -95,6 +95,7 @@ if ( ! function_exists('singular'))
 			'/(s)tatuses$/'		=> '\1\2tatus',
 			'/(c)hildren$/'		=> '\1\2hild',
 			'/(n)ews$/'		=> '\1\2ews',
+			'/(quiz)zes$/'		=> '\1',
 			'/([^us])s$/'		=> '\1'
 		);
 
@@ -127,12 +128,13 @@ if ( ! function_exists('plural'))
 	{
 		$result = strval($str);
 
-		if ( ! is_countable($result))
+		if ( ! word_is_countable($result))
 		{
 			return $result;
 		}
 
 		$plural_rules = array(
+			'/(quiz)$/'                => '\1zes',      // quizzes
 			'/^(ox)$/'                 => '\1\2en',     // ox
 			'/([m|l])ouse$/'           => '\1ice',      // mouse, louse
 			'/(matr|vert|ind)ix|ex$/'  => '\1ices',     // matrix, vertex, index
@@ -218,13 +220,13 @@ if ( ! function_exists('humanize'))
 	 */
 	function humanize($str, $separator = '_')
 	{
-		return ucwords(preg_replace('/['.$separator.']+/', ' ', trim(MB_ENABLED ? mb_strtolower($str) : strtolower($str))));
+		return ucwords(preg_replace('/['.preg_quote($separator).']+/', ' ', trim(MB_ENABLED ? mb_strtolower($str) : strtolower($str))));
 	}
 }
 
 // --------------------------------------------------------------------
 
-if ( ! function_exists('is_countable'))
+if ( ! function_exists('word_is_countable'))
 {
 	/**
 	 * Checks if the given word has a plural version.
@@ -232,14 +234,54 @@ if ( ! function_exists('is_countable'))
 	 * @param	string	$word	Word to check
 	 * @return	bool
 	 */
-	function is_countable($word)
+	function word_is_countable($word)
 	{
 		return ! in_array(
 			strtolower($word),
 			array(
-				'equipment', 'information', 'rice', 'money',
-				'species', 'series', 'fish', 'meta'
+				'audio',
+				'bison',
+				'chassis',
+				'compensation',
+				'coreopsis',
+				'data',
+				'deer',
+				'education',
+				'emoji',
+				'equipment',
+				'fish',
+				'furniture',
+				'gold',
+				'information',
+				'knowledge',
+				'love',
+				'rain',
+				'money',
+				'moose',
+				'nutrition',
+				'offspring',
+				'plankton',
+				'pokemon',
+				'police',
+				'rice',
+				'series',
+				'sheep',
+				'species',
+				'swine',
+				'traffic',
+				'wheat'
 			)
 		);
+	}
+}
+
+// --------------------------------------------------------------------
+
+if ( ! function_exists('is_countable'))
+{
+	function is_countable($word)
+	{
+		trigger_error('is_countable() is a native PHP function since version 7.3.0; use word_is_countable() instead', E_USER_WARNING);
+		return word_is_countable($word);
 	}
 }
