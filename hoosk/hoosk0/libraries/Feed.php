@@ -1,4 +1,6 @@
-<?php if (!defined('BASEPATH')) exit ('No direct script access allowed');
+<?php if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
 /**
  * Feed generator class for ci-feed library.
@@ -11,23 +13,21 @@
 
 class Feed
 {
-
-    protected $items = array();
-    public $title = 'My feed title';
+    protected $items    = array();
+    public $title       = 'My feed title';
     public $description = 'My feed description';
     public $link;
     public $logo;
     public $icon;
     public $pubdate;
     public $lang;
-    public $charset = 'utf-8';
-    public $ctype = null;
-    protected $shortening = false;
+    public $charset            = 'utf-8';
+    public $ctype              = null;
+    protected $shortening      = false;
     protected $shorteningLimit = 150;
-    protected $dateFormat = 'datetime';
-    protected $namespaces = array();
-    protected $customView = null;
-
+    protected $dateFormat      = 'datetime';
+    protected $namespaces      = array();
+    protected $customView      = null;
 
     /**
      * Add new item to $items array
@@ -42,24 +42,21 @@ class Feed
      *
      * @return void
      */
-    public function add($title, $link, $pubdate, $description, $content='', $enclosure = array())
+    public function add($title, $link, $pubdate, $description, $content = '', $enclosure = array())
     {
-
-        if ($this->shortening)
-        {
+        if ($this->shortening) {
             $description = mb_substr($description, 0, $this->shorteningLimit, 'UTF-8');
         }
 
         $this->items[] = array(
-            'title' => $title,
-            'link' => $link,
-            'pubdate' => $pubdate,
+            'title'       => $title,
+            'link'        => $link,
+            'pubdate'     => $pubdate,
             'description' => $description,
-            'content' => $content,
-            'enclosure' => $enclosure
+            'content'     => $content,
+            'enclosure'   => $enclosure,
         );
     }
-
 
     /**
      * Add new item to $items array
@@ -70,15 +67,12 @@ class Feed
      */
     public function addArray(array $a)
     {
-
-        if ($this->shortening)
-        {
+        if ($this->shortening) {
             $a['description'] = mb_substr($a['description'], 0, $this->shorteningLimit, 'UTF-8');
         }
 
         $this->items[] = $a;
     }
-
 
     /**
      * Returns aggregated feed with all items from $items array
@@ -91,75 +85,79 @@ class Feed
      */
     public function render($format = null, $cache = null, $key = null)
     {
+        $CI = &get_instance();
 
-        $CI =& get_instance();
+        if ($format == null && $this->customView == null) {
+            $format = "atom";
+        }
+        if ($this->customView == null) {
+            $this->customView = $format;
+        }
+        if ($cache != null) {
+            $this->caching = $cache;
+        }
+        if ($key != null) {
+            $this->cacheKey = $key;
+        }
 
-        if ($format == null && $this->customView == null) $format = "atom";
-        if ($this->customView == null) $this->customView = $format;
-        if ($cache != null) $this->caching = $cache;
-        if ($key != null) $this->cacheKey = $key;
-
-        if ($this->ctype == null)
-        {
+        if ($this->ctype == null) {
             ($format == 'rss') ? $this->ctype = 'application/rss+xml' : $this->ctype = 'application/atom+xml';
         }
 
-        if (empty($this->lang)) $this->lang = $CI->config->item('language');
-        if (empty($this->link)) $this->link = $CI->config->item('base_url');
-        if (empty($this->pubdate)) $this->pubdate = date('D, d M Y H:i:s O');
+        if (empty($this->lang)) {
+            $this->lang = $CI->config->item('language');
+        }
+        if (empty($this->link)) {
+            $this->link = $CI->config->item('base_url');
+        }
+        if (empty($this->pubdate)) {
+            $this->pubdate = date('D, d M Y H:i:s O');
+        }
 
-        foreach($this->items as $k => $v)
-        {
-            $this->items[$k]['title'] = html_entity_decode(strip_tags($this->items[$k]['title']));
+        foreach ($this->items as $k => $v) {
+            $this->items[$k]['title']   = html_entity_decode(strip_tags($this->items[$k]['title']));
             $this->items[$k]['pubdate'] = $this->formatDate($this->items[$k]['pubdate'], $format);
         }
 
         $channel = array(
-            'title'=>html_entity_decode(strip_tags($this->title)),
-            'description'=>$this->description,
-            'logo' => $this->logo,
-            'icon' => $this->icon,
-            'link'=>$this->link,
-            'pubdate'=>$this->formatDate($this->pubdate, $format),
-            'lang'=>$this->lang
+            'title'       => html_entity_decode(strip_tags($this->title)),
+            'description' => $this->description,
+            'logo'        => $this->logo,
+            'icon'        => $this->icon,
+            'link'        => $this->link,
+            'pubdate'     => $this->formatDate($this->pubdate, $format),
+            'lang'        => $this->lang,
         );
 
         $viewData = array(
-            'items'         => $this->items,
-            'channel'       => $channel,
-            'namespaces'    => $this->getNamespaces(),
-            'ctype'         => $this->ctype,
-            'charset'       => $this->charset
+            'items'      => $this->items,
+            'channel'    => $channel,
+            'namespaces' => $this->getNamespaces(),
+            'ctype'      => $this->ctype,
+            'charset'    => $this->charset,
         );
 
-        $CI->load->view('feed/'.$this->customView, $viewData);
-
-     }
-
+        $CI->load->view('feed/' . $this->customView, $viewData);
+    }
 
     /**
-      * Create link
-      *
-      * @param string $url
-      * @param string $format
-      *
-      * @return string
-      */
-     public function link($url, $format='atom')
-     {
-
-        if ($this->ctype == null)
-        {
+     * Create link
+     *
+     * @param string $url
+     * @param string $format
+     *
+     * @return string
+     */
+    public function link($url, $format = 'atom')
+    {
+        if ($this->ctype == null) {
             ($format == 'rss') ? $type = 'application/rss+xml' : $type = 'application/atom+xml';
-        }
-        else
-        {
+        } else {
             $type = $this->ctype;
         }
 
-        return '<link rel="alternate" type="'.$type.'" href="'.$url.'" />';
-     }
-
+        return '<link rel="alternate" type="' . $type . '" href="' . $url . '" />';
+    }
 
     /**
      * Set Custom view if you don't like the ones that come built in with the package
@@ -168,11 +166,10 @@ class Feed
      *
      * @return void
      */
-    public function setView($name=null)
+    public function setView($name = null)
     {
         $this->customView = $name;
     }
-
 
     /**
      * Set maximum characters lenght for text shortening
@@ -181,11 +178,10 @@ class Feed
      *
      * @return void
      */
-    public function setTextLimit($l=150)
+    public function setTextLimit($l = 150)
     {
         $this->shorteningLimit = $l;
     }
-
 
     /**
      * Turn on/off text shortening for item content
@@ -194,11 +190,10 @@ class Feed
      *
      * @return void
      */
-    public function setShortening($b=false)
+    public function setShortening($b = false)
     {
         $this->shortening = $b;
     }
-
 
     /**
      * Format datetime string, timestamp integer or carbon object in valid feed format
@@ -207,43 +202,36 @@ class Feed
      *
      * @return string
      */
-    protected function formatDate($date, $format="atom")
+    protected function formatDate($date, $format = "atom")
     {
-        if ($format == "atom")
-        {
-            switch ($this->dateFormat)
-            {
-                case "carbon":
-                    $date = date('c', strtotime($date->toDateTimeString()));
-                    break;
-                case "timestamp":
-                    $date = date('c', $date);
-                    break;
-                case "datetime":
-                    $date = date('c', strtotime($date));
-                    break;
+        if ($format == "atom") {
+            switch ($this->dateFormat) {
+            case "carbon":
+                $date = date('c', strtotime($date->toDateTimeString()));
+                break;
+            case "timestamp":
+                $date = date('c', $date);
+                break;
+            case "datetime":
+                $date = date('c', strtotime($date));
+                break;
+            }
+        } else {
+            switch ($this->dateFormat) {
+            case "carbon":
+                $date = date('D, d M Y H:i:s O', strtotime($date->toDateTimeString()));
+                break;
+            case "timestamp":
+                $date = date('D, d M Y H:i:s O', $date);
+                break;
+            case "datetime":
+                $date = date('D, d M Y H:i:s O', strtotime($date));
+                break;
             }
         }
-        else
-        {
-            switch ($this->dateFormat)
-            {
-                case "carbon":
-                    $date = date('D, d M Y H:i:s O', strtotime($date->toDateTimeString()));
-                    break;
-                case "timestamp":
-                    $date = date('D, d M Y H:i:s O', $date);
-                    break;
-                case "datetime":
-                    $date = date('D, d M Y H:i:s O', strtotime($date));
-                    break;
-            }
-        }
-
 
         return $date;
     }
-
 
     /**
      * Add namespace
@@ -257,7 +245,6 @@ class Feed
         $this->namespaces[] = $n;
     }
 
-
     /**
      * Get all namespaces
      *
@@ -270,7 +257,6 @@ class Feed
         return $this->namespaces;
     }
 
-
     /**
      * Setter for dateFormat
      *
@@ -278,10 +264,8 @@ class Feed
      *
      * @return void
      */
-    public function setDateFormat($format="datetime")
+    public function setDateFormat($format = "datetime")
     {
         $this->dateFormat = $format;
     }
-
-
 }
