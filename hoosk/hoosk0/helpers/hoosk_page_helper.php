@@ -42,6 +42,23 @@ function getFeedPosts()
     $query = $CI->db->get('hoosk_post');
     return $query->result_array();
 }
+
+
+function getFeedPages()
+{
+    $CI = &get_instance();
+    $CI->db->where('pagePublished', 1);
+    $CI->db->join('hoosk_page_content', 'hoosk_page_content.pageID = hoosk_page_attributes.pageID');
+    $CI->db->join('hoosk_page_meta', 'hoosk_page_meta.pageID = hoosk_page_attributes.pageID');
+    $query = $CI->db->get('hoosk_page_attributes');
+    return $query->result_array();
+}
+function getFeedNav()
+{
+    $CI = &get_instance();
+    $query = $CI->db->get('hoosk_navigation');
+    return $query->result_array();
+}
 //Get the Latest 5 news posts
 function getLatestNewsSidebar()
 {

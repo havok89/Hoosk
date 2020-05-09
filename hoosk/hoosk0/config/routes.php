@@ -109,6 +109,7 @@ $route['category/(:any)'] = "hoosk_default/category";
 $route['category/(:any)/(:any)'] = "hoosk_default/category";
 $route['article/(:any)'] = "hoosk_default/article";
 $route['feed/(:any)'] = "hoosk_default/feed";
+$route['api/json'] = "hoosk_default/api";
 $route['(.+)'] = "hoosk_default";
 $route['default_controller'] = "hoosk_default";
 $route['404_override'] = '';
