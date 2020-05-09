@@ -165,7 +165,7 @@ class Hoosk_default extends CI_Controller
             $json_pages = array();
             foreach ($pages as $page) {
                 $single_page = array(
-                    'pageTitle'       => $page['postTitle'],
+                    'pageTitle'       => $page['pageTitle'],
                     'pageURL'         => $page['pageURL'],
                     'pageKeywords'    => $page['pageKeywords'],
                     'pageDescription' => $page['pageDescription'],
