@@ -143,4 +143,66 @@ class Hoosk_default extends CI_Controller
             $this->error();
         }
     }
+
+    public function api()
+    {
+       
+            $posts      = getFeedPosts();
+            $json_posts = array();
+            foreach ($posts as $post) {
+                $single_post = array(
+                    'postTitle'       => $post['postTitle'],
+                    'postExcerpt'     => $post['postExcerpt'],
+                    'postDate'        => date("m/d/y H:i:s", $post['unixStamp']),
+                    'postURL'         => $post['postURL'],
+                    'postContentHTML' => $post['postContentHTML'],
+                    'postContentJSON' => json_decode($post['postContent']),
+                );
+                array_push($json_posts, $single_post);
+            }
+
+            $pages      = getFeedPages();
+            $json_pages = array();
+            foreach ($pages as $page) {
+                $single_page = array(
+                    'pageTitle'       => $page['pageTitle'],
+                    'pageURL'         => $page['pageURL'],
+                    'pageKeywords'    => $page['pageKeywords'],
+                    'pageDescription' => $page['pageDescription'],
+                    'pageContentHTML' => $page['pageContentHTML'],
+                    'pageContentJSON' => json_decode($page['pageContent']),
+                    'jumbotronHTML'   => $page['jumbotronHTML'],
+                    'jumbotronJSON'   => json_decode($page['jumbotron']),
+                );
+                array_push($json_pages, $single_page);
+            }
+
+            $navigation      = getFeedNav();
+            $json_nav = array();
+            foreach ($navigation as $nav) {
+                $single_nav = array(
+                    'navSlug'    => $nav['navSlug'],
+                    'navTitle'   => $nav['navTitle'],
+                    'navHTML'    => $nav['navHTML'],
+                );
+                array_push($json_nav, $single_nav);
+            }
+
+
+            $response = array(
+                'Status' => 'OK',
+                'Result' => array(
+                    'Pages' => $json_pages,
+                    'Posts' => $json_posts,
+                    'Navs'  => $json_nav
+                )
+                );
+
+            $this->output
+                ->set_status_header(200)
+                ->set_content_type('application/json', 'utf-8')
+                ->set_output(json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES))
+                ->_display();
+            exit;
+    }
 }
